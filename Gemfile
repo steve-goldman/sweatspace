@@ -35,6 +35,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'awesome_print'
 gem 'haml', '~> 4.0.6'
 gem 'factory_girl'
+gem 'paranoia', '~> 2.1', '>= 2.1.4'
+gem 'paper_trail', '~> 4.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
