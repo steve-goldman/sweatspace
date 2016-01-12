@@ -1,0 +1,9 @@
+!!!
+%html{ lang: "en" }
+  %head= render partial: "layouts/head"
+  %body{ data: { controller: controller.controller_path, action: controller.action_name } }
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
+    = yield
