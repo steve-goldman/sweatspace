@@ -2,6 +2,7 @@
 %html{ lang: "en" }
   %head= render partial: "layouts/head"
   %body{ data: { controller: controller.controller_path, action: controller.action_name } }
+    = render partial: "layouts/navigation"
     - if notice
       %p.alert.alert-success= notice
     - if alert
