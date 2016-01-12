@@ -37,6 +37,7 @@ gem 'haml', '~> 4.0.6'
 gem 'factory_girl'
 gem 'paranoia', '~> 2.1', '>= 2.1.4'
 gem 'paper_trail', '~> 4.0.0'
+gem 'devise', '~> 3.5', '>= 3.5.3'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
