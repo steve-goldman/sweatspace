@@ -34,13 +34,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'awesome_print'
 gem 'haml', '~> 4.0.6'
-gem 'factory_girl'
 gem 'paranoia', '~> 2.1', '>= 2.1.4'
 gem 'paper_trail', '~> 4.0.0'
 gem 'devise', '~> 3.5', '>= 3.5.3'
+gem 'faker', '~> 1.6', '>= 1.6.1'
+gem 'email_validator', '~> 1.6'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'factory_girl_rails', '~> 4.4'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -52,3 +54,6 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.0'
+end
