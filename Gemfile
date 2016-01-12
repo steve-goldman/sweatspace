@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'awesome_print'
+gem 'haml', '~> 4.0.6'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
