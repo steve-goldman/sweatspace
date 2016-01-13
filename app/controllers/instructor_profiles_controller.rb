@@ -16,7 +16,7 @@ class InstructorProfilesController < ApplicationController
   end
 
   def create
-    @instructor_profile = InstructorProfile.new create_params
+    @instructor_profile = current_user.build_instructor_profile create_params
     if @instructor_profile.save
       flash[:success] = "Instructor profile created"
       redirect_to root_path
@@ -27,7 +27,7 @@ class InstructorProfilesController < ApplicationController
   end
 
   def update
-    if @instructor_profile.update_attributes update_params
+    if @instructor_profile.update_attributes create_params
       flash[:success] = "Instructor profile saved"
       redirect_to root_path
     else
@@ -62,12 +62,7 @@ class InstructorProfilesController < ApplicationController
     end
   end
 
-  def update_params
-    params.require(:instructor_profile).permit(InstructorProfile::PERMITTED_PARAMS)
-  end
-
   def create_params
-    params[:instructor_profile][:user_id] = current_user.id
-    update_params
+    params.require(:instructor_profile).permit(InstructorProfile::PERMITTED_PARAMS)
   end
 end
