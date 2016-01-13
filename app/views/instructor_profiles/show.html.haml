@@ -1,1 +1,12 @@
 %h3= @instructor_profile.full_name
+- if @instructor_profile.classes.any?
+  %h4< Classes
+  %table.table
+    %tbody
+      - @instructor_profile.classes.each do |clazz|
+        %tr
+          %td= clazz.display_time
+          %td= clazz.display_duration
+          %td= link_to clazz.display_studio, clazz.studio_url
+- else
+  %h4< No classes
