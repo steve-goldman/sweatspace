@@ -2,6 +2,10 @@ class InstructorProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_instructor_profile, only: [:edit, :update, :destroy]
   before_action :owns_instructor_profile, only: [:edit, :update, :destroy]
+  before_action :find_instructor_profile_by_name, only: :show
+
+  def show
+  end
 
   def new
     @instructor_profile = InstructorProfile.new
@@ -43,12 +47,21 @@ class InstructorProfilesController < ApplicationController
 
   private
 
-  def find_instructor_profile
-    @instructor_profile = InstructorProfile.find_by id: params[:id]
+  def assert_instructor_profile
     if @instructor_profile.nil?
       flash[:danger] = "Unable to find instructor profile"
       redirect_to root_path
     end
+  end
+
+  def find_instructor_profile
+    @instructor_profile = InstructorProfile.find_by id: params[:id]
+    assert_instructor_profile
+  end
+
+  def find_instructor_profile_by_name
+    @instructor_profile = InstructorProfile.find_by profile_path: params[:id]
+    assert_instructor_profile
   end
 
   def owns_instructor_profile
