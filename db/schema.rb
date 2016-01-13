@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113042834) do
+ActiveRecord::Schema.define(version: 20160113045818) do
 
   create_table "clazz_types", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20160113042834) do
   add_index "instructor_profiles", ["deleted_at"], name: "index_instructor_profiles_on_deleted_at"
   add_index "instructor_profiles", ["profile_path"], name: "index_instructor_profiles_on_profile_path"
   add_index "instructor_profiles", ["user_id"], name: "index_instructor_profiles_on_user_id"
+
+  create_table "studios", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
