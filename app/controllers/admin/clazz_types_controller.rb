@@ -16,7 +16,7 @@ class Admin::ClazzTypesController < Admin::ControllerBase
     @clazz_type = ClazzType.new create_params
     if @clazz_type.save
       flash[:success] = "Class type created"
-      redirect_to admin_clazz_types_path
+      redirect_to admin_class_types_path
     else
       flash[:danger] = "Could not create class type"
       render :new
@@ -26,7 +26,7 @@ class Admin::ClazzTypesController < Admin::ControllerBase
   def update
     if @clazz_type.update_attributes create_params
       flash[:success] = "Class type saved"
-      redirect_to admin_clazz_types_path
+      redirect_to admin_class_types_path
     else
       flash[:danger] = "Could not save class type"
       render :edit

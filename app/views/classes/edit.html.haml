@@ -1,0 +1,4 @@
+= render partial: "shared/errors_for", locals: { object: @clazz }
+%h3< Edit the class
+= form_for @clazz, url: { action: :update } do |f|
+  = render partial: "form_fields", locals: { f: f }

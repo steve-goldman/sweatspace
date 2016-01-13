@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root "home#show"
-  resources :instructor_profiles, except: :destroy
-  get "/:id", to: "instructor_profiles#show", as: :profile
 
   namespace :admin do
-    resources :clazz_types, except: :destroy
-    resources :studios, except: :destroy
+    resources :class_types, except: [:show, :destroy], controller: :clazz_types
+    resources :studios, except: [:show, :destroy]
   end
+
+  resources :classes, except: [:show, :destroy]
+  resources :instructor_profiles, except: :destroy
+  get "/:id", to: "instructor_profiles#show", as: :profile
 end

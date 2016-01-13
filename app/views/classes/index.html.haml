@@ -1,0 +1,13 @@
+%h3< Classes
+- if @clazzes.any?
+  %table.table
+    %tbody
+      - @clazzes.each do |clazz|
+        %tr
+          %td= clazz.display_time
+          %td= clazz.display_duration
+          %td= clazz.display_studio
+          %td= link_to "Edit", edit_class_path(clazz)
+- else
+  %p< No classes
+= link_to "Create", new_class_path, class: "btn btn-primary"
