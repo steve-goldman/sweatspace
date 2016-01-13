@@ -5,7 +5,7 @@
       - @clazzes.each do |clazz|
         %tr
           %td= clazz.studio.name
-          %td= clazz.time
+          %td= clazz.display_time
           %td= link_to "Edit", edit_class_path(clazz)
 - else
   %p< No classes

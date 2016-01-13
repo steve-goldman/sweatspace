@@ -4,7 +4,7 @@ class ClassesController < ApplicationController
   before_action :owns_class, only: [:edit, :update]
 
   def index
-    @clazzes = profile.classes
+    @clazzes = profile.classes.decorate
   end
 
   def new
