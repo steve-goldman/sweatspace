@@ -4,4 +4,12 @@ class ClazzDecorator < Draper::Decorator
   def display_time
     object.time.strftime "%b %d %l:%M %p"
   end
+
+  def display_duration
+    "#{object.duration} minutes"
+  end
+
+  def display_studio
+    studio.name
+  end
 end
