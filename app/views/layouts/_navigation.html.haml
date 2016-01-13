@@ -10,6 +10,7 @@
             %span.caret
           %ul.dropdown-menu
             - if current_user.instructor_profile.present?
+              %li= link_to "View Profile", profile_path(current_user.instructor_profile.profile_path)
               %li= link_to "Edit Profile", edit_instructor_profile_path(current_user.instructor_profile)
             - else
               %li= link_to "Create Profile", new_instructor_profile_path
