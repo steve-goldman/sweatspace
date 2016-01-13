@@ -5,7 +5,7 @@ class InstructorProfilesController < ApplicationController
   before_action :find_instructor_profile_by_name, only: :show
 
   def show
-    @instructor_profile = InstructorProfileDecorator.new @instructor_profile
+    @instructor_profile = @instructor_profile.decorate
   end
 
   def new
