@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "home#show"
-  resources :instructor_profiles
+  resources :instructor_profiles, except: :destroy
   get "/:id", to: "instructor_profiles#show", as: :profile
 
   namespace :admin do

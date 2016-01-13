@@ -36,16 +36,6 @@ class InstructorProfilesController < ApplicationController
     end      
   end
 
-  def destroy
-    if @instructor_profile.destroy
-      flash[:success] = "Instructor profile destroyed"
-      redirect_to root_path
-    else
-      flash.now[:danger] = "Unable to destroy instructor profile"
-      render :edit
-    end      
-  end
-
   private
 
   def assert_instructor_profile
