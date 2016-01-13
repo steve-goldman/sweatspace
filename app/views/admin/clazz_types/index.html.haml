@@ -5,7 +5,7 @@
       - @clazz_types.each do |clazz_type|
         %tr
           %td= clazz_type.name
-          %td= link_to "Edit", edit_admin_clazz_type_path(clazz_type)
+          %td= link_to "Edit", edit_admin_class_type_path(clazz_type)
 - else
   %p< No class types
-= link_to "Create", new_admin_clazz_type_path, class: "btn btn-primary"
+= link_to "Create", new_admin_class_type_path, class: "btn btn-primary"

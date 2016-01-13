@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "home#show"
 
   namespace :admin do
-    resources :clazz_types, except: [:show, :destroy]
+    resources :class_types, except: [:show, :destroy], controller: :clazz_types
     resources :studios, except: [:show, :destroy]
   end
 
