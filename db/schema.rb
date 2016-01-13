@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112233436) do
+ActiveRecord::Schema.define(version: 20160113042629) do
+
+  create_table "clazz_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "instructor_profiles", force: :cascade do |t|
     t.string   "first_name"
