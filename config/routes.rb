@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   root "home#show"
   resources :instructor_profiles
   get "/:id", to: "instructor_profiles#show", as: :profile
+
+  namespace :admin do
+    resources :clazz_types, except: :destroy
+  end
 end
