@@ -1,0 +1,12 @@
+%h3< Studios
+- if @studios.any?
+  %table.table
+    %tbody
+      - @studios.each do |studio|
+        %tr
+          %td= studio.name
+          %td= link_to studio.url, studio.url, target: "_blank"
+          %td= link_to "Edit", edit_admin_studio_path(studio)
+- else
+  %p< No studios
+= link_to "Create", new_admin_studio_path, class: "btn btn-primary"

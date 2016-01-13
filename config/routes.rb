@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :clazz_types, except: :destroy
+    resources :studios, except: :destroy
   end
 end
