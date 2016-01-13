@@ -1,3 +1,4 @@
+= render partial: "shared/errors_for", locals: { object: @instructor_profile }
 %h3< Create an instructor profile
 = form_for @instructor_profile, url: { action: :create } do |f|
   = render partial: "form_fields", locals: { f: f }
