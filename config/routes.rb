@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :studios, except: [:show, :destroy]
   end
 
+  resources :classes
   resources :instructor_profiles, except: :destroy
   get "/:id", to: "instructor_profiles#show", as: :profile
 end

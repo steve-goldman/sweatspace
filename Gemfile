@@ -40,6 +40,8 @@ gem 'faker', '~> 1.6', '>= 1.6.1'
 gem 'email_validator', '~> 1.6'
 gem 'draper', '~> 2.1'
 gem 'pg', '~> 0.18.4'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
