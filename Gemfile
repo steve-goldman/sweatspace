@@ -40,6 +40,7 @@ gem 'paper_trail', '~> 4.0.0'
 gem 'devise', '~> 3.5', '>= 3.5.3'
 gem 'faker', '~> 1.6', '>= 1.6.1'
 gem 'email_validator', '~> 1.6'
+gem 'draper', '~> 2.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'

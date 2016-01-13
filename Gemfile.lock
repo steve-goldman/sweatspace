@@ -67,6 +67,11 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    draper (2.1.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
@@ -209,6 +214,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise (~> 3.5, >= 3.5.3)
+  draper (~> 2.1)
   email_validator (~> 1.6)
   factory_girl_rails (~> 4.4)
   faker (~> 1.6, >= 1.6.1)
