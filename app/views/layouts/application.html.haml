@@ -3,8 +3,6 @@
   %head= render partial: "layouts/head"
   %body{ data: { controller: controller.controller_path, action: controller.action_name } }
     = render partial: "layouts/navigation"
-    - if notice
-      %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
+    = render partial: "layouts/devise_messages"
+    = render partial: "layouts/flash_messages"
     = yield

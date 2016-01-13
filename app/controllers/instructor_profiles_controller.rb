@@ -1,0 +1,69 @@
+class InstructorProfilesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :find_instructor_profile, only: [:edit, :update, :destroy]
+  before_action :owns_instructor_profile, only: [:edit, :update, :destroy]
+
+  def new
+    @instructor_profile = InstructorProfile.new
+  end
+
+  def edit
+  end
+
+  def create
+    @instructor_profile = InstructorProfile.new create_params
+    if @instructor_profile.save
+      flash[:success] = "Instructor profile created"
+      redirect_to root_path
+    else
+      flash.now[:danger] = "Unable to create instructor profile"
+      render :new
+    end
+  end
+
+  def update
+    if @instructor_profile.update_attributes update_params
+      flash[:success] = "Instructor profile saved"
+      redirect_to root_path
+    else
+      flash.now[:danger] = "Unable to save instructor profile"
+      render :edit
+    end      
+  end
+
+  def destroy
+    if @instructor_profile.destroy
+      flash[:success] = "Instructor profile destroyed"
+      redirect_to root_path
+    else
+      flash.now[:danger] = "Unable to destroy instructor profile"
+      render :edit
+    end      
+  end
+
+  private
+
+  def find_instructor_profile
+    @instructor_profile = InstructorProfile.find_by id: params[:id]
+    if @instructor_profile.nil?
+      flash[:danger] = "Unable to find instructor profile"
+      redirect_to root_path
+    end
+  end
+
+  def owns_instructor_profile
+    unless current_user.id == @instructor_profile.user_id
+      flash[:danger] = "Unauthorized access"
+      redirect_to root_path
+    end
+  end
+
+  def update_params
+    params.require(:instructor_profile).permit(InstructorProfile::PERMITTED_PARAMS)
+  end
+
+  def create_params
+    params[:instructor_profile][:user_id] = current_user.id
+    update_params
+  end
+end

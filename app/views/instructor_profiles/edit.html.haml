@@ -1,0 +1,3 @@
+%h3< Edit your instructor profile
+= form_for @instructor_profile, url: { action: :update } do |f|
+  = render partial: "form_fields", locals: { f: f }
