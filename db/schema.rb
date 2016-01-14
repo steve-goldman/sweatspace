@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113204234) do
+ActiveRecord::Schema.define(version: 20160114161421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160113204234) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "email",                  default: ""
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -70,11 +70,17 @@ ActiveRecord::Schema.define(version: 20160113204234) do
     t.datetime "updated_at",                          null: false
     t.datetime "deleted_at"
     t.boolean  "admin"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "nickname"
+    t.string   "name"
+    t.string   "image"
   end
 
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false
