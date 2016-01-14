@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :registerable
+  devise :database_authenticatable, :rememberable, :trackable, :validatable, :omniauthable, :registerable
   validates :email, email: true, unless: :uid?
   has_one :instructor_profile
   acts_as_paranoid
