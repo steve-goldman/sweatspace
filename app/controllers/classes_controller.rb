@@ -1,5 +1,4 @@
 class ClassesController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_class, only: [:edit, :update]
   before_action :owns_class, only: [:edit, :update]
 
