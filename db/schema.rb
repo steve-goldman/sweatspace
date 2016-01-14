@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114161421) do
+ActiveRecord::Schema.define(version: 20160114163007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,6 @@ ActiveRecord::Schema.define(version: 20160114161421) do
   add_index "clazzs", ["studio_id"], name: "index_clazzs_on_studio_id", using: :btree
 
   create_table "instructor_profiles", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "profile_path"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
