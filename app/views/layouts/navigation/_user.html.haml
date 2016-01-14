@@ -3,7 +3,7 @@
     %span.glyphicon.glyphicon-user
     %span.caret
   %ul.dropdown-menu
-    - if current_user.instructor_profile.present?
+    - if current_user.instructor_profile.try :persisted?
       %li= link_to "View Profile", profile_path(current_user.instructor_profile.profile_path)
       %li= link_to "Edit Profile", edit_instructor_profile_path(current_user.instructor_profile)
       %li= link_to "Manage Classes", classes_path
