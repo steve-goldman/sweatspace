@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.describe HomeController do
   render_views
 
-  describe "GET :show" do
+  describe "GET :landing" do
     it "renders the view" do
-      get :show
-      expect(response).to render_template(:show)
+      get :landing
+      expect(response).to render_template(:landing)
     end
   end
 end

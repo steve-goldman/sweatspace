@@ -1,5 +1,4 @@
 class InstructorProfilesController < ApplicationController
-  before_action :authenticate_user!, except: :show
   before_action :find_instructor_profile, only: [:edit, :update, :destroy]
   before_action :owns_instructor_profile, only: [:edit, :update, :destroy]
   before_action :find_instructor_profile_by_name, only: :show
