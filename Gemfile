@@ -46,6 +46,8 @@ gem 'omniauth-instagram', '~> 1.0', '>= 1.0.2'
 gem "figaro"
 gem 'airbrake', '~> 5.0'
 gem 'mailgun_rails'
+gem 'mmenu-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'

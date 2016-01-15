@@ -1,9 +1,22 @@
 %nav.navbar.navbar-default
   .container-fluid
-    .navbar-header
-      = link_to "SweatSpace", root_path, class: "navbar-brand"
-    %ul.nav.navbar-nav.navbar-right
-      - if user_signed_in?
-        - if current_user.admin?
-          = render partial: "layouts/navigation/admin"
-        = render partial: "layouts/navigation/user"
+    %nav.nav.navbar-nav.navbar-left
+      .navbar-header
+        = link_to "#", id: "menu-hamburger" do
+          %span.navbar-brand#menu-hamburger
+            %i.glyphicon.glyphicon-menu-hamburger
+            = link_to "SweatSpace", root_path, class: "navbar-brand"
+      %nav#my-menu
+        %ul
+          - if user_signed_in?
+            = render partial: "layouts/navigation/user"
+            - if current_user.admin?
+              = render partial: "layouts/navigation/admin"
+
+:javascript
+  $(function() {
+    $("#my-menu").mmenu();
+  });
+  $("#menu-hamburger").click(function() {
+    $("#my-menu").data("mmenu").open();
+  });

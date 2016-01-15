@@ -2,10 +2,12 @@
 %html{ lang: "en" }
   %head= render partial: "layouts/head"
   %body{ data: { controller: controller.controller_path, action: controller.action_name } }
-    .container
-      .row
-        = render partial: "layouts/navigation"
-        = render partial: "layouts/devise_messages"
-        = render partial: "layouts/flash_messages"
-        = yield
+    %div
+      = render partial: "layouts/navigation"
+      .container
+        .row
+          .col-md-12
+            = render partial: "layouts/devise_messages"
+            = render partial: "layouts/flash_messages"
+            = yield
     = yield :javascripts
