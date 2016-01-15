@@ -9,6 +9,10 @@ class ClazzDecorator < Draper::Decorator
     "#{object.duration} minutes"
   end
 
+  def display_clazz_type
+    object.clazz_type.name
+  end
+
   def display_studio
     studio.name
   end

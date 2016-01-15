@@ -1,4 +1,7 @@
 .form-group
+  = f.label :clazz_type_id, "Class Type"
+  = f.select :clazz_type_id, clazz_type_options, class: "form-control"
+.form-group
   = f.label :studio_id, "Studio"
   = f.select :studio_id, studio_options, class: "form-control"
 .form-group
