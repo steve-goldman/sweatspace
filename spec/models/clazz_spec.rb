@@ -14,5 +14,6 @@ RSpec.describe Clazz, :type => :model do
   describe "validations" do
     it { should validate_presence_of :time }
     it { should validate_presence_of :duration }
+    it { should validate_presence_of :name }
   end
 end

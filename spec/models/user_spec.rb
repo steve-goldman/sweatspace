@@ -6,7 +6,6 @@ RSpec.describe User, type: :model do
   end
 
   describe "validations" do
-    it { should validate_presence_of(:email) }
   end
 
   describe "associations" do

@@ -5,6 +5,9 @@
   = f.label :studio_id, "Studio"
   = f.select :studio_id, studio_options, class: "form-control"
 .form-group
+  = f.label :name
+  = f.text_field :name, class: "form-control"
+.form-group
   = f.label :time
   = f.datetime_field :time, class: "form-control", id: "datetimepicker", readonly: true
 .form-group
