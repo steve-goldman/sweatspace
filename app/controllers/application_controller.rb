@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     unless user_signed_in?
+      session["user_return_to"] = request.path
       redirect_to landing_path
     end
   end
