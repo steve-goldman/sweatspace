@@ -5,4 +5,8 @@ class InstructorProfileDecorator < Draper::Decorator
   def full_name
     object.user.name
   end
+
+  def profile_picture_url
+    InstagramService.instance.profile_picture_url object.user.uid
+  end
 end
