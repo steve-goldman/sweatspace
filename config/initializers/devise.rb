@@ -238,7 +238,8 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :instagram, Figaro.env.instagram_client_id, Figaro.env.instagram_client_secret
+  config.omniauth :instagram, Figaro.env.instagram_client_id, Figaro.env.instagram_client_secret,
+                  scope: "public_content"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
