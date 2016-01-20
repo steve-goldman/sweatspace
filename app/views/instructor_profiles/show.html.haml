@@ -6,6 +6,7 @@
     %tbody
       - @instructor_profile.classes.each do |clazz|
         %tr
+          %td= clazz.display_date
           %td= clazz.display_time
           %td= clazz.name
           %td= clazz.display_clazz_type

@@ -9,7 +9,11 @@ class ClazzDecorator < Draper::Decorator
            :studio_url,
            to: :class_template
 
+  def display_date
+    object.time.strftime "%b %d"
+  end
+
   def display_time
-    object.time.strftime "%b %d %l:%M %p"
+    object.time.strftime "%l:%M %p"
   end
 end
