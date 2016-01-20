@@ -1,0 +1,4 @@
+= render partial: "shared/errors_for", locals: { object: @class_template }
+%h3< Create a class template
+= form_for @class_template, url: { action: :create } do |f|
+  = render partial: "form_fields", locals: { f: f }
