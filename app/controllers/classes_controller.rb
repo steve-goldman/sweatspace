@@ -7,6 +7,10 @@ class ClassesController < ApplicationController
   end
 
   def new
+    if profile.class_templates.empty?
+      flash[:info] = "You must create a class template before creating a class"
+      redirect_to new_class_template_path
+    end
     @clazz = Clazz.new
   end
 

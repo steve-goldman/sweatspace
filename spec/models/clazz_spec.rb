@@ -6,14 +6,10 @@ RSpec.describe Clazz, :type => :model do
   end
 
   describe "associations" do
-    it { should belong_to :instructor_profile }
-    it { should belong_to :clazz_type }
-    it { should belong_to :studio }
+    it { should belong_to :class_template }
   end
 
   describe "validations" do
     it { should validate_presence_of :time }
-    it { should validate_presence_of :duration }
-    it { should validate_presence_of :name }
   end
 end
