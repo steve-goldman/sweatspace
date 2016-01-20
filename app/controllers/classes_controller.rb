@@ -49,7 +49,7 @@ class ClassesController < ApplicationController
   end
 
   def owns_class
-    unless current_user.id == @clazz.instructor_profile.user_id
+    unless current_user.id == @clazz.class_template.instructor_profile.user_id
       flash[:danger] = "Unauthorized access"
       redirect_to root_path
     end
