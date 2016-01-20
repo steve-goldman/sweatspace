@@ -2,15 +2,24 @@
   = f.label :class_template_id, "Class Template"
   = f.select :class_template_id, class_template_options, class: "form-control"
 .form-group
-  = f.label :time
-  = f.datetime_field :time, class: "form-control", id: "datetimepicker", readonly: true
+  = f.label :class_date
+  = f.text_field :class_date, class: "form-control", id: "datepicker", readonly: true
+.form-group
+  = f.label :class_time
+  = f.text_field :class_time, class: "form-control", id: "timepicker", readonly: true
 .form-actions
   = f.submit "Save", class: "btn btn-primary"
 
 :javascript
-  $('#datetimepicker').datetimepicker({
-    format: "YYYY-MM-DD h:mm A",
-    ignoreReadonly: true,
-    showClose: true,
-    stepping: 5
+  $(document).ready(function() {
+    $('#datepicker').pickadate({
+      today: "",
+      clear: "",
+      format: "yyyy-mm-d"
+    });
+    $('#timepicker').pickatime({
+      clear: "",
+      interval: 5,
+      format: "hh:i A"
+    });
   });

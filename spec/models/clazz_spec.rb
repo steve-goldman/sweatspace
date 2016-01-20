@@ -10,6 +10,6 @@ RSpec.describe Clazz, :type => :model do
   end
 
   describe "validations" do
-    it { should validate_presence_of :time }
+    it { should validate_presence_of :timestamp }
   end
 end

@@ -3,7 +3,7 @@ class ClassesController < ApplicationController
   before_action :owns_class, only: [:edit, :update]
 
   def index
-    @clazzes = profile.classes.decorate
+    @clazzes = profile.classes.order(timestamp: :asc).decorate
   end
 
   def new
@@ -49,7 +49,7 @@ class ClassesController < ApplicationController
   end
 
   def owns_class
-    unless current_user.id == @clazz.instructor_profile.user_id
+    unless current_user.id == @clazz.class_template.instructor_profile.user_id
       flash[:danger] = "Unauthorized access"
       redirect_to root_path
     end
@@ -57,9 +57,18 @@ class ClassesController < ApplicationController
 
   def create_params
     params.require(:clazz).permit(Clazz::PERMITTED_PARAMS)
+      .merge(timestamp: timestamp)
   end
 
   def profile
     current_user.instructor_profile
+  end
+
+  def timestamp
+    TimeService.instance.timestamp params[:clazz][:class_date], params[:clazz][:class_time], timezone
+  end
+
+  def timezone
+    ClassTemplate.find(params[:clazz][:class_template_id]).studio.timezone
   end
 end
