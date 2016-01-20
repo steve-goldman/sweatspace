@@ -10,10 +10,10 @@ class ClazzDecorator < Draper::Decorator
            to: :class_template
 
   def display_date
-    object.time.strftime "%b %d"
+    object.timestamp.strftime "%b %d"
   end
 
   def display_time
-    object.time.strftime "%l:%M %p"
+    object.timestamp.strftime "%l:%M %p"
   end
 end

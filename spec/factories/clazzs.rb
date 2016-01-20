@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :clazz do
     association :class_template
-    time "2016-01-13 15:32:56"
+    timestamp "2016-01-13 15:32:56"
   end
 end
