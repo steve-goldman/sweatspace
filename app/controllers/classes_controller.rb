@@ -57,9 +57,18 @@ class ClassesController < ApplicationController
 
   def create_params
     params.require(:clazz).permit(Clazz::PERMITTED_PARAMS)
+      .merge(timestamp: timestamp)
   end
 
   def profile
     current_user.instructor_profile
+  end
+
+  def timestamp
+    TimeService.instance.timestamp params[:clazz][:class_date], params[:clazz][:class_time], timezone
+  end
+
+  def timezone
+    ClassTemplate.find(params[:clazz][:class_template_id]).studio.timezone
   end
 end
