@@ -6,6 +6,7 @@
   %li.menu-link= link_to "View Profile", profile_path(current_user.instructor_profile.profile_path)
   %li.menu-link= link_to "Edit Profile", edit_instructor_profile_path(current_user.instructor_profile)
   %li.mm-divider< Classes
+  %li.menu-link= link_to "Manage Class Templates", class_templates_path
   %li.menu-link= link_to "Manage Classes", classes_path
 - else
   %li.menu-link= link_to "Create Profile", new_instructor_profile_path

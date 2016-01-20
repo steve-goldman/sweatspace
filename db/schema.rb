@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119230349) do
+ActiveRecord::Schema.define(version: 20160120005740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "class_templates", force: :cascade do |t|
+    t.integer  "instructor_profile_id"
+    t.integer  "clazz_type_id"
+    t.integer  "studio_id"
+    t.text     "description"
+    t.integer  "duration"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "name"
+    t.datetime "deleted_at"
+  end
+
+  add_index "class_templates", ["clazz_type_id"], name: "index_class_templates_on_clazz_type_id", using: :btree
+  add_index "class_templates", ["deleted_at"], name: "index_class_templates_on_deleted_at", using: :btree
+  add_index "class_templates", ["instructor_profile_id"], name: "index_class_templates_on_instructor_profile_id", using: :btree
+  add_index "class_templates", ["studio_id"], name: "index_class_templates_on_studio_id", using: :btree
 
   create_table "clazz_types", force: :cascade do |t|
     t.string   "name"
@@ -23,18 +40,15 @@ ActiveRecord::Schema.define(version: 20160119230349) do
   end
 
   create_table "clazzs", force: :cascade do |t|
-    t.integer  "instructor_profile_id"
-    t.integer  "studio_id"
     t.datetime "time"
-    t.integer  "duration"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "clazz_type_id"
-    t.string   "name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.datetime "deleted_at"
+    t.integer  "class_template_id"
   end
 
-  add_index "clazzs", ["instructor_profile_id"], name: "index_clazzs_on_instructor_profile_id", using: :btree
-  add_index "clazzs", ["studio_id"], name: "index_clazzs_on_studio_id", using: :btree
+  add_index "clazzs", ["class_template_id"], name: "index_clazzs_on_class_template_id", using: :btree
+  add_index "clazzs", ["deleted_at"], name: "index_clazzs_on_deleted_at", using: :btree
 
   create_table "instructor_profiles", force: :cascade do |t|
     t.string   "profile_path"

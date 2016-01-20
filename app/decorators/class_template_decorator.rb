@@ -1,0 +1,19 @@
+class ClassTemplateDecorator < Draper::Decorator
+  delegate_all
+
+  def display_duration
+    "#{object.duration} minutes"
+  end
+
+  def display_clazz_type
+    object.clazz_type.name
+  end
+
+  def display_studio
+    studio.name
+  end
+
+  def studio_url
+    studio.url
+  end
+end
