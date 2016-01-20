@@ -4,5 +4,8 @@
 .form-group
   = f.label :url
   = f.text_field :url, class: "form-control"
+.form-group
+  = f.label :timezone, "Time Zone"
+  = f.select :timezone, time_zone_options_for_select("Eastern Time (US & Canada)", ActiveSupport::TimeZone.us_zones), class: "form-control"
 .form-actions
   = f.submit "Save", class: "btn btn-primary"
