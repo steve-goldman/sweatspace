@@ -3,7 +3,7 @@ class ClassesController < ApplicationController
   before_action :owns_class, only: [:edit, :update]
 
   def index
-    @clazzes = profile.classes.decorate
+    @clazzes = profile.classes.order(timestamp: :asc).decorate
   end
 
   def new
