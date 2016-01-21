@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :class_types, except: [:show, :destroy], controller: :clazz_types
     resources :studios, except: [:show, :destroy]
     resources :class_templates, except: [:show, :destroy]
+    resources :class_template_studios, only: [:create, :destroy]
   end
 
   resources :classes, except: [:show, :destroy]
