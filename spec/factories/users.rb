@@ -6,5 +6,9 @@ FactoryGirl.define do
     image "some-image"
     password "password"
     password_confirmation "password"
+
+    factory :admin_user, class: "User" do
+      admin true
+    end
   end
 end
