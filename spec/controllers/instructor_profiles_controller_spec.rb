@@ -4,10 +4,7 @@ RSpec.describe InstructorProfilesController, type: :controller do
   render_views
   before { login_user }
 
-  describe "GET :new" do
-    it "renders the view" do
-      get :new
-      expect(response).to render_template(:new)
-    end
-  end
+  let(:instance) { FactoryGirl.create :instructor_profile, user: @user }
+  it_behaves_like "a creatable resource"
+  it_behaves_like "an updatable resource"
 end
