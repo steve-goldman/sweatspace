@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :class_types, except: [:show, :destroy], controller: :clazz_types
     resources :studios, except: [:show, :destroy]
+    resources :class_templates, except: [:show, :destroy]
   end
 
-  resources :class_templates, except: [:show, :destroy]
   resources :classes, except: [:show, :destroy]
   resources :instructor_profiles, except: :destroy
   get "/:id", to: "instructor_profiles#show", as: :profile

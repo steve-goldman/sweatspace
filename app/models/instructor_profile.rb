@@ -8,8 +8,8 @@ class InstructorProfile < ActiveRecord::Base
   validates_uniqueness_of :profile_path
   validates_format_of :profile_path, with: /\A([a-zA-Z]|\d)+(\-([a-zA-Z]|\d)+)*\z/
   belongs_to :user
-  has_many :class_templates
-  has_many :classes, through: :class_templates
+  has_many :class_templates, through: :classes
+  has_many :classes, class_name: "Clazz"
   acts_as_paranoid
   has_paper_trail
 end

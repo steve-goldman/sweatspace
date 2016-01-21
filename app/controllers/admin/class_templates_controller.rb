@@ -1,9 +1,8 @@
-class ClassTemplatesController < ApplicationController
+class Admin::ClassTemplatesController < Admin::ControllerBase
   before_action :find_class_template, only: [:edit, :update]
-  before_action :owns_class_template, only: [:edit, :update]
 
   def index
-    @class_templates = profile.class_templates.decorate
+    @class_templates = ClassTemplate.all.decorate
   end
 
   def new
@@ -14,10 +13,10 @@ class ClassTemplatesController < ApplicationController
   end
 
   def create
-    @class_template = profile.class_templates.build create_params
+    @class_template = ClassTemplate.new create_params
     if @class_template.save
       flash[:success] = "Class template created"
-      redirect_to class_templates_path
+      redirect_to admin_class_templates_path
     else
       flash[:danger] = "Unable to create class template"
       render :new
@@ -26,8 +25,8 @@ class ClassTemplatesController < ApplicationController
 
   def update
     if @class_template.update_attributes create_params
-      flash[:success] = "Class saved"
-      redirect_to class_templates_path
+      flash[:success] = "Class template saved"
+      redirect_to admin_class_templates_path
     else
       flash[:danger] = "Unable to save class template"
       render :edit
@@ -44,18 +43,7 @@ class ClassTemplatesController < ApplicationController
     end
   end
 
-  def owns_class_template
-    unless current_user.id == @class_template.instructor_profile.user_id
-      flash[:danger] = "Unauthorized access"
-      redirect_to root_path
-    end
-  end
-
   def create_params
     params.require(:class_template).permit(ClassTemplate::PERMITTED_PARAMS)
-  end
-
-  def profile
-    current_user.instructor_profile
   end
 end

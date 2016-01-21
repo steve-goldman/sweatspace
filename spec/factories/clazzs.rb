@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :clazz do
+    association :instructor_profile
     association :class_template
     timestamp "2016-01-13 15:32:56"
   end

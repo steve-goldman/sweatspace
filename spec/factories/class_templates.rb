@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :class_template do
-    association :instructor_profile
     association :clazz_type
     association :studio
     name "The Best Class Name"

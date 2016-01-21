@@ -10,7 +10,6 @@ class ClassTemplate < ActiveRecord::Base
   acts_as_paranoid
   has_paper_trail
 
-  belongs_to :instructor_profile
   belongs_to :clazz_type
   belongs_to :studio
   has_many :classes, class_name: "Clazz"

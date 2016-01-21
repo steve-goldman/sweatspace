@@ -6,6 +6,7 @@ RSpec.describe Clazz, :type => :model do
   end
 
   describe "associations" do
+    it { should belong_to :instructor_profile }
     it { should belong_to :class_template }
   end
 
