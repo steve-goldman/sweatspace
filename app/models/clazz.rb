@@ -1,6 +1,7 @@
 class Clazz < ActiveRecord::Base
   PERMITTED_PARAMS = [
     "class_template_id",
+    "studio_id",
     "timestamp",
   ]
 
@@ -9,6 +10,7 @@ class Clazz < ActiveRecord::Base
 
   belongs_to :instructor_profile
   belongs_to :class_template
+  belongs_to :studio
   validates_presence_of :timestamp
 
   def class_date
@@ -23,7 +25,7 @@ class Clazz < ActiveRecord::Base
 
   def in_time_zone
     if class_template.present? && timestamp.present?
-      @in_time_zone ||= timestamp.in_time_zone class_template.studio.timezone
+      @in_time_zone ||= timestamp.in_time_zone studio.timezone
     end
   end
 end

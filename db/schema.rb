@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121151841) do
+ActiveRecord::Schema.define(version: 20160121154638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "class_template_studios", force: :cascade do |t|
+    t.integer  "class_template_id"
+    t.integer  "studio_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "class_template_studios", ["class_template_id"], name: "index_class_template_studios_on_class_template_id", using: :btree
+  add_index "class_template_studios", ["studio_id"], name: "index_class_template_studios_on_studio_id", using: :btree
 
   create_table "class_templates", force: :cascade do |t|
     t.integer  "clazz_type_id"
@@ -44,11 +54,13 @@ ActiveRecord::Schema.define(version: 20160121151841) do
     t.datetime "deleted_at"
     t.integer  "class_template_id"
     t.integer  "instructor_profile_id"
+    t.integer  "studio_id"
   end
 
   add_index "clazzs", ["class_template_id"], name: "index_clazzs_on_class_template_id", using: :btree
   add_index "clazzs", ["deleted_at"], name: "index_clazzs_on_deleted_at", using: :btree
   add_index "clazzs", ["instructor_profile_id"], name: "index_clazzs_on_instructor_profile_id", using: :btree
+  add_index "clazzs", ["studio_id"], name: "index_clazzs_on_studio_id", using: :btree
 
   create_table "instructor_profiles", force: :cascade do |t|
     t.string   "profile_path"

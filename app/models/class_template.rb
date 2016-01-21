@@ -1,7 +1,6 @@
 class ClassTemplate < ActiveRecord::Base
   PERMITTED_PARAMS = [
     "clazz_type_id",
-    "studio_id",
     "name",
     "description",
     "duration",
@@ -11,8 +10,9 @@ class ClassTemplate < ActiveRecord::Base
   has_paper_trail
 
   belongs_to :clazz_type
-  belongs_to :studio
   has_many :classes, class_name: "Clazz"
+  has_many :class_template_studios
+  has_many :studios, through: :class_template_studios
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :duration

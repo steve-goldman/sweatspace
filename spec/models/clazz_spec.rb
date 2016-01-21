@@ -8,6 +8,7 @@ RSpec.describe Clazz, :type => :model do
   describe "associations" do
     it { should belong_to :instructor_profile }
     it { should belong_to :class_template }
+    it { should belong_to :studio }
   end
 
   describe "validations" do

@@ -8,12 +8,4 @@ class ClassTemplateDecorator < Draper::Decorator
   def display_clazz_type
     object.clazz_type.name
   end
-
-  def display_studio
-    studio.name
-  end
-
-  def studio_url
-    studio.url
-  end
 end

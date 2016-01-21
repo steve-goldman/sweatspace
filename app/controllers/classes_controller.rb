@@ -65,6 +65,6 @@ class ClassesController < ApplicationController
   end
 
   def timezone
-    ClassTemplate.find(params[:clazz][:class_template_id]).studio.timezone
+    Studio.find(params[:clazz][:studio_id]).timezone
   end
 end
