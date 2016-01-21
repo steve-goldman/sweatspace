@@ -29,6 +29,14 @@ RSpec.describe HomeController do
           expect(response).to redirect_to(edit_user_registration_path)
         end
       end
+
+      context "with expired access token" do
+        it "redirects to landing" do
+          allow(InstagramService.instance).to receive(:valid_access_token?).and_return(false)
+          get :dashboard
+          expect(response).to redirect_to(landing_path)
+        end
+      end
     end
 
     context "when not logged in" do

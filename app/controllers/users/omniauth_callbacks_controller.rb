@@ -1,5 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :logged_in?
+  skip_before_action :valid_access_token?
 
   def instagram
     auth = request.env["omniauth.auth"]

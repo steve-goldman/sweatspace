@@ -9,6 +9,15 @@ class InstagramService
     user(uid).profile_picture
   end
 
+  def valid_access_token?
+    begin
+      client.user_self
+      true
+    rescue
+      false
+    end
+  end
+
   private
 
   def client
