@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def authenticate_email
     unless current_user.email.present?
       flash[:info] = "Enter your email address to complete your registration"
-      redirect_to edit_registration_path(current_user)
+      redirect_to edit_user_registration_path
     end
   end
 
