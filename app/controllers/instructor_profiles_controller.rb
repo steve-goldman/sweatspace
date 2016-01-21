@@ -4,7 +4,6 @@ class InstructorProfilesController < ApplicationController
   before_action :find_instructor_profile_by_name, only: :show
 
   def show
-    InstagramService.init_client session["access_token"]
     @classes = @instructor_profile.classes.order(timestamp: :asc).decorate
     @instructor_profile = @instructor_profile.decorate
   end
