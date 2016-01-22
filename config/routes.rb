@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     resources :class_template_studios, only: [:create, :destroy]
   end
 
-  resources :classes, except: [:show, :destroy]
+  resources :classes, except: [:show, :edit, :destroy] do
+    resources :setup, controller: :class_setup, only: [:show, :update]
+    post "new_class", to: "class_setup#new", as: :new_setup, on: :collection
+  end
+
   resources :instructor_profiles, except: :destroy
   get "/:id", to: "instructor_profiles#show", as: :profile
 end

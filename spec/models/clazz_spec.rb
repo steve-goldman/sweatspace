@@ -12,6 +12,14 @@ RSpec.describe Clazz, :type => :model do
   end
 
   describe "validations" do
-    it { should validate_presence_of :timestamp }
+    context "confirmed" do
+      before { allow(subject).to receive(:confirmed?).and_return(true) }
+      it { should validate_presence_of :timestamp }
+    end
+
+    context "not confirmed" do
+      before { allow(subject).to receive(:confirmed?).and_return(false) }
+      it { should_not validate_presence_of :timestamp }
+    end
   end
 end

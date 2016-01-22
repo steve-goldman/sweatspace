@@ -49,6 +49,7 @@ gem 'mailgun_rails'
 gem 'mmenu-rails'
 gem 'jquery-turbolinks'
 gem 'instagram'
+gem 'wicked'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'

@@ -3,8 +3,12 @@ module StudiosHelper
     make_studio_options Studio.all
   end
 
+  def not_class_template_studio_options class_template
+    make_studio_options(Studio.all - class_template.studios)
+  end
+
   def class_template_studio_options class_template
-    make_studio_options Studio.all.reject { |studio| class_template.studios.include? studio }
+    make_studio_options class_template.studios
   end
 
   def make_studio_options studios

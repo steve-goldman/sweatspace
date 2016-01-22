@@ -1,0 +1,7 @@
+%h3< Select a class template
+= form_for @clazz, url: wizard_path, method: :patch do |f|
+  .form-group
+    = f.label :class_template_id, "Class Template"
+    = f.select :class_template_id, class_template_options, class: "form-control"
+  .form-actions
+    = f.submit "Next", class: "btn btn-primary"
