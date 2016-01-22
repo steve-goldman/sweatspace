@@ -6,6 +6,7 @@
     %tbody
       - @classes.each do |clazz|
         %tr
+          %td= clazz.display_day_of_week
           %td= clazz.display_date
           %td= clazz.display_time
           %td= clazz.name

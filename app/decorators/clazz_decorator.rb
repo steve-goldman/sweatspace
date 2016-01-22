@@ -7,8 +7,12 @@ class ClazzDecorator < Draper::Decorator
            :display_clazz_type,
            to: :class_template
 
+  def display_day_of_week
+    in_time_zone.strftime "%a"
+  end
+
   def display_date
-    in_time_zone.strftime "%a %b %d"
+    in_time_zone.strftime "%b %d"
   end
 
   def display_time
