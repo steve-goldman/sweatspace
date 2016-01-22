@@ -1,3 +1,7 @@
+.wizard-back-button
+  = link_to previous_wizard_path, class: "btn btn-default" do
+    %span
+      %i.glyphicon.glyphicon-arrow-left
 %h3< Confirm?
 %table.table
   %tr
@@ -11,7 +15,7 @@
   %tr
     %td
       %strong< Date
-    %td= @clazz.display_date
+    %td= "#{@clazz.display_day_of_week} #{@clazz.display_date}"
   %tr
     %td
       %strong< Time
@@ -19,4 +23,4 @@
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   = f.hidden_field :confirmed, value: true
   .form-actions
-    = f.submit "Confirm", class: "btn btn-primary"
+    = f.submit "Confirm", class: "btn btn-primary form-control"

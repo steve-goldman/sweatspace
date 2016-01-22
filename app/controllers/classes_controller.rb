@@ -1,6 +1,6 @@
 class ClassesController < ApplicationController
   def index
-    @clazzes = profile.classes.confirmed.order(timestamp: :asc).decorate
+    @clazzes = profile.classes.confirmed.order(timestamp: :asc).where(timestamp: 1.day.ago..30.days.from_now).decorate
   end
 
   def new
