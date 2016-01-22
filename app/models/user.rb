@@ -16,4 +16,13 @@ class User < ActiveRecord::Base
       user.image = auth.info.image
     end
   end
+
+  def timezone
+    # TODO: detect automatically?
+    "Eastern Time (US & Canada)"
+  end
+
+  def today
+    TimeService.instance.date Time.now, timezone
+  end
 end

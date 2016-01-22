@@ -49,7 +49,7 @@ class ClassSetupController < ApplicationController
     if step == :date
       safe_params.merge(timestamp: TimeService.instance.timestamp(params[:clazz][:class_date], "12:00 PM", timezone))
     elsif step == :time
-      safe_params.merge(timestamp: TimeService.instance.timestamp(TimeService.instance.date(@clazz.timestamp, timezone), params[:clazz][:class_time], timezone))
+      safe_params.merge(timestamp: TimeService.instance.timestamp(TimeService.instance.display_date(@clazz.timestamp, timezone), params[:clazz][:class_time], timezone))
     else
       safe_params
     end

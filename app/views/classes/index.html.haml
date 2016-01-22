@@ -1,5 +1,6 @@
 %h3< My Classes
 %p= link_to "Add a Class", new_setup_classes_path, method: :post, class: "btn btn-primary form-control"
+%p.classes-date-range= "#{@clazzes.count} #{'class'.pluralize(@clazzes.count)} between #{@min_date.to_date} and #{@max_date.to_date}"
 - if @clazzes.any?
   %table.table
     %tbody
@@ -14,3 +15,9 @@
           %td= clazz.display_duration
 - else
   %p< No classes
+= link_to classes_path(min_date: @prev_min_date, max_date: @prev_max_date), class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
+= link_to classes_path(min_date: @next_min_date, max_date: @next_max_date), class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-right
