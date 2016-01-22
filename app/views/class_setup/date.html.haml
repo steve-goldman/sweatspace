@@ -6,11 +6,12 @@
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
     = f.label :class_date
-    = f.text_field :class_date, class: "form-control", id: "datepicker", readonly: true, autofocus: true
+    = f.text_field :class_date, class: "submit-on-change form-control", id: "datepicker", readonly: true, autofocus: true
   .form-actions
     = f.submit "Next", class: "btn btn-primary form-control"
 
 :javascript
+  new SubmitOnChange();
   $(document).ready(function() {
     $('#datepicker').pickadate({
       today: "",
