@@ -1,7 +1,11 @@
+.wizard-back-button
+  = link_to previous_wizard_path, class: "btn btn-default" do
+    %span
+      %i.glyphicon.glyphicon-arrow-left
 %h3< Select a studio
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
     = f.label :studio_id, "Studio"
     = f.select :studio_id, class_template_studio_options(@clazz.class_template), {}, class: "form-control", autofocus: true
   .form-actions
-    = f.submit "Next", class: "btn btn-primary"
+    = f.submit "Next", class: "btn btn-primary form-control"
