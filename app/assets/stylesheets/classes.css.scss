@@ -1,8 +1,17 @@
-.past-class {
-  color: lightgrey;
-}
+.my-classes {
+  .past-class {
+    color: lightgrey;
+  }
 
-.classes-date-range {
-  font-size: small;
-  font-style: italic;
+  .date-range {
+    font-size: small;
+    font-style: italic;
+  }
+
+  .prev-button {
+  }
+
+  .next-button {
+    float: right;
+  }
 }
