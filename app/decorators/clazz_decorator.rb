@@ -8,7 +8,7 @@ class ClazzDecorator < Draper::Decorator
            to: :class_template
 
   def display_date
-    in_time_zone.strftime "%b %d"
+    in_time_zone.strftime "%a %b %d"
   end
 
   def display_time

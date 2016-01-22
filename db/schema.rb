@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121154638) do
+ActiveRecord::Schema.define(version: 20160121191544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,9 +55,11 @@ ActiveRecord::Schema.define(version: 20160121154638) do
     t.integer  "class_template_id"
     t.integer  "instructor_profile_id"
     t.integer  "studio_id"
+    t.boolean  "confirmed"
   end
 
   add_index "clazzs", ["class_template_id"], name: "index_clazzs_on_class_template_id", using: :btree
+  add_index "clazzs", ["confirmed"], name: "index_clazzs_on_confirmed", using: :btree
   add_index "clazzs", ["deleted_at"], name: "index_clazzs_on_deleted_at", using: :btree
   add_index "clazzs", ["instructor_profile_id"], name: "index_clazzs_on_instructor_profile_id", using: :btree
   add_index "clazzs", ["studio_id"], name: "index_clazzs_on_studio_id", using: :btree

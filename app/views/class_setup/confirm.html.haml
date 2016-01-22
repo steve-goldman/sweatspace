@@ -1,0 +1,22 @@
+%h3< Confirm?
+%table.table
+  %tr
+    %td
+      %strong< Class
+    %td= @clazz.name
+  %tr
+    %td
+      %strong< Studio
+    %td= @clazz.display_studio
+  %tr
+    %td
+      %strong< Date
+    %td= @clazz.display_date
+  %tr
+    %td
+      %strong< Time
+    %td= @clazz.display_time
+= form_for @clazz, url: wizard_path, method: :patch do |f|
+  = f.hidden_field :confirmed, value: true
+  .form-actions
+    = f.submit "Confirm", class: "btn btn-primary"

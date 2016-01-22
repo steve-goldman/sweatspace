@@ -3,6 +3,7 @@ class Clazz < ActiveRecord::Base
     "class_template_id",
     "studio_id",
     "timestamp",
+    "confirmed"
   ]
 
   acts_as_paranoid
@@ -11,7 +12,9 @@ class Clazz < ActiveRecord::Base
   belongs_to :instructor_profile
   belongs_to :class_template
   belongs_to :studio
-  validates_presence_of :timestamp
+  validates_presence_of :timestamp, if: :confirmed?
+
+  scope :confirmed, -> { where confirmed: true }
 
   def class_date
     in_time_zone.try :strftime, "%Y-%m-%d"
