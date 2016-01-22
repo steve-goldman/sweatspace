@@ -6,10 +6,10 @@ RSpec.describe ClassTemplate, :type => :model do
   end
 
   describe "associations" do
-    it { should belong_to :instructor_profile }
     it { should belong_to :clazz_type }
-    it { should belong_to :studio }
     it { should have_many :classes }
+    it { should have_many :class_template_studios }
+    it { should have_many :studios }
   end
 
   describe "validations" do

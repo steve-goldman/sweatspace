@@ -7,10 +7,6 @@ class ClassesController < ApplicationController
   end
 
   def new
-    if profile.class_templates.empty?
-      flash[:info] = "You must create a class template before creating a class"
-      redirect_to new_class_template_path
-    end
     @clazz = Clazz.new
   end
 
@@ -49,7 +45,7 @@ class ClassesController < ApplicationController
   end
 
   def owns_class
-    unless current_user.id == @clazz.class_template.instructor_profile.user_id
+    unless current_user.id == @clazz.instructor_profile.user_id
       flash[:danger] = "Unauthorized access"
       redirect_to root_path
     end
@@ -69,6 +65,6 @@ class ClassesController < ApplicationController
   end
 
   def timezone
-    ClassTemplate.find(params[:clazz][:class_template_id]).studio.timezone
+    Studio.find(params[:clazz][:studio_id]).timezone
   end
 end

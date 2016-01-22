@@ -6,10 +6,9 @@
         %tr
           %td= class_template.name
           %td= class_template.display_clazz_type
-          %td= class_template.display_studio
           %td= class_template.display_duration
           %td= class_template.description
-          %td= link_to "Edit", edit_class_template_path(class_template)
+          %td= link_to "Edit", edit_admin_class_template_path(class_template)
 - else
   %p< No classes
-= link_to "Create", new_class_template_path, class: "btn btn-primary"
+= link_to "Create", new_admin_class_template_path, class: "btn btn-primary"
