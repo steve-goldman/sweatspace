@@ -2,6 +2,6 @@
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
     = f.label :studio_id, "Studio"
-    = f.select :studio_id, class_template_studio_options(@clazz.class_template), class: "form-control"
+    = f.select :studio_id, class_template_studio_options(@clazz.class_template), {}, class: "form-control", autofocus: true
   .form-actions
     = f.submit "Next", class: "btn btn-primary"
