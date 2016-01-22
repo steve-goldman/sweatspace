@@ -1,9 +1,9 @@
 .form-group
   = f.label :class_template_id, "Class Template"
-  = f.select :class_template_id, class_template_options, class: "form-control"
+  = f.select :class_template_id, class_template_options, {}, class: "form-control"
 .form-group
   = f.label :studio_id, "Studio"
-  = f.select :studio_id, studio_options, class: "form-control"
+  = f.select :studio_id, studio_options, {}, class: "form-control"
 .form-group
   = f.label :class_date
   = f.text_field :class_date, class: "form-control", id: "datepicker", readonly: true

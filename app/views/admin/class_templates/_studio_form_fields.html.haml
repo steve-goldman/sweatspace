@@ -1,5 +1,5 @@
 = f.hidden_field :class_template_id, value: @class_template.id
 .form-group
-  = f.select :studio_id, not_class_template_studio_options(@class_template), class: "form-control"
+  = f.select :studio_id, not_class_template_studio_options(@class_template), {}, class: "form-control"
 .form-actions
   = f.submit "Add Studio", class: "btn btn-primary"
