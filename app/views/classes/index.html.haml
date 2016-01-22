@@ -1,9 +1,10 @@
-%h3< Classes
+%h3< My Classes
+%p= link_to "Add a Class", new_setup_classes_path, method: :post, class: "btn btn-primary form-control"
 - if @clazzes.any?
   %table.table
     %tbody
       - @clazzes.each do |clazz|
-        %tr
+        %tr{ class: class_summary_class(clazz) }
           %td= clazz.display_day_of_week
           %td= clazz.display_date
           %td= clazz.display_time
@@ -13,4 +14,3 @@
           %td= clazz.display_duration
 - else
   %p< No classes
-= link_to "Create", new_setup_classes_path, method: :post, class: "btn btn-primary"
