@@ -14,6 +14,10 @@ class TimeService
   end
 
   def date timestamp, timezone
-    timestamp.in_time_zone(timezone).strftime "%Y-%m-%d"
+    timestamp.in_time_zone(timezone).midnight
+  end
+
+  def display_date timestamp, timezone
+    date(timestamp, timezone).strftime "%Y-%m-%d"
   end
 end
