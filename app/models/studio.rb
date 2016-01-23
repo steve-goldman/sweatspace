@@ -5,6 +5,7 @@ class Studio < ActiveRecord::Base
     "timezone",
   ]
 
+  acts_as_paranoid
   has_paper_trail
 
   has_many :classes, class_name: "Clazz"
