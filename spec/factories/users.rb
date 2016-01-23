@@ -7,6 +7,10 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
 
+    factory :instructor_user, class: "User" do
+      association :instructor_profile
+    end
+
     factory :admin_user, class: "User" do
       admin true
     end
