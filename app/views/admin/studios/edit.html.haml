@@ -2,3 +2,7 @@
 %h3< Edit studio
 = form_for @studio, url: { action: :update} do |f|
   = render partial: "form_fields", locals: { f: f }
+%h3< Class Templates
+= render partial: "class_templates_list"
+= form_for :class_template_studio, url: admin_class_template_studios_path, method: :post do |f|
+  = render partial: "class_template_form_fields", locals: { f: f }
