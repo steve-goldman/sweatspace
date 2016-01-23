@@ -1,0 +1,6 @@
+- if @studio.class_template_studios.any?
+  %table.table
+    - @studio.class_template_studios.each do |class_template_studio|
+      %tr
+        %td= class_template_studio.class_template.name
+        %td= link_to "Remove", admin_class_template_studio_path(class_template_studio), method: :delete, class: "btn btn-danger"
