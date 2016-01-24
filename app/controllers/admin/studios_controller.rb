@@ -16,7 +16,7 @@ class Admin::StudiosController < Admin::ControllerBase
     @studio = Studio.new create_params
     if @studio.save
       flash[:success] = "Studio created"
-      redirect_to admin_studios_path
+      redirect_to edit_admin_studio_path(@studio)
     else
       flash[:danger] = "Could not create studio"
       render :new
