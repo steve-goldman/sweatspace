@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123205822) do
+ActiveRecord::Schema.define(version: 20160124032135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,14 @@ ActiveRecord::Schema.define(version: 20160123205822) do
     t.integer  "instructor_profile_id"
     t.integer  "studio_id"
     t.boolean  "confirmed"
+    t.integer  "repeating_class_id"
   end
 
   add_index "clazzs", ["class_template_id"], name: "index_clazzs_on_class_template_id", using: :btree
   add_index "clazzs", ["confirmed"], name: "index_clazzs_on_confirmed", using: :btree
   add_index "clazzs", ["deleted_at"], name: "index_clazzs_on_deleted_at", using: :btree
   add_index "clazzs", ["instructor_profile_id"], name: "index_clazzs_on_instructor_profile_id", using: :btree
+  add_index "clazzs", ["repeating_class_id"], name: "index_clazzs_on_repeating_class_id", using: :btree
   add_index "clazzs", ["studio_id"], name: "index_clazzs_on_studio_id", using: :btree
   add_index "clazzs", ["timestamp"], name: "index_clazzs_on_timestamp", using: :btree
 
@@ -76,6 +78,26 @@ ActiveRecord::Schema.define(version: 20160123205822) do
   add_index "instructor_profiles", ["deleted_at"], name: "index_instructor_profiles_on_deleted_at", using: :btree
   add_index "instructor_profiles", ["profile_path"], name: "index_instructor_profiles_on_profile_path", using: :btree
   add_index "instructor_profiles", ["user_id"], name: "index_instructor_profiles_on_user_id", using: :btree
+
+  create_table "repeating_classes", force: :cascade do |t|
+    t.string   "day_of_week"
+    t.time     "time"
+    t.integer  "class_template_id"
+    t.integer  "studio_id"
+    t.integer  "instructor_profile_id"
+    t.boolean  "forever"
+    t.date     "last_created_date"
+    t.boolean  "confirmed"
+    t.datetime "deleted_at"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "repeating_classes", ["class_template_id"], name: "index_repeating_classes_on_class_template_id", using: :btree
+  add_index "repeating_classes", ["confirmed"], name: "index_repeating_classes_on_confirmed", using: :btree
+  add_index "repeating_classes", ["deleted_at"], name: "index_repeating_classes_on_deleted_at", using: :btree
+  add_index "repeating_classes", ["instructor_profile_id"], name: "index_repeating_classes_on_instructor_profile_id", using: :btree
+  add_index "repeating_classes", ["studio_id"], name: "index_repeating_classes_on_studio_id", using: :btree
 
   create_table "studios", force: :cascade do |t|
     t.string   "name"
