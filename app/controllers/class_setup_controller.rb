@@ -42,20 +42,6 @@ class ClassSetupController < ApplicationController
   end
 
   def update_params
-    merge_with_timestamps params.require(:clazz).permit(Clazz::PERMITTED_PARAMS)
-  end
-
-  def merge_with_timestamps safe_params
-    if step == :date
-      safe_params.merge(timestamp: TimeService.instance.timestamp(params[:clazz][:class_date], "12:00 PM", timezone))
-    elsif step == :time
-      safe_params.merge(timestamp: TimeService.instance.timestamp(TimeService.instance.display_date(@clazz.timestamp, timezone), params[:clazz][:class_time], timezone))
-    else
-      safe_params
-    end
-  end
-
-  def timezone
-    @clazz.studio.timezone
+    params.require(:clazz).permit(Clazz::PERMITTED_PARAMS)
   end
 end

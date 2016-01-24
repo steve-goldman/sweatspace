@@ -3,12 +3,12 @@ class Admin::ClassTemplateStudiosController < Admin::ControllerBase
 
   def create
     class_template_studio = ClassTemplateStudio.create! create_params
-    redirect_to request.referer
+    redirect_to request.referer || edit_admin_class_template_path(class_template_studio.class_template)
   end
 
   def destroy
     @class_template_studio.destroy!
-    redirect_to request.referer
+    redirect_to request.referer || edit_admin_class_template_path(@class_template_studio.class_template)
   end
 
   private
