@@ -14,6 +14,6 @@ RSpec.describe RepeatingClass, :type => :model do
 
   describe "validations" do
     it { should validate_presence_of :day_of_week }
-    it { should validate_presence_of :time }
+    it { should validate_presence_of :time_of_day }
   end
 end
