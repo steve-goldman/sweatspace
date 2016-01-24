@@ -13,14 +13,18 @@ RSpec.describe Clazz, :type => :model do
   end
 
   describe "validations" do
-    context "confirmed" do
-      before { allow(subject).to receive(:confirmed?).and_return(true) }
-      it { should validate_presence_of :timestamp }
-    end
+    it { should allow_value("2016-01-24").for(:date) }
+    it { should allow_value("").for(:date) }
+    it { should allow_value("05:31 PM").for(:time_of_day) }
+    it { should allow_value("").for(:time_of_day) }
+  end
 
-    context "not confirmed" do
-      before { allow(subject).to receive(:confirmed?).and_return(false) }
-      it { should_not validate_presence_of :timestamp }
+  let(:studio) { FactoryGirl.build :studio, timezone: "Pacific Time (US & Canada)" }
+  let(:clazz) { FactoryGirl.create :clazz, date: "2016-01-24", time_of_day: "02:39 PM", studio: studio }
+
+  describe "timestamp" do
+    it "sets correctly" do
+      expect(clazz.timestamp.to_i).to eq(1453675140)
     end
   end
 end

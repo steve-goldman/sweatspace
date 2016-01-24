@@ -4,7 +4,6 @@ class Clazz < ActiveRecord::Base
     "studio_id",
     "date",
     "time_of_day",
-    "timestamp",
     "confirmed"
   ]
 
