@@ -15,10 +15,10 @@ class Admin::StudiosController < Admin::ControllerBase
   def create
     @studio = Studio.new create_params
     if @studio.save
-      flash[:success] = "Class type created"
-      redirect_to admin_studios_path
+      flash[:success] = "Studio created"
+      redirect_to edit_admin_studio_path(@studio)
     else
-      flash[:danger] = "Could not create class type"
+      flash[:danger] = "Could not create studio"
       render :new
     end
   end

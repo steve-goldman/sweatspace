@@ -2,5 +2,5 @@
   %table.table
     - @class_template.class_template_studios.each do |class_template_studio|
       %tr
-        %td= class_template_studio.studio.name
+        %td= link_to class_template_studio.studio.name, edit_admin_studio_path(class_template_studio.studio)
         %td= link_to "Remove", admin_class_template_studio_path(class_template_studio), method: :delete, class: "btn btn-danger"
