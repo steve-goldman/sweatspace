@@ -8,15 +8,15 @@ class ClazzDecorator < Draper::Decorator
            to: :class_template
 
   def display_day_of_week
-    in_time_zone.strftime "%a"
+    object.class_timestamp.strftime "%a"
   end
 
   def display_date
-    in_time_zone.strftime "%b %d"
+    object.class_timestamp.strftime "%b %d"
   end
 
   def display_time
-    in_time_zone.strftime "%l:%M %p"
+    object.class_timestamp.strftime "%l:%M %p"
   end
 
   def display_studio
@@ -25,11 +25,5 @@ class ClazzDecorator < Draper::Decorator
 
   def studio_url
     studio.url
-  end
-
-  private
-
-  def in_time_zone
-    @in_time_zone ||= object.timestamp.in_time_zone(object.studio.timezone)
   end
 end

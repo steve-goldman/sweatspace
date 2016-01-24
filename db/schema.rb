@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124043242) do
+ActiveRecord::Schema.define(version: 20160124050311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20160124043242) do
     t.integer  "studio_id"
     t.boolean  "confirmed"
     t.integer  "repeating_class_id"
+    t.string   "date"
+    t.string   "time_of_day"
   end
 
   add_index "clazzs", ["class_template_id"], name: "index_clazzs_on_class_template_id", using: :btree
