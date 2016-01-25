@@ -19,6 +19,7 @@ class Clazz < ActiveRecord::Base
   validates_presence_of :timestamp, if: :confirmed?
 
   scope :confirmed, -> { where confirmed: true }
+  scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }
 
   def make_into_repeating_class!
     create_repeating_class! class_template: class_template,

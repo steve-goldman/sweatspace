@@ -21,4 +21,5 @@ class RepeatingClass < ActiveRecord::Base
                             unless: :forever?
 
   scope :confirmed, -> { where confirmed: true }
+  scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }
 end

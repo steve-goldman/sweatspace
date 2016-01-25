@@ -28,7 +28,7 @@ class ClassSetupController < ApplicationController
   private
 
   def find_clazz
-    @clazz = Clazz.find_by id: params[:class_id]
+    @clazz = Clazz.unconfirmed.find_by id: params[:class_id]
     if @clazz.nil?
       flash[:danger] = "Could not find class"
       redirect_to classes_path

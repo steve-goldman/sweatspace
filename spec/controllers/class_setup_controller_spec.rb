@@ -23,11 +23,17 @@ RSpec.describe ClassSetupController, type: :controller do
   end
 
   let(:clazz) { FactoryGirl.create :clazz, instructor_profile: @user.instructor_profile }
+  let(:confirmed_clazz) { FactoryGirl.create :confirmed_clazz, instructor_profile: @user.instructor_profile }
 
   describe "GET :studio" do
     it "renders the view" do
       get :show, class_id: clazz.id, id: :studio
       expect(response).to render_template(:studio)
+    end
+
+    it "fails with confirmed class" do
+      get :show, class_id: confirmed_clazz.id, id: :studio
+      expect(response).to redirect_to(classes_path)
     end
   end
 
@@ -36,12 +42,22 @@ RSpec.describe ClassSetupController, type: :controller do
       get :show, class_id: clazz.id, id: :class_template
       expect(response).to render_template(:class_template)
     end
+
+    it "fails with confirmed class" do
+      get :show, class_id: confirmed_clazz.id, id: :class_template
+      expect(response).to redirect_to(classes_path)
+    end
   end
 
   describe "GET :date" do
     it "renders the view" do
       get :show, class_id: clazz.id, id: :date
       expect(response).to render_template(:date)
+    end
+
+    it "fails with confirmed class" do
+      get :show, class_id: confirmed_clazz.id, id: :date
+      expect(response).to redirect_to(classes_path)
     end
   end
 
@@ -50,12 +66,22 @@ RSpec.describe ClassSetupController, type: :controller do
       get :show, class_id: clazz.id, id: :time
       expect(response).to render_template(:time)
     end
+
+    it "fails with confirmed class" do
+      get :show, class_id: confirmed_clazz.id, id: :time
+      expect(response).to redirect_to(classes_path)
+    end
   end
 
   describe "GET :confirm" do
     it "renders the view" do
       get :show, class_id: clazz.id, id: :confirm
       expect(response).to render_template(:confirm)
+    end
+
+    it "fails with confirmed class" do
+      get :show, class_id: confirmed_clazz.id, id: :confirm
+      expect(response).to redirect_to(classes_path)
     end
   end
 end
