@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe RepeatingClass, :type => :model do
+  before { Timecop.freeze 100.years.ago }
+
   it "has a valid factory" do
     expect(FactoryGirl.build(:clazz)).to be_valid
   end

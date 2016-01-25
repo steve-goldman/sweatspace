@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe ClassSetupController, type: :controller do
   render_views
   before { login_instructor_user }
+  before { Timecop.freeze 100.years.ago }
 
   describe "POST :start" do
     it "creates a class" do

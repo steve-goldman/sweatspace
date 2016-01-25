@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe RepeatingClassSetupController, type: :controller do
   render_views
   before { login_instructor_user }
+  before { Timecop.freeze 100.years.ago }
 
   let(:class_template) do
     FactoryGirl.create :class_template

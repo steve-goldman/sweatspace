@@ -4,7 +4,7 @@ module ClassTimeConcern
   included do
     validates_format_of :date, with: /\A\d\d\d\d-\d\d-\d\d\z/i, allow_blank: true
     validates_format_of :time_of_day, with: /\A\d\d:\d\d (AM|PM)\z/i, allow_blank: true
-    validates :timestamp, date: true, if: "date? && time_of_day?"
+    validates :timestamp, date: { after: Proc.new { Time.now } }, if: "date? && time_of_day?"
     before_validation :set_timestamp
   end
 
