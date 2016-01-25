@@ -21,6 +21,10 @@ RSpec.describe RepeatingClass, :type => :model do
     it { should allow_value(1).for(:number_of_weeks) }
     it { should allow_value(12).for(:number_of_weeks) }
     it { should_not allow_value(13).for(:number_of_weeks) }
+    it { should_not allow_value(-1).for(:day_of_week) }
+    it { should allow_value(0).for(:day_of_week) }
+    it { should allow_value(6).for(:day_of_week) }
+    it { should_not allow_value(7).for(:day_of_week) }
   end
 
   describe ".create_classes!" do

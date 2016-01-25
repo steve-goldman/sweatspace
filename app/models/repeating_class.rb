@@ -13,6 +13,10 @@ class RepeatingClass < ActiveRecord::Base
   belongs_to :studio
   has_many :classes, class_name: "Clazz"
   validates_presence_of :day_of_week, :time_of_day, :class_template_id, :studio_id, :instructor_profile_id
+  validates_numericality_of :day_of_week,
+                            only_integer: true,
+                            greater_than_or_equal_to: 0,
+                            less_than_or_equal_to: 6
   validates_numericality_of :number_of_weeks,
                             only_integer: true,
                             greater_than_or_equal_to: 1,
