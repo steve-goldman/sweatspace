@@ -48,7 +48,7 @@ module ClassTimeConcern
   end
 
   def time_zone_offset
-    @time_zone_offset ||= time_zone.utc_offset + ((Date.parse(date) + 1.day).to_time.dst? ? 3600 : 0)
+    @time_zone_offset ||= time_zone.utc_offset + ((Date.parse(date) + 1.day).to_time.in_time_zone(time_zone).dst? ? 3600 : 0)
   end
 
   def time_zone
