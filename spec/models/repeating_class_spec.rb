@@ -22,4 +22,21 @@ RSpec.describe RepeatingClass, :type => :model do
     it { should allow_value(12).for(:number_of_weeks) }
     it { should_not allow_value(13).for(:number_of_weeks) }
   end
+
+  describe ".create_classes!" do
+    subject { FactoryGirl.create :repeating_class }
+    let(:future_dates) { [ "2016-01-25", "2016-02-01", "2016-02-08" ] }
+    before { allow(subject).to receive(:future_dates).and_return(future_dates) }
+
+    it "creates 3 classes" do
+      expect { subject.create_classes! }.to change(Clazz, :count).by(3)
+    end
+
+    it "creates with the correct dates" do
+      subject.create_classes!
+      future_dates.each do |future_date|
+        expect(subject.classes.confirmed.find_by(date: future_date)).to be
+      end
+    end
+  end
 end

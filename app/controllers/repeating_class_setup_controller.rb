@@ -16,6 +16,9 @@ class RepeatingClassSetupController < ApplicationController
 
   def update
     @repeating_class.update_attributes update_params
+    if @repeating_class.valid? && @repeating_class.confirmed?
+      @repeating_class.create_classes!
+    end
     render_wizard @repeating_class
   end
 

@@ -26,4 +26,44 @@ class RepeatingClass < ActiveRecord::Base
   def remaining_classes
     classes.where "timestamp > ?", Time.now
   end
+
+  def create_classes!
+    future_dates.each do |future_date|
+      classes.create! class_template: class_template,
+                      instructor_profile: instructor_profile,
+                      studio: studio,
+                      confirmed: true,
+                      date: future_date,
+                      time_of_day: time_of_day
+    end
+  end
+
+  private
+
+  def future_dates
+    last_date = next_day_of_week Date.parse(last_class.date)
+    num_classes_need_creating.times.map do
+      next_date = last_date
+      last_date = next_date + 1.week
+      next_date.strftime
+    end
+  end
+
+  def next_day_of_week some_date
+    next_date = some_date + 1.day
+    next_date += 1.day while next_date.wday != day_of_week
+    next_date
+  end
+
+  def num_classes_need_creating
+    if forever
+      12 - classes.where("timestamp > ?", Time.now).length
+    else
+      number_of_weeks - 1
+    end
+  end
+
+  def last_class
+    @last_class ||= classes.order(timestamp: :desc).first
+  end
 end
