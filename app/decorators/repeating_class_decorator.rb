@@ -12,7 +12,7 @@ class RepeatingClassDecorator < Draper::Decorator
   end
 
   def display_day_of_week
-    day_of_week.pluralize
+    Date::DAYNAMES[day_of_week].pluralize
   end
 
   def display_num_remaining

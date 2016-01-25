@@ -36,6 +36,10 @@ module ClassTimeConcern
     class_timestamp.strftime "%A"
   end
 
+  def day_of_week_int
+    class_timestamp.strftime("%w").to_i
+  end
+
   def timezone
     @timezone ||= studio.timezone
   end
