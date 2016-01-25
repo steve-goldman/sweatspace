@@ -17,10 +17,12 @@ Rails.application.routes.draw do
     resources :setup, controller: :class_setup, only: [:show, :update]
     post "start_class_setup", to: "class_setup#start", as: :start_setup, on: :collection
     get "finish_class_setup", to: "class_setup#finish", as: :finish_setup, on: :collection
+  end
 
+  resources :repeating_classes, only: :index do
     resources :repeating_setup, controller: :repeating_class_setup, only: [:show, :update]
     post "start_repeating_class_setup", to: "repeating_class_setup#start", as: :start_repeating_setup, on: :collection
-    get "finish_repeating_class_setup", to: "repeating_class_setup#finish", as: :finish_repeatingsetup, on: :collection
+    get "finish_repeating_class_setup", to: "repeating_class_setup#finish", as: :finish_repeating_setup, on: :collection
   end
 
   resources :instructor_profiles, except: :destroy

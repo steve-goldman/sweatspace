@@ -28,7 +28,7 @@ class ClassSetupController < ApplicationController
   private
 
   def find_clazz
-    @clazz = Clazz.unconfirmed.find_by id: params[:class_id]
+    @clazz = scope.find_by id: params[:class_id]
     if @clazz.nil?
       flash[:danger] = "Could not find class"
       redirect_to classes_path
@@ -44,5 +44,14 @@ class ClassSetupController < ApplicationController
 
   def update_params
     params.require(:clazz).permit(Clazz::PERMITTED_PARAMS)
+  end
+
+  def scope
+    # TODO: deficiency in wicked that 'step' method not available to before_action methods?
+    if params[:id].to_sym == :make_repeating
+      Clazz.confirmed
+    else
+      Clazz.unconfirmed
+    end
   end
 end

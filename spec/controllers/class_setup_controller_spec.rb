@@ -84,4 +84,16 @@ RSpec.describe ClassSetupController, type: :controller do
       expect(response).to redirect_to(classes_path)
     end
   end
+
+  describe "GET :make_repeating" do
+    it "renders the view" do
+      get :show, class_id: confirmed_clazz.id, id: :make_repeating
+      expect(response).to render_template(:make_repeating)
+    end
+
+    it "fails with confirmed repeating class" do
+      get :show, class_id: clazz.id, id: :make_repeating
+      expect(response).to redirect_to(classes_path)
+    end
+  end
 end

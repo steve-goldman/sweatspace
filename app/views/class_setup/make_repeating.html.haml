@@ -3,5 +3,5 @@
   %span
     %i.glyphicon.glyphicon-arrow-left
 %h3< Just once or every week?
-= link_to "Just Once", finish_setup_classes_path, method: :post, class: "btn btn-primary"
-= link_to "Every Week", start_repeating_setup_classes_path(class_id: @clazz.id), method: :post, class: "btn btn-default"
+= link_to "Just Once", finish_setup_classes_path, class: "btn btn-primary"
+= link_to "Every Week", start_repeating_setup_repeating_classes_path(class_id: @clazz.id), method: :post, class: "btn btn-default"

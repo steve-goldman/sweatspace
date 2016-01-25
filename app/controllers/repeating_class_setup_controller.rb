@@ -1,5 +1,5 @@
 class RepeatingClassSetupController < ApplicationController
-  before_action :find_clazz, except: :finish
+  before_action :find_clazz, only: :start
   before_action :find_repeating_class, except: [:start, :finish]
   before_action :owns_repeating_class, except: [:start, :finish]
 
@@ -10,7 +10,6 @@ class RepeatingClassSetupController < ApplicationController
     if step == :number_of_weeks && @repeating_class.forever?
       skip_step
     end
-    @clazz = @clazz.decorate
     @repeating_class = @repeating_class.decorate
     render_wizard
   end
@@ -21,8 +20,8 @@ class RepeatingClassSetupController < ApplicationController
   end
 
   def start
-    repeating_class = @clazz.make_into_repeating_class!
-    redirect_to wizard_path steps.first, class_id: @clazz.id
+    @clazz.make_into_repeating_class!
+    redirect_to wizard_path steps.first, repeating_class_id: @clazz.repeating_class.id
   end
 
   def finish
@@ -31,7 +30,7 @@ class RepeatingClassSetupController < ApplicationController
   end
 
   def finish_wizard_path
-    finish_repeatingsetup_classes_path
+    finish_repeating_setup_repeating_classes_path
   end
 
   private
@@ -45,7 +44,7 @@ class RepeatingClassSetupController < ApplicationController
   end
 
   def find_repeating_class
-    @repeating_class = @clazz.repeating_class
+    @repeating_class = scope.find_by id: params[:repeating_class_id]
     if @repeating_class.nil?
       flash[:danger] = "Could not find repeating class"
       redirect_to classes_path
@@ -61,5 +60,14 @@ class RepeatingClassSetupController < ApplicationController
 
   def update_params
     params.require(:repeating_class).permit(RepeatingClass::PERMITTED_PARAMS)
+  end
+
+  def scope
+    # TODO: deficiency in wicked that 'step' method not available to before_action methods?
+    if params[:id].to_sym == :wicked_finish
+      RepeatingClass.confirmed
+    else
+      RepeatingClass.unconfirmed
+    end
   end
 end

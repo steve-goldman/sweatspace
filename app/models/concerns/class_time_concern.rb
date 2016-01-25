@@ -9,7 +9,9 @@ module ClassTimeConcern
   end
 
   def class_timestamp
-    @class_timestamp ||= timestamp.in_time_zone timezone
+    if timestamp.present?
+      @class_timestamp ||= timestamp.in_time_zone timezone
+    end
   end
 
   private
