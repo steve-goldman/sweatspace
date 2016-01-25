@@ -22,4 +22,8 @@ class RepeatingClass < ActiveRecord::Base
 
   scope :confirmed, -> { where confirmed: true }
   scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }
+
+  def remaining_classes
+    classes.where "timestamp > ?", Time.now
+  end
 end

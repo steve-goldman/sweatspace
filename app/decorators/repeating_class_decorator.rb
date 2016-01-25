@@ -8,6 +8,20 @@ class RepeatingClassDecorator < Draper::Decorator
   end
 
   def display_number_of_weeks
-    "#{object.number_of_weeks} #{'week'.pluralize(object.number_of_weeks)}"
+    number_word object.number_of_weeks, "week"
+  end
+
+  def display_day_of_week
+    day_of_week.pluralize
+  end
+
+  def display_num_remaining
+    "#{number_word(repeating_class.remaining_classes.length, "week")} remaining"
+  end
+
+  private
+
+  def number_word number, word
+    "#{number} #{word.pluralize(number)}"
   end
 end
