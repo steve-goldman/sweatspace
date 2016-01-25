@@ -1,0 +1,10 @@
+.wizard-back-button
+= link_to class_setup_path(class_id: @repeating_class.classes.first.id, id: :make_repeating), class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
+%h3< Repeat Forever?
+%p< (We will schedule three months of classes into the future.)
+= form_for @repeating_class, url: wizard_path, method: :patch do |f|
+  = f.hidden_field :forever, id: "forever"
+  = button_tag "Yes", class: "btn btn-primary", onclick: "$('#forever').val(true); $('form').submit();"
+  = button_tag "No", class: "btn btn-primary", onclick: "$('#forever').val(false); $('form').submit();"

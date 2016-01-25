@@ -19,4 +19,13 @@ class Clazz < ActiveRecord::Base
   validates_presence_of :timestamp, if: :confirmed?
 
   scope :confirmed, -> { where confirmed: true }
+
+  def make_into_repeating_class!
+    create_repeating_class! class_template: class_template,
+                            studio: studio,
+                            instructor_profile: instructor_profile,
+                            day_of_week: day_of_week,
+                            time_of_day: time_of_day
+    save!
+  end
 end

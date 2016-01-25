@@ -1,6 +1,6 @@
 .my-classes
   %h3< My Classes
-  %p= link_to "Add a Class", new_setup_classes_path, method: :post, class: "btn btn-primary form-control"
+  %p= link_to "Add a Class", start_setup_classes_path, method: :post, class: "btn btn-primary form-control"
   %p.date-range= "#{@clazzes.count} #{'class'.pluralize(@clazzes.count)} between #{@min_date.to_date} and #{@max_date.to_date}"
   - if @clazzes.any?
     %table.table

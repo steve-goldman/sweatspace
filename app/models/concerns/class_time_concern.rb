@@ -30,6 +30,10 @@ module ClassTimeConcern
              ActiveSupport::TimeZone.new(timezone).formatted_offset
   end
 
+  def day_of_week
+    class_timestamp.strftime "%A"
+  end
+
   def timezone
     @timezone ||= studio.timezone
   end

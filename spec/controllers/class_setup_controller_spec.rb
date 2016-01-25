@@ -4,10 +4,21 @@ RSpec.describe ClassSetupController, type: :controller do
   render_views
   before { login_instructor_user }
 
-  describe "GET :new" do
+  describe "POST :start" do
+    it "creates a class" do
+      expect { post :start }.to change(Clazz, :count).by(1)
+    end
+
     it "redirects to the first step" do
-      get :new
+      post :start
       expect(response).to redirect_to(class_setup_path(Clazz.last.id, :class_template))
+    end
+  end
+
+  describe "POST :finish" do
+    it "redirects to classes path" do
+      post :finish
+      expect(response).to redirect_to(classes_path)
     end
   end
 

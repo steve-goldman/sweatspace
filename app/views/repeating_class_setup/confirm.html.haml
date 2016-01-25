@@ -1,0 +1,34 @@
+.wizard-back-button
+  = link_to previous_wizard_path, class: "btn btn-default" do
+    %span
+      %i.glyphicon.glyphicon-arrow-left
+%h3< Confirm Repeating Class?
+%table.table
+  %tr
+    %td
+      %strong< Class
+    %td= @clazz.name
+  %tr
+    %td
+      %strong< Studio
+    %td= @clazz.display_studio
+  %tr
+    %td
+      %strong< Day of Week
+    %td= @repeating_class.day_of_week.pluralize
+  %tr
+    %td
+      %strong< Time
+    %td= @repeating_class.time_of_day
+  %tr
+    %td
+      %strong< Duration
+      %td
+        - if @repeating_class.forever?
+          Forever
+        - else
+          = @repeating_class.display_number_of_weeks
+= form_for @repeating_class, url: wizard_path, method: :patch do |f|
+  = f.hidden_field :confirmed, value: true
+  .form-actions
+    = f.submit "Confirm", class: "btn btn-primary form-control"

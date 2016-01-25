@@ -1,0 +1,9 @@
+.wizard-back-button
+  = link_to previous_wizard_path, class: "btn btn-default" do
+    %span
+      %i.glyphicon.glyphicon-arrow-left
+%h3< Is this a weekly class?
+= form_for @clazz, url: wizard_path, method: :patch do |f|
+  = hidden_field_tag :repeating
+  = button_tag "Yes", class: "btn btn-primary", onclick: "$('#repeating').val(true); $('form').submit();"
+  = button_tag "No", class: "btn btn-primary", onclick: "$('#repeating').val(false); $('form').submit();"

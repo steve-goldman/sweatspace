@@ -1,9 +1,9 @@
 class ClassSetupController < ApplicationController
-  before_action :find_clazz, except: :new
-  before_action :owns_clazz, except: :new
+  before_action :find_clazz, except: [:start, :finish]
+  before_action :owns_clazz, except: [:start, :finish]
 
   include Wicked::Wizard
-  steps :class_template, :studio, :date, :time, :confirm
+  steps :class_template, :studio, :date, :time, :confirm, :make_repeating
 
   def show
     @clazz = @clazz.decorate
@@ -15,13 +15,14 @@ class ClassSetupController < ApplicationController
     render_wizard @clazz
   end
 
-  def new
-    @clazz = current_user.instructor_profile.classes.create
-    redirect_to wizard_path steps.first, class_id: @clazz.id
+  def start
+    clazz = current_user.instructor_profile.classes.create
+    redirect_to wizard_path steps.first, class_id: clazz.id
   end
 
-  def finish_wizard_path
-    classes_path
+  def finish
+    flash[:success] = "Class created"
+    redirect_to classes_path
   end
 
   private

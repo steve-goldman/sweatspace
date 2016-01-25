@@ -1,12 +1,6 @@
 class RepeatingClass < ActiveRecord::Base
   PERMITTED_PARAMS = [
-    "day_of_week",
-    "time_of_day",
-    "class_template_id",
-    "studio_id",
-    "instructor_profile_id",
     "forever",
-    "last_created_date",
     "number_of_weeks",
     "confirmed"
   ]
@@ -19,7 +13,6 @@ class RepeatingClass < ActiveRecord::Base
   belongs_to :studio
   has_many :classes, class_name: "Clazz"
   validates_presence_of :day_of_week, :time_of_day, :class_template_id, :studio_id, :instructor_profile_id
-  validates_presence_of :forever, if: :number_of_weeks?
   validates_presence_of :number_of_weeks?, if: :forever?
 
   scope :confirmed, -> { where confirmed: true }

@@ -1,0 +1,7 @@
+.wizard-back-button
+= link_to previous_wizard_path, class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
+%h3< Just once or every week?
+= link_to "Just Once", finish_setup_classes_path, method: :post, class: "btn btn-primary"
+= link_to "Every Week", start_repeating_setup_classes_path(class_id: @clazz.id), method: :post, class: "btn btn-primary"
