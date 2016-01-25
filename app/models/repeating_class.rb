@@ -13,7 +13,12 @@ class RepeatingClass < ActiveRecord::Base
   belongs_to :studio
   has_many :classes, class_name: "Clazz"
   validates_presence_of :day_of_week, :time_of_day, :class_template_id, :studio_id, :instructor_profile_id
-  validates_presence_of :number_of_weeks?, if: :forever?
+  validates_numericality_of :number_of_weeks,
+                            only_integer: true,
+                            greater_than_or_equal_to: 1,
+                            less_than_or_equal_to: 12,
+                            allow_nil: true,
+                            unless: :forever?
 
   scope :confirmed, -> { where confirmed: true }
 end
