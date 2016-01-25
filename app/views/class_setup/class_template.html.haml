@@ -1,3 +1,4 @@
+= render partial: "shared/errors_for", locals: { object: @clazz }
 .wizard-back-button
   = link_to request.referer || classes_path, class: "btn btn-default" do
     %span
