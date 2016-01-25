@@ -3,6 +3,11 @@ FactoryGirl.define do
     association :instructor_profile
     association :class_template
     association :studio
-    timestamp "2016-01-13 15:32:56"
+    date "2016-01-24"
+    time_of_day "05:49 PM"
+
+    factory :confirmed_clazz, class: "Clazz" do
+      confirmed true
+    end
   end
 end

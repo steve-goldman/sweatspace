@@ -1,0 +1,19 @@
+.my-repeating-classes
+  %h3< My Repeating Classes
+  %p
+    To add a repeating class,
+    = link_to "add a class", start_setup_classes_path, method: :post
+    and follow the prompts.
+  - if @repeating_classes.any?
+    %table.table
+      %tbody
+        - @repeating_classes.each do |repeating_class|
+          %tr
+            %td= repeating_class.display_day_of_week
+            %td= repeating_class.time_of_day
+            %td= repeating_class.name
+            %td= repeating_class.display_studio
+            - if repeating_class.forever?
+              %td< Open ended
+            - else
+              %td= repeating_class.display_num_remaining

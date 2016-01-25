@@ -8,15 +8,15 @@ class ClazzDecorator < Draper::Decorator
            to: :class_template
 
   def display_day_of_week
-    object.class_timestamp.strftime "%a"
+    object.class_timestamp.try :strftime, "%a"
   end
 
   def display_date
-    object.class_timestamp.strftime "%b %d"
+    object.class_timestamp.try :strftime, "%b %d"
   end
 
   def display_time
-    object.class_timestamp.strftime "%l:%M %p"
+    object.class_timestamp.try :strftime, "%l:%M %p"
   end
 
   def display_studio

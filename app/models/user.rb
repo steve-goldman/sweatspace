@@ -17,12 +17,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def timezone
-    # TODO: detect automatically?
-    "Eastern Time (US & Canada)"
+  def today
+    Time.now.in_time_zone(timezone).midnight
   end
 
-  def today
-    TimeService.instance.date Time.now, timezone
+  def timezone
+    # TODO: detect automatically?
+    @timezone ||= "Eastern Time (US & Canada)"
   end
 end
