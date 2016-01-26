@@ -9,3 +9,7 @@
 = render partial: "studio_list"
 = form_for :class_template_studio, url: admin_class_template_studios_path, method: :post do |f|
   = render partial: "studio_form_fields", locals: { f: f }
+%h3< Class Types
+= render partial: "clazz_type_list"
+= form_for :class_template_class_type, url: admin_class_template_class_types_path, method: :post do |f|
+  = render partial: "clazz_type_form_fields", locals: { f: f}
