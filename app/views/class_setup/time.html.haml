@@ -8,8 +8,7 @@
   .form-group
     = f.label :time_of_day
     = f.text_field :time_of_day, class: "form-control submit-on-change", id: "timepicker", readonly: true, autofocus: true
-  .form-actions
-    = f.submit "Next", class: "btn btn-primary form-control"
+  = f.submit "Next", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
 
 :javascript
   new SubmitOnChange();

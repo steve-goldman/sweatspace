@@ -8,7 +8,7 @@
   .form-group
     = f.label :class_template_id, "Class Template"
     = f.select :class_template_id, class_template_options, {}, class: "submit-on-change form-control", autofocus: true
-  = f.submit "Next", class: "btn btn-primary form-control"
+  = f.submit "Next", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
 
 :javascript
   new SubmitOnChange();
