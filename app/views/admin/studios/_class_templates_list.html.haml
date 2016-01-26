@@ -1,6 +1,7 @@
 - if @studio.class_template_studios.any?
-  %table.table
+  %ul.list-group
     - @studio.class_template_studios.each do |class_template_studio|
-      %tr
-        %td= link_to class_template_studio.class_template.name, edit_admin_class_template_path(class_template_studio.class_template)
-        %td= link_to "Remove", admin_class_template_studio_path(class_template_studio), method: :delete, class: "btn btn-danger"
+      %li.list-group-item
+        .row
+          .col-xs-9= link_to class_template_studio.class_template.name, edit_admin_class_template_path(class_template_studio.class_template)
+          .col-xs-3= link_to "Remove", admin_class_template_studio_path(class_template_studio), method: :delete, class: "btn btn-danger"
