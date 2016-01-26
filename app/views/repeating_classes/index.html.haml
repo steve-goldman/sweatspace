@@ -4,16 +4,19 @@
     To add a repeating class,
     = link_to "add a class", start_setup_classes_path, method: :post
     and follow the prompts.
-  - if @repeating_classes.any?
-    %table.table
-      %tbody
-        - @repeating_classes.each do |repeating_class|
-          %tr
-            %td= repeating_class.display_day_of_week
-            %td= repeating_class.time_of_day
-            %td= repeating_class.name
-            %td= repeating_class.display_studio
-            - if repeating_class.forever?
-              %td< Open ended
-            - else
-              %td= repeating_class.display_num_remaining
+  - if @repeating_classes_by_day.any?
+    - @repeating_classes_by_day.each do |day, repeating_classes|
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title= repeating_classes.first.display_day_of_week
+        - repeating_classes.each do |repeating_class|
+          %li.list-group-item
+            .row
+              .col-xs-2= repeating_class.display_time
+              .col-xs-4= repeating_class.name
+              .col-xs-3= repeating_class.display_studio
+              .col-xs-3
+                - if repeating_class.forever?
+                  Open ended
+                - else
+                  = repeating_class.display_num_remaining

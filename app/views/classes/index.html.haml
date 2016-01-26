@@ -1,22 +1,18 @@
 .my-classes
   %h3< My Classes
   %p= link_to "Add a Class", start_setup_classes_path, method: :post, class: "btn btn-primary form-control"
-  %p.date-range= "#{@clazzes.count} #{'class'.pluralize(@clazzes.count)} between #{@min_date.to_date} and #{@max_date.to_date}"
-  - if @clazzes.any?
-    %table.table
-      %tbody
-        - @clazzes.each do |clazz|
-          %tr{ class: class_summary_class(clazz) }
-            %td= clazz.display_day_of_week
-            %td= clazz.display_date
-            %td= clazz.display_time
-            %td= clazz.name
-            %td= clazz.display_clazz_type
-            %td= clazz.display_studio
-            %td= clazz.display_duration
-  = link_to classes_path(min_date: @prev_min_date, max_date: @prev_max_date), class: "prev-button btn btn-default" do
-    %span
-      %i.glyphicon.glyphicon-arrow-left
-  = link_to classes_path(min_date: @next_min_date, max_date: @next_max_date), class: "next-button btn btn-default" do
-    %span
-      %i.glyphicon.glyphicon-arrow-right
+  %p.date-range= @presenter.count_in_range_display
+  - if @classes_by_date.any?
+    = render partial: "prev_next_button", locals: { date_range: @date_range }
+    - @classes_by_date.each do |date, classes|
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title= @presenter.header_display_date date
+        %ul.list-group
+          - classes.each do |clazz|
+            %li.list-group-item{ class: class_summary_class(clazz) }
+              .row
+                .col-xs-3= clazz.display_time
+                .col-xs-5= clazz.name
+                .col-xs-4= clazz.display_studio
+  = render partial: "prev_next_button", locals: { date_range: @date_range }

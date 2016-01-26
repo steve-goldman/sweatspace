@@ -15,6 +15,14 @@ class RepeatingClassDecorator < Draper::Decorator
     Date::DAYNAMES[day_of_week].pluralize
   end
 
+  def display_time
+    if time_of_day.start_with? "0"
+      time_of_day[1..-1]
+    else
+      time_of_day
+    end
+  end
+
   def display_num_remaining
     "#{number_word(repeating_class.remaining_classes.length, "week")} remaining"
   end

@@ -1,0 +1,7 @@
+%p
+  = link_to classes_path(min_date: @date_range.prev_min_date, max_date: @date_range.prev_max_date), class: "prev-button btn btn-default" do
+    %span
+      %i.glyphicon.glyphicon-arrow-left
+  = link_to classes_path(min_date: @date_range.next_min_date, max_date: @date_range.next_max_date), class: "next-button btn btn-default" do
+    %span
+      %i.glyphicon.glyphicon-arrow-right
