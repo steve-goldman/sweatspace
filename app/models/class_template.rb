@@ -1,6 +1,5 @@
 class ClassTemplate < ActiveRecord::Base
   PERMITTED_PARAMS = [
-    "clazz_type_id",
     "name",
     "description",
     "duration",
@@ -9,7 +8,8 @@ class ClassTemplate < ActiveRecord::Base
   acts_as_paranoid
   has_paper_trail
 
-  belongs_to :clazz_type
+  has_many :class_template_class_types
+  has_many :clazz_types, through: :class_template_class_types
   has_many :classes, class_name: "Clazz"
   has_many :class_template_studios
   has_many :studios, through: :class_template_studios

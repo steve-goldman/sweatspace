@@ -6,7 +6,7 @@ RSpec.describe ClassTemplate, :type => :model do
   end
 
   describe "associations" do
-    it { should belong_to :clazz_type }
+    it { should have_many :clazz_types }
     it { should have_many :classes }
     it { should have_many :class_template_studios }
     it { should have_many :studios }
