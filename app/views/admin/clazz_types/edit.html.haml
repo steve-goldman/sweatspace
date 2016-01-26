@@ -1,4 +1,11 @@
+= link_to admin_class_types_path, class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
 = render partial: "shared/errors_for", locals: { object: @clazz_type }
 %h3< Edit class type
 = form_for @clazz_type, url: { action: :update} do |f|
   = render partial: "form_fields", locals: { f: f }
+%h3< Class Templates
+= render partial: "class_templates_list"
+= form_for :class_template_class_type, url: admin_class_template_class_types_path, method: :post do |f|
+  = render partial: "class_template_form_fields", locals: { f: f }
