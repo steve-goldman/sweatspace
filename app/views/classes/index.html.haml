@@ -1,6 +1,7 @@
 .my-classes
-  %h3< My Classes
-  %p= link_to "Add a Class", start_setup_classes_path, method: :post, class: "btn btn-primary form-control"
+  %h3
+    My Classes
+    = link_to "Add a Class", start_setup_classes_path, method: :post, class: "btn btn-primary btn-sm pull-right"
   %p.date-range= @presenter.count_in_range_display
   - if @classes_by_date.any?
     = render partial: "prev_next_button", locals: { date_range: @date_range }

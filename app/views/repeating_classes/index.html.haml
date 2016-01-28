@@ -1,5 +1,7 @@
 .my-repeating-classes
-  %h3< My Repeating Classes
+  %h3
+    My Repeating Classes
+    = link_to "Add a Class", start_setup_classes_path, method: :post, class: "btn btn-primary btn-sm pull-right"
   %p
     To add a repeating class,
     = link_to "add a class", start_setup_classes_path, method: :post

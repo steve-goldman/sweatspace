@@ -1,12 +1,12 @@
-%h3< Class Templates
+%h3
+  Class Templates
+  = link_to "Create", new_admin_class_template_path, class: "btn btn-primary btn-sm pull-right"
 - if @class_templates.any?
   %table.table
     %tbody
       - @class_templates.each do |class_template|
         %tr
           %td= class_template.name
-          %td= class_template.display_duration
-          %td= link_to "Edit", edit_admin_class_template_path(class_template)
+          %td= link_to "Edit", edit_admin_class_template_path(class_template), class: "btn btn-info btn-xs pull-right"
 - else
   %p< No classes
-= link_to "Create", new_admin_class_template_path, class: "btn btn-primary"

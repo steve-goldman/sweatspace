@@ -1,13 +1,11 @@
-%h3< Studios
+%h3
+  Studios
+  = link_to "Add a Studio", new_admin_studio_path, class: "btn btn-primary btn-sm pull-right"
 - if @studios.any?
   %table.table
-    %tbody
-      - @studios.each do |studio|
-        %tr
-          %td= studio.name
-          %td= link_to studio.url, studio.url, target: "_blank"
-          %td= studio.timezone
-          %td= link_to "Edit", edit_admin_studio_path(studio)
+    - @studios.each do |studio|
+      %tr
+        %td= studio.name
+        %td= link_to "Edit", edit_admin_studio_path(studio), class: "btn btn-info btn-xs pull-right"
 - else
   %p< No studios
-= link_to "Create", new_admin_studio_path, class: "btn btn-primary"
