@@ -5,7 +5,7 @@
   %table.table
     %tbody
       - @classes.each do |clazz|
-        %tr
+        %tr{ class: class_canceled_class(clazz) }
           %td= clazz.display_day_of_week
           %td= clazz.display_date
           %td= clazz.display_time

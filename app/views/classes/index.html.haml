@@ -11,7 +11,7 @@
           %h4.panel-title= @presenter.header_display_date date
         %ul.list-group
           - classes.each do |clazz|
-            = link_to class_change_path(clazz), remote: true, class: "list-group-item #{class_summary_class(clazz)}" do
+            = link_to class_change_path(clazz), remote: true, class: "list-group-item #{class_summary_class(clazz)} #{class_canceled_class(clazz)}" do
               .row
                 .col-xs-3= clazz.display_time
                 .col-xs-5= clazz.name
