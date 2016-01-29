@@ -6,7 +6,7 @@
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
     = f.text_field :time_of_day, class: "form-control submit-on-change", id: "timepicker", readonly: true, autofocus: true
-  = f.submit "Next", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
+  = f.submit "Next", class: "btn btn-primary form-control"
 
 :javascript
   new SubmitOnChange();

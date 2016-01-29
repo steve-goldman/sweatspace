@@ -6,4 +6,4 @@
 = form_for @repeating_class, url: wizard_path, method: :patch do |f|
   .form-group
     = f.number_field :number_of_weeks, autofocus: true, min: 1, max: 12, class: "form-control"
-  = f.submit "Next", class: "btn btn-primary", data: { disable_with: "Working..." }
+  = f.submit "Next", class: "btn btn-primary"
