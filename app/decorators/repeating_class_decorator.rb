@@ -8,7 +8,9 @@ class RepeatingClassDecorator < Draper::Decorator
   end
 
   def display_number_of_weeks
-    number_word object.number_of_weeks, "week"
+    if object.number_of_weeks.present?
+      number_word object.number_of_weeks, "week"
+    end
   end
 
   def display_day_of_week

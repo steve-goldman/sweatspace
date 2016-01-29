@@ -1,11 +1,12 @@
-%h3< Class types
+%h3
+  Class Types
+  = link_to "Create", new_admin_class_type_path, class: "btn btn-primary btn-sm pull-right"
 - if @clazz_types.any?
   %table.table
     %tbody
       - @clazz_types.each do |clazz_type|
         %tr
           %td= clazz_type.name
-          %td= link_to "Edit", edit_admin_class_type_path(clazz_type)
+          %td= link_to "Edit", edit_admin_class_type_path(clazz_type), class: "btn btn-info btn-xs pull-right"
 - else
   %p< No class types
-= link_to "Create", new_admin_class_type_path, class: "btn btn-primary"

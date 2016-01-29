@@ -18,17 +18,15 @@ class Admin::StudiosController < Admin::ControllerBase
       flash[:success] = "Studio created"
       redirect_to edit_admin_studio_path(@studio)
     else
-      flash[:danger] = "Could not create studio"
       render :new
     end
   end
 
   def update
     if @studio.update_attributes create_params
-      flash[:success] = "Class type saved"
+      flash[:success] = "Studio saved"
       redirect_to admin_studios_path
     else
-      flash[:danger] = "Could not save class type"
       render :edit
     end
   end
@@ -38,7 +36,7 @@ class Admin::StudiosController < Admin::ControllerBase
   def find_studio
     @studio = Studio.find_by id: params[:id]
     if @studio.nil?
-      flash[:danger] = "Unable to find class type"
+      flash[:danger] = "Unable to find studio"
       redirect_to root_path
     end
   end

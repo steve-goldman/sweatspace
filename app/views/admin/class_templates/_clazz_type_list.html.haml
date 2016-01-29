@@ -1,6 +1,6 @@
 - if @class_template.class_template_class_types.any?
-  %table.table
+  %ul.list-group
     - @class_template.class_template_class_types.each do |class_template_class_type|
-      %tr
-        %td= link_to class_template_class_type.clazz_type.name, edit_admin_class_type_path(class_template_class_type.clazz_type)
-        %td= link_to "Remove", admin_class_template_class_type_path(class_template_class_type), method: :delete, class: "btn btn-danger"
+      %li.list-group-item
+        = link_to class_template_class_type.clazz_type.name, edit_admin_class_type_path(class_template_class_type.clazz_type)
+        = link_to "Remove", admin_class_template_class_type_path(class_template_class_type), method: :delete, class: "btn btn-danger btn-xs pull-right"

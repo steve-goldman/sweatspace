@@ -19,6 +19,7 @@ class RepeatingClassSetupController < ApplicationController
     if @repeating_class.valid? && @repeating_class.confirmed?
       @repeating_class.create_classes!
     end
+    @repeating_class = @repeating_class.decorate
     render_wizard @repeating_class
   end
 

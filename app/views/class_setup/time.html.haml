@@ -1,12 +1,10 @@
 = render partial: "shared/errors_for", locals: { object: @clazz }
-.wizard-back-button
-  = link_to previous_wizard_path, class: "btn btn-default" do
-    %span
-      %i.glyphicon.glyphicon-arrow-left
+= link_to previous_wizard_path, class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
 %h3< Select the time
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
-    = f.label :time_of_day
     = f.text_field :time_of_day, class: "form-control submit-on-change", id: "timepicker", readonly: true, autofocus: true
   = f.submit "Next", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
 

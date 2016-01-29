@@ -1,9 +1,7 @@
 .my-repeating-classes
-  %h3< My Repeating Classes
-  %p
-    To add a repeating class,
-    = link_to "add a class", start_setup_classes_path, method: :post
-    and follow the prompts.
+  %h3
+    My Repeating Classes
+    = link_to "Add a Class", start_setup_classes_path, method: :post, class: "btn btn-primary btn-sm pull-right"
   - if @repeating_classes_by_day.any?
     - @repeating_classes_by_day.each do |day, repeating_classes|
       .panel.panel-default

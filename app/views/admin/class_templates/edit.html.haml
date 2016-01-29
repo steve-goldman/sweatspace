@@ -1,15 +1,25 @@
-= link_to admin_class_templates_path, class: "btn btn-default" do
-  %span
-    %i.glyphicon.glyphicon-arrow-left
 = render partial: "shared/errors_for", locals: { object: @class_template }
-%h3< Edit the class template
-= form_for @class_template, url: { action: :update } do |f|
-  = render partial: "form_fields", locals: { f: f }
-%h3< Studios
-= render partial: "studio_list"
-= form_for :class_template_studio, url: admin_class_template_studios_path, method: :post do |f|
-  = render partial: "studio_form_fields", locals: { f: f }
-%h3< Class Types
-= render partial: "clazz_type_list"
-= form_for :class_template_class_type, url: admin_class_template_class_types_path, method: :post do |f|
-  = render partial: "clazz_type_form_fields", locals: { f: f}
+%p
+  = link_to admin_class_templates_path, class: "btn btn-default" do
+    %span
+      %i.glyphicon.glyphicon-arrow-left
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title< Class Template Details
+  .panel-body
+    = form_for @class_template, url: { action: :update } do |f|
+      = render partial: "form_fields", locals: { f: f }
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title< Associated Studios
+  = render partial: "studio_list"
+  .panel-footer
+    = form_for :class_template_studio, url: admin_class_template_studios_path, method: :post do |f|
+      = render partial: "studio_form_fields", locals: { f: f }
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title< Associated Class Types
+  = render partial: "clazz_type_list"
+  .panel-footer
+    = form_for :class_template_class_type, url: admin_class_template_class_types_path, method: :post do |f|
+      = render partial: "clazz_type_form_fields", locals: { f: f}

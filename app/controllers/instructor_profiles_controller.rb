@@ -21,7 +21,6 @@ class InstructorProfilesController < ApplicationController
       flash[:success] = "Instructor profile created"
       redirect_to root_path
     else
-      flash.now[:danger] = "Unable to create instructor profile"
       render :new
     end
   end
@@ -31,7 +30,6 @@ class InstructorProfilesController < ApplicationController
       flash[:success] = "Instructor profile saved"
       redirect_to root_path
     else
-      flash.now[:danger] = "Unable to save instructor profile"
       render :edit
     end      
   end
