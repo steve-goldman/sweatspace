@@ -3,10 +3,9 @@
   = link_to request.referer || classes_path, class: "btn btn-default" do
     %span
       %i.glyphicon.glyphicon-arrow-left
-%h3< Select a class template
+%h3< Select the class
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
-    = f.label :class_template_id, "Class Template"
     = f.select :class_template_id, class_template_options, {}, class: "submit-on-change form-control", autofocus: true
   = f.submit "Next", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
 

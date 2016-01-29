@@ -7,7 +7,6 @@
 %h4< If this is a repeating class, select the first date
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
-    = f.label :date
     = f.text_field :date, class: "submit-on-change form-control", id: "datepicker", readonly: true, autofocus: true
   = f.submit "Next", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
 

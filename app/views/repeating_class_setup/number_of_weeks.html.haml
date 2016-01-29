@@ -6,6 +6,5 @@
 %h3< For how many weeks?
 = form_for @repeating_class, url: wizard_path, method: :patch do |f|
   .form-group
-    = f.label :number_of_weeks
     = f.number_field :number_of_weeks, min: 1, max: 12, class: "form-control"
   = f.submit "Next", class: "btn btn-primary", data: { disable_with: "Working..." }
