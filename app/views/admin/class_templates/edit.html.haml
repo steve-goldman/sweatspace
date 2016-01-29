@@ -5,20 +5,20 @@
 = render partial: "shared/errors_for", locals: { object: @class_template }
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Edit the class template
+    %h3.panel-title< Class Template Details
   .panel-body
     = form_for @class_template, url: { action: :update } do |f|
       = render partial: "form_fields", locals: { f: f }
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Studios
+    %h3.panel-title< Associated Studios
   = render partial: "studio_list"
   .panel-footer
     = form_for :class_template_studio, url: admin_class_template_studios_path, method: :post do |f|
       = render partial: "studio_form_fields", locals: { f: f }
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Class types
+    %h3.panel-title< Associated Class Types
   = render partial: "clazz_type_list"
   .panel-footer
     = form_for :class_template_class_type, url: admin_class_template_class_types_path, method: :post do |f|

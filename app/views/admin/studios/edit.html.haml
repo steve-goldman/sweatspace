@@ -5,13 +5,13 @@
 = render partial: "shared/errors_for", locals: { object: @studio }
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Edit studio
+    %h3.panel-title< Studio Details
   .panel-body
     = form_for @studio, url: { action: :update} do |f|
       = render partial: "form_fields", locals: { f: f }
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Class templates
+    %h3.panel-title< Associated Class Templates
   = render partial: "class_templates_list"
   .panel-footer
     = form_for :class_template_studio, url: admin_class_template_studios_path, method: :post do |f|

@@ -2,6 +2,6 @@
   %span
     %i.glyphicon.glyphicon-arrow-left
 = render partial: "shared/errors_for", locals: { object: @studio }
-%h3< Create a studio
+%h3< Create a Studio
 = form_for @studio, url: { action: :create} do |f|
   = render partial: "form_fields", locals: { f: f }
