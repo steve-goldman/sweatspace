@@ -18,7 +18,7 @@ class Admin::StudiosController < Admin::ControllerBase
       flash[:success] = "Studio created"
       redirect_to edit_admin_studio_path(@studio)
     else
-      flash[:danger] = "Could not create studio"
+      flash.now[:danger] = "Could not create studio"
       render :new
     end
   end

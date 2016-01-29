@@ -18,7 +18,7 @@ class Admin::ClazzTypesController < Admin::ControllerBase
       flash[:success] = "Class type created"
       redirect_to admin_class_types_path
     else
-      flash[:danger] = "Could not create class type"
+      flash.now[:danger] = "Could not create class type"
       render :new
     end
   end

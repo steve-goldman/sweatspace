@@ -18,7 +18,7 @@ class Admin::ClassTemplatesController < Admin::ControllerBase
       flash[:success] = "Class template created"
       redirect_to edit_admin_class_template_path(@class_template)
     else
-      flash[:danger] = "Unable to create class template"
+      flash.now[:danger] = "Unable to create class template"
       render :new
     end
   end
