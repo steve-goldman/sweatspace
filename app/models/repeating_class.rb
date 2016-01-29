@@ -17,6 +17,7 @@ class RepeatingClass < ActiveRecord::Base
                             only_integer: true,
                             greater_than_or_equal_to: 0,
                             less_than_or_equal_to: 6
+  validates_presence_of :number_of_weeks, if: "confirmed? && forever.blank?"
   validates_numericality_of :number_of_weeks,
                             only_integer: true,
                             greater_than_or_equal_to: 1,
