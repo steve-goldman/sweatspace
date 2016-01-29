@@ -1,0 +1,31 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      = button_tag class: "close", "data-dismiss": "modal" do
+        %span< &times;
+      %h4.modal-title< Make a Change
+    %table.table
+      %tr
+        %td.table-key< Date
+        %td= @clazz.display_date
+      %tr
+        %td.table-key< Time
+        %td= @clazz.display_time
+      %tr
+        %td.table-key< Class
+        %td= @clazz.name
+      %tr
+        %td.table-key< Studio
+        %td= @clazz.display_studio
+      %tr
+        %td{ colspan: "2" }
+          = form_for :class_change, url: cancel_class_change_path(@clazz) do |f|
+            = f.submit "Cancel Class", class: "form-control btn btn-primary"
+      %tr
+        %td{ colspan: "2" }
+          = form_for :class_change, url: delete_class_change_path(@clazz) do |f|
+            = f.submit "Delete Class", class: "form-control btn btn-primary"
+      %tr
+        %td{ colspan: "2" }
+          = form_for :class_change, url: last_in_repeating_group_class_change_path(@clazz) do |f|
+            = f.submit "Make Last in Repeating Group", class: "form-control btn btn-primary"

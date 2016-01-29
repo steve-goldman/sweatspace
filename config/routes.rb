@@ -18,6 +18,11 @@ Rails.application.routes.draw do
     resources :setup, controller: :class_setup, only: [:show, :update]
     post "start_class_setup", to: "class_setup#start", as: :start_setup, on: :collection
     get "finish_class_setup", to: "class_setup#finish", as: :finish_setup, on: :collection
+    resource :change, controller: :class_changes, only: :show do
+      post :cancel
+      post :delete
+      post :last_in_repeating_group
+    end
   end
 
   resources :repeating_classes, only: :index do
