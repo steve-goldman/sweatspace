@@ -1,6 +1,6 @@
 .form-group
   = f.label :name
-  = f.text_field :name, class: "form-control"
+  = f.text_field :name, autofocus: true, class: "form-control"
 .form-group
   = f.label :duration, "Duration (minutes)"
   = f.number_field :duration, class: "form-control"
