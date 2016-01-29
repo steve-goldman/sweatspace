@@ -4,6 +4,7 @@ class Admin::ClassTemplateClassTypesController < Admin::ControllerBase
   def create
     class_template_class_type = ClassTemplateClassType.create create_params
     if class_template_class_type.persisted?
+      flash[:success] = "Class template linked to class type"
       redirect_to request.referer || edit_admin_class_template_path(class_template_class_type.class_template)
     else
       redirect_to request.referer || root_path
@@ -12,6 +13,7 @@ class Admin::ClassTemplateClassTypesController < Admin::ControllerBase
 
   def destroy
     @class_template_class_type.destroy!
+    flash[:success] = "Class template unlinked from class type"
     redirect_to request.referer || edit_admin_class_template_path(@class_template_class_type.class_template)
   end
 
