@@ -12,6 +12,7 @@ class ClassSetupController < ApplicationController
 
   def update
     @clazz.update_attributes update_params
+    @clazz = @clazz.decorate
     render_wizard @clazz
   end
 
