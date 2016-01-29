@@ -30,4 +30,4 @@
           = @repeating_class.display_number_of_weeks
 = form_for @repeating_class, url: wizard_path, method: :patch do |f|
   = f.hidden_field :confirmed, value: true
-  = f.submit "Confirm", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
+  = f.submit "Confirm", class: "btn btn-primary form-control"

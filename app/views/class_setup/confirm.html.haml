@@ -22,4 +22,4 @@
     %td= @clazz.display_time
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   = f.hidden_field :confirmed, value: true
-  = f.submit "Confirm", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
+  = f.submit "Confirm", class: "btn btn-primary form-control"

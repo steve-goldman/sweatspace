@@ -6,5 +6,5 @@
 %h4< Open ended classes are continously scheduled 3 months into the future
 = form_for @repeating_class, url: wizard_path, method: :patch do |f|
   = f.hidden_field :forever, id: "forever"
-  = button_tag "Open Ended", class: "btn btn-primary", onclick: "$('#forever').val(true); $('form').submit();", data: { disable_with: "Working..." }
-  = button_tag "Limited Duration", class: "btn btn-default", onclick: "$('#forever').val(false); $('form').submit();", data: { disable_with: "Working..." }
+  = button_tag "Open Ended", class: "btn btn-primary", onclick: "$('#forever').val(true); $('form').submit();"
+  = button_tag "Limited Duration", class: "btn btn-default", onclick: "$('#forever').val(false); $('form').submit();"

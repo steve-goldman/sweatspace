@@ -6,7 +6,7 @@
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
     = f.select :studio_id, class_template_studio_options(@clazz.class_template), {}, class: "submit-on-change form-control", autofocus: true
-  = f.submit "Next", class: "btn btn-primary form-control", data: { disable_with: "Working..." }
+  = f.submit "Next", class: "btn btn-primary form-control"
 
 :javascript
   new SubmitOnChange();
