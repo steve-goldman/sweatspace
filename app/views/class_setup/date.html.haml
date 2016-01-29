@@ -4,6 +4,7 @@
     %span
       %i.glyphicon.glyphicon-arrow-left
 %h3< Select the date
+%h4< If this is a repeating class, select the first date
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
     = f.label :date
