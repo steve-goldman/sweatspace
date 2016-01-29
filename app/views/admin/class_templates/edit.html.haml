@@ -1,8 +1,8 @@
+= render partial: "shared/errors_for", locals: { object: @class_template }
 %p
   = link_to admin_class_templates_path, class: "btn btn-default" do
     %span
       %i.glyphicon.glyphicon-arrow-left
-= render partial: "shared/errors_for", locals: { object: @class_template }
 .panel.panel-default
   .panel-heading
     %h3.panel-title< Class Template Details

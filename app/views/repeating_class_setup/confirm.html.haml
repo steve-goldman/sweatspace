@@ -1,8 +1,7 @@
 = render partial: "shared/errors_for", locals: { object: @repeating_class }
-.wizard-back-button
-  = link_to previous_wizard_path, class: "btn btn-default" do
-    %span
-      %i.glyphicon.glyphicon-arrow-left
+= link_to previous_wizard_path, class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
 %h3< Please confirm these details
 %table.table
   %tr

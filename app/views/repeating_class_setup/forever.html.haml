@@ -1,5 +1,4 @@
 = render partial: "shared/errors_for", locals: { object: @repeating_class }
-.wizard-back-button
 = link_to class_setup_path(class_id: @repeating_class.classes.first.id, id: :make_repeating), class: "btn btn-default" do
   %span
     %i.glyphicon.glyphicon-arrow-left

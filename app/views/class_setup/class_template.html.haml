@@ -1,8 +1,7 @@
 = render partial: "shared/errors_for", locals: { object: @clazz }
-.wizard-back-button
-  = link_to request.referer || classes_path, class: "btn btn-default" do
-    %span
-      %i.glyphicon.glyphicon-arrow-left
+= link_to request.referer || classes_path, class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
 %h3< Select the class
 = form_for @clazz, url: wizard_path, method: :patch do |f|
   .form-group
