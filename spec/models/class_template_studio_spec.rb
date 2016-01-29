@@ -9,4 +9,9 @@ RSpec.describe ClassTemplateStudio, :type => :model do
     it { should belong_to(:class_template) }
     it { should belong_to(:studio) }
   end
+
+  describe "validations" do
+    it { should validate_presence_of(:class_template_id) }
+    it { should validate_presence_of(:studio_id) }
+  end
 end

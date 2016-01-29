@@ -2,8 +2,12 @@ class Admin::ClassTemplateClassTypesController < Admin::ControllerBase
   before_action :find_class_template_class_type, only: :destroy
 
   def create
-    class_template_class_type = ClassTemplateClassType.create! create_params
-    redirect_to request.referer || edit_admin_class_template_path(class_template_class_type.class_template)
+    class_template_class_type = ClassTemplateClassType.create create_params
+    if class_template_class_type.persisted?
+      redirect_to request.referer || edit_admin_class_template_path(class_template_class_type.class_template)
+    else
+      redirect_to request.referer || root_path
+    end
   end
 
   def destroy
