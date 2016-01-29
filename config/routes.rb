@@ -20,8 +20,9 @@ Rails.application.routes.draw do
     get "finish_class_setup", to: "class_setup#finish", as: :finish_setup, on: :collection
     resource :change, controller: :class_changes, only: :show do
       post :cancel
+      post :uncancel
       post :delete
-      post :last_in_repeating_group
+      post :last_in_repeating_class
     end
   end
 

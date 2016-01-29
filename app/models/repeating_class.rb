@@ -43,6 +43,12 @@ class RepeatingClass < ActiveRecord::Base
     end
   end
 
+  def delete_after! last_clazz
+    classes.where("timestamp > ?", last_clazz.timestamp).destroy_all
+    classes.each { |clazz| clazz.update_attributes repeating_class: nil }
+    self.destroy
+  end
+
   private
 
   def future_dates

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126041829) do
+ActiveRecord::Schema.define(version: 20160129035940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(version: 20160126041829) do
     t.integer  "repeating_class_id"
     t.string   "date"
     t.string   "time_of_day"
+    t.boolean  "canceled"
   end
 
+  add_index "clazzs", ["canceled"], name: "index_clazzs_on_canceled", using: :btree
   add_index "clazzs", ["class_template_id"], name: "index_clazzs_on_class_template_id", using: :btree
   add_index "clazzs", ["confirmed"], name: "index_clazzs_on_confirmed", using: :btree
   add_index "clazzs", ["deleted_at"], name: "index_clazzs_on_deleted_at", using: :btree

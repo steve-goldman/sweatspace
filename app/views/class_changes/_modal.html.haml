@@ -7,7 +7,7 @@
     %table.table
       %tr
         %td.table-key< Date
-        %td= @clazz.display_date
+        %td= @clazz.display_long_date
       %tr
         %td.table-key< Time
         %td= @clazz.display_time
@@ -17,15 +17,33 @@
       %tr
         %td.table-key< Studio
         %td= @clazz.display_studio
-      %tr
-        %td{ colspan: "2" }
-          = form_for :class_change, url: cancel_class_change_path(@clazz) do |f|
-            = f.submit "Cancel Class", class: "form-control btn btn-primary"
+      - if @clazz.repeating_class.present?
+        %tr
+          %td.table-key< Weekly
+          - if @clazz.repeating_class.forever?
+            %td< Open ended
+          - else
+            %td= @clazz.display_num_remaining
+      - if @clazz.canceled?
+        %tr
+          %td.table-key{ colspan: "2" }< CANCELED
+      - unless @clazz.in_the_past?
+        - if @clazz.canceled?
+          %tr
+            %td{ colspan: "2" }
+              = form_for :class_change, url: uncancel_class_change_path(@clazz) do |f|
+                = f.submit "Un-cancel Class", class: "form-control btn btn-primary"
+        - else
+          %tr
+            %td{ colspan: "2" }
+              = form_for :class_change, url: cancel_class_change_path(@clazz) do |f|
+                = f.submit "Cancel Class", class: "form-control btn btn-primary"
       %tr
         %td{ colspan: "2" }
           = form_for :class_change, url: delete_class_change_path(@clazz) do |f|
             = f.submit "Delete Class", class: "form-control btn btn-primary"
-      %tr
-        %td{ colspan: "2" }
-          = form_for :class_change, url: last_in_repeating_group_class_change_path(@clazz) do |f|
-            = f.submit "Make Last in Repeating Group", class: "form-control btn btn-primary"
+      - unless @clazz.canceled? || @clazz.repeating_class.nil?
+        %tr
+          %td{ colspan: "2" }
+            = form_for :class_change, url: last_in_repeating_class_class_change_path(@clazz) do |f|
+              = f.submit "Make Last in Repeating Class", class: "form-control btn btn-primary"

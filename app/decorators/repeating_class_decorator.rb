@@ -26,7 +26,7 @@ class RepeatingClassDecorator < Draper::Decorator
   end
 
   def display_num_remaining
-    "#{number_word(repeating_class.remaining_classes.length, "week")} remaining"
+    "#{number_word(object.remaining_classes.length, "week")} remaining"
   end
 
   private

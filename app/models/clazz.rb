@@ -20,6 +20,8 @@ class Clazz < ActiveRecord::Base
 
   scope :confirmed, -> { where confirmed: true }
   scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }
+  scope :canceled, -> { where canceled: true }
+  scope :not_canceled, -> { where "canceled IS NULL OR canceled != 't'" }
 
   def make_into_repeating_class!
     create_repeating_class! class_template: class_template,
@@ -28,5 +30,9 @@ class Clazz < ActiveRecord::Base
                             day_of_week: day_of_week_int,
                             time_of_day: time_of_day
     save!
+  end
+
+  def in_the_past?
+    timestamp < Time.now
   end
 end
