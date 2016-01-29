@@ -1,3 +1,6 @@
+= link_to admin_studios_path, class: "prev-button btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
 = render partial: "shared/errors_for", locals: { object: @studio }
 %h3< Create a studio
 = form_for @studio, url: { action: :create} do |f|

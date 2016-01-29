@@ -1,3 +1,6 @@
+= link_to admin_class_types_path, class: "prev-button btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
 = render partial: "shared/errors_for", locals: { object: @clazz_type }
 %h3< Create a class type
 = form_for @clazz_type, url: { action: :create} do |f|
