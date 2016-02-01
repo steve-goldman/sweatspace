@@ -1,7 +1,7 @@
 .modal-dialog.modal-lg
   .modal-content
     .modal-header
-      = button_tag class: "close", "data-dismiss": "modal" do
+      = button_tag class: "close", data: { dismiss: "modal" } do
         %span< &times;
       %h4.modal-title< Make a Change
     %table.table
