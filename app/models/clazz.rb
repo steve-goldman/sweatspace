@@ -6,8 +6,6 @@ class Clazz < ActiveRecord::Base
     "time_of_day"
   ]
 
-  include ClassTimeConcern
-
   acts_as_paranoid
   has_paper_trail
 
@@ -17,22 +15,27 @@ class Clazz < ActiveRecord::Base
   belongs_to :repeating_class
   validates_presence_of :instructor_profile, :class_template, :studio
   validates_presence_of :timestamp, if: :confirmed?
+  validates_format_of :date, with: /\A\d\d\d\d-\d\d-\d\d\z/i, if: :confirmed
+  validates_format_of :time_of_day, with: /\A\d\d:\d\d (AM|PM)\z/i, if: :confirmed
+  validates :timestamp, date: { after: Proc.new { Time.now } }, if: :confirmed?
+  before_validation :set_timestamp
 
   scope :confirmed, -> { where confirmed: true }
   scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }
   scope :canceled, -> { where canceled: true }
   scope :not_canceled, -> { where "canceled IS NULL OR canceled != 't'" }
 
-  def make_into_repeating_class!
-    create_repeating_class! class_template: class_template,
-                            studio: studio,
-                            instructor_profile: instructor_profile,
-                            day_of_week: day_of_week_int,
-                            time_of_day: time_of_day
-    save!
+  delegate :class_timestamp, :in_the_past?, to: :time_service
+
+  private
+
+  def time_service
+    @time_service ||= ClassTimeService.new self
   end
 
-  def in_the_past?
-    timestamp < Time.now
+  def set_timestamp
+    if timestamp.nil? || date_changed? || time_of_day_changed?
+      self.timestamp = time_service.make_timestamp
+    end
   end
 end

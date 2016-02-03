@@ -95,7 +95,9 @@ class RepeatingClass < ActiveRecord::Base
   end
 
   def set_day_of_week
-    self.day_of_week ||= Date.parse(first_date).try :strftime, "%w"
+    unless first_date.blank? || confirmed?
+      self.day_of_week = Date.parse(first_date).try :strftime, "%w"
+    end
   end
 
   def create_classes_hook
