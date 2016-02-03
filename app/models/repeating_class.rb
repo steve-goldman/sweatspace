@@ -7,7 +7,7 @@ class RepeatingClass < ActiveRecord::Base
     "number_of_weeks"
   ]
 
-  before_save :set_day_of_week
+  before_validation :set_day_of_week
   after_save :create_classes_hook
 
   acts_as_paranoid
@@ -18,16 +18,16 @@ class RepeatingClass < ActiveRecord::Base
   belongs_to :studio
   has_many :classes, class_name: "Clazz"
   validates_presence_of :instructor_profile, :class_template, :studio
-  validates_presence_of :day_of_week, :time_of_day, :class_template_id, :studio_id, :instructor_profile_id, if: :confirmed?
+  validates_presence_of :day_of_week, :time_of_day, :class_template_id, :studio_id, :instructor_profile_id
   validates_numericality_of :day_of_week,
                             only_integer: true,
                             greater_than_or_equal_to: 0,
-                            less_than_or_equal_to: 6, if: :confirmed?
-  validates_presence_of :number_of_weeks, if: :confirmed?
+                            less_than_or_equal_to: 6
+  validates_presence_of :number_of_weeks
   validates_numericality_of :number_of_weeks,
                             only_integer: true,
                             greater_than_or_equal_to: 0,
-                            less_than_or_equal_to: 12, if: :confirmed?
+                            less_than_or_equal_to: 12
 
   scope :confirmed, -> { where confirmed: true }
   scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }

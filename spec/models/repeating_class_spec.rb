@@ -18,20 +18,16 @@ RSpec.describe RepeatingClass, :type => :model do
     it { should validate_presence_of :instructor_profile }
     it { should validate_presence_of :class_template }
     it { should validate_presence_of :studio }
-
-    context "confirmed" do
-      subject { FactoryGirl.build :repeating_class, confirmed: true }
-      it { should validate_presence_of :day_of_week }
-      it { should validate_presence_of :time_of_day }
-      it { should_not allow_value(-1).for(:number_of_weeks) }
-      it { should allow_value(0).for(:number_of_weeks) }
-      it { should allow_value(12).for(:number_of_weeks) }
-      it { should_not allow_value(13).for(:number_of_weeks) }
-      it { should_not allow_value(-1).for(:day_of_week) }
-      it { should allow_value(0).for(:day_of_week) }
-      it { should allow_value(6).for(:day_of_week) }
-      it { should_not allow_value(7).for(:day_of_week) }
-    end
+    it { should validate_presence_of :day_of_week }
+    it { should validate_presence_of :time_of_day }
+    it { should_not allow_value(-1).for(:number_of_weeks) }
+    it { should allow_value(0).for(:number_of_weeks) }
+    it { should allow_value(12).for(:number_of_weeks) }
+    it { should_not allow_value(13).for(:number_of_weeks) }
+    it { should_not allow_value(-1).for(:day_of_week) }
+    it { should allow_value(0).for(:day_of_week) }
+    it { should allow_value(6).for(:day_of_week) }
+    it { should_not allow_value(7).for(:day_of_week) }
   end
 
   describe ".create_classes!" do

@@ -14,10 +14,10 @@ class Clazz < ActiveRecord::Base
   belongs_to :studio
   belongs_to :repeating_class
   validates_presence_of :instructor_profile, :class_template, :studio
-  validates_presence_of :timestamp, if: :confirmed?
-  validates_format_of :date, with: /\A\d\d\d\d-\d\d-\d\d\z/i, if: :confirmed
-  validates_format_of :time_of_day, with: /\A\d\d:\d\d (AM|PM)\z/i, if: :confirmed
-  validates :timestamp, date: { after: Proc.new { Time.now } }, if: :confirmed?
+  validates_presence_of :timestamp
+  validates_format_of :date, with: /\A\d\d\d\d-\d\d-\d\d\z/i
+  validates_format_of :time_of_day, with: /\A\d\d:\d\d (AM|PM)\z/i
+  validates :timestamp, date: { after: Proc.new { Time.now } }
   before_validation :set_timestamp
 
   scope :confirmed, -> { where confirmed: true }
