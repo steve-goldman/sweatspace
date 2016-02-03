@@ -3,8 +3,7 @@ class Clazz < ActiveRecord::Base
     "class_template_id",
     "studio_id",
     "date",
-    "time_of_day",
-    "confirmed"
+    "time_of_day"
   ]
 
   include ClassTimeConcern
@@ -16,6 +15,7 @@ class Clazz < ActiveRecord::Base
   belongs_to :class_template
   belongs_to :studio
   belongs_to :repeating_class
+  validates_presence_of :instructor_profile, :class_template, :studio
   validates_presence_of :timestamp, if: :confirmed?
 
   scope :confirmed, -> { where confirmed: true }

@@ -14,10 +14,10 @@ Rails.application.routes.draw do
     resources :class_template_class_types, only: [:create, :destroy]
   end
 
-  resources :classes, only: :index do
-    resources :setup, controller: :class_setup, only: [:show, :update]
-    post "start_class_setup", to: "class_setup#start", as: :start_setup, on: :collection
-    get "finish_class_setup", to: "class_setup#finish", as: :finish_setup, on: :collection
+  resources :classes, only: [:index, :new, :create, :edit, :update] do
+    get :confirm, on: :member
+    patch :confirmed, on: :member
+
     resource :change, controller: :class_changes, only: :show do
       post :cancel
       post :uncancel
@@ -26,10 +26,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :repeating_classes, only: :index do
-    resources :repeating_setup, controller: :repeating_class_setup, only: [:show, :update]
-    post "start_repeating_class_setup", to: "repeating_class_setup#start", as: :start_repeating_setup, on: :collection
-    get "finish_repeating_class_setup", to: "repeating_class_setup#finish", as: :finish_repeating_setup, on: :collection
+  resources :repeating_classes, only: [:index, :new, :create, :edit, :update] do
+    get :confirm, on: :member
+    patch :confirmed, on: :member
   end
 
   resources :instructor_profiles, except: :destroy

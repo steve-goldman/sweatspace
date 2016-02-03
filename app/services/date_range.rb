@@ -1,5 +1,7 @@
 class DateRange
-  def initialize span, user, min_date, max_date
+  DEFAULT_RANGE_SPAN = 7
+
+  def initialize user, min_date, max_date, span = DEFAULT_RANGE_SPAN
     @span = span
     @user = user
     @param_min_date = min_date

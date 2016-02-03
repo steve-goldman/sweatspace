@@ -8,13 +8,23 @@ class RepeatingClassDecorator < Draper::Decorator
   end
 
   def display_number_of_weeks
-    if object.number_of_weeks.present?
-      number_word object.number_of_weeks, "week"
+    if number_of_weeks
+      if open_ended?
+        "Open ended"
+      else
+        number_word number_of_weeks, "week"
+      end
     end
   end
 
+  def display_first_date
+    Date.parse(first_date).try :strftime, "%b %-d %Y"
+  end
+
   def display_day_of_week
-    Date::DAYNAMES[day_of_week].pluralize
+    if day_of_week
+      Date::DAYNAMES[day_of_week].pluralize
+    end
   end
 
   def display_time
@@ -26,7 +36,7 @@ class RepeatingClassDecorator < Draper::Decorator
   end
 
   def display_num_remaining
-    "#{number_word(object.remaining_classes.length, "week")} remaining"
+    "#{remaining_classes.length} remaining"
   end
 
   private

@@ -1,5 +1,5 @@
 = render partial: "shared/errors_for", locals: { object: @clazz }
-= link_to previous_wizard_path, class: "btn btn-default" do
+= link_to edit_class_path(@clazz), class: "btn btn-default" do
   %span
     %i.glyphicon.glyphicon-arrow-left
 %h3< Please confirm these details
@@ -20,6 +20,5 @@
     %td
       %strong< Time
     %td= @clazz.display_time
-= form_for @clazz, url: wizard_path, method: :patch do |f|
-  = f.hidden_field :confirmed, value: true
-  = f.submit "Confirm", class: "btn btn-primary form-control"
+= form_for @clazz, url: confirmed_class_path(@clazz), method: :patch do |f|
+  = f.submit "Confirm", class: "btn btn-primary"

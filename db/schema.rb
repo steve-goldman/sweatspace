@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129035940) do
+ActiveRecord::Schema.define(version: 20160203045442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 20160129035940) do
     t.integer  "class_template_id"
     t.integer  "studio_id"
     t.integer  "instructor_profile_id"
-    t.boolean  "forever"
     t.date     "last_created_date"
     t.boolean  "confirmed"
     t.datetime "deleted_at"
@@ -104,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160129035940) do
     t.integer  "number_of_weeks"
     t.string   "time_of_day"
     t.integer  "day_of_week"
+    t.string   "first_date"
   end
 
   add_index "repeating_classes", ["class_template_id"], name: "index_repeating_classes_on_class_template_id", using: :btree
