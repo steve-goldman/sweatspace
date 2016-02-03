@@ -15,10 +15,15 @@ RSpec.describe Clazz, :type => :model do
   end
 
   describe "validations" do
-    it { should allow_value("2016-01-24").for(:date) }
-    it { should allow_value("").for(:date) }
-    it { should allow_value("05:31 PM").for(:time_of_day) }
-    it { should allow_value("").for(:time_of_day) }
+    it { should validate_presence_of :instructor_profile }
+    it { should validate_presence_of :class_template }
+    it { should validate_presence_of :studio }
+
+    context "confirmed" do
+      subject { FactoryGirl.build :clazz, confirmed: true }
+      it { should allow_value("2016-01-24").for(:date) }
+      it { should allow_value("05:31 PM").for(:time_of_day) }
+    end
   end
 
   let(:studio) { FactoryGirl.build :studio, timezone: "Pacific Time (US & Canada)" }

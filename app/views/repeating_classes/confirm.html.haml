@@ -1,5 +1,5 @@
 = render partial: "shared/errors_for", locals: { object: @repeating_class }
-= link_to previous_wizard_path, class: "btn btn-default" do
+= link_to edit_repeating_class_path(@repeating_class), class: "btn btn-default" do
   %span
     %i.glyphicon.glyphicon-arrow-left
 %h3< Please confirm these details
@@ -22,12 +22,11 @@
     %td= @repeating_class.display_time
   %tr
     %td
-      %strong< Duration
-      %td
-        - if @repeating_class.forever?
-          Open ended
-        - else
-          = @repeating_class.display_number_of_weeks
-= form_for @repeating_class, url: wizard_path, method: :patch do |f|
-  = f.hidden_field :confirmed, value: true
-  = f.submit "Confirm", class: "btn btn-primary form-control"
+      %strong< First Date
+    %td= @repeating_class.display_first_date
+  %tr
+    %td
+      %strong< Number of Weeks
+    %td= @repeating_class.display_number_of_weeks
+= form_for @repeating_class, url: confirmed_repeating_class_path(@repeating_class), method: :patch do |f|
+  = f.submit "Confirm", class: "btn btn-primary"

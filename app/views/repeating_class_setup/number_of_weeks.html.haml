@@ -1,9 +1,0 @@
-= render partial: "shared/errors_for", locals: { object: @repeating_class }
-= link_to previous_wizard_path, class: "btn btn-default" do
-  %span
-    %i.glyphicon.glyphicon-arrow-left
-%h3< For how many weeks?
-= form_for @repeating_class, url: wizard_path, method: :patch do |f|
-  .form-group
-    = f.number_field :number_of_weeks, autofocus: true, min: 1, max: 12, class: "form-control"
-  = f.submit "Next", class: "btn btn-primary"

@@ -20,7 +20,7 @@
       - if @clazz.repeating_class.present?
         %tr
           %td.table-key< Weekly
-          - if @clazz.repeating_class.forever?
+          - if @clazz.repeating_class.open_ended?
             %td< Open ended
           - else
             %td= @clazz.display_num_remaining

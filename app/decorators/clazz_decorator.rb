@@ -14,7 +14,7 @@ class ClazzDecorator < Draper::Decorator
   end
 
   def display_date
-    object.class_timestamp.try :strftime, "%b %d"
+    object.class_timestamp.try :strftime, "%b %-d"
   end
 
   def display_long_date
