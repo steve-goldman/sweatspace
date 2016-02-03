@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       post :cancel
       post :uncancel
       post :delete
-      post :last_in_repeating_class
+      post :delete_and_future_weeks
     end
   end
 

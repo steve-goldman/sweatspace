@@ -45,5 +45,5 @@
       - unless @clazz.canceled? || @clazz.repeating_class.nil?
         %tr
           %td{ colspan: "2" }
-            = form_for :class_change, url: last_in_repeating_class_class_change_path(@clazz) do |f|
-              = f.submit "Make Last in Repeating Class", class: "form-control btn btn-primary"
+            = form_for :class_change, url: delete_and_future_weeks_class_change_path(@clazz) do |f|
+              = f.submit "Delete Class and Future Weeks", class: "form-control btn btn-primary"
