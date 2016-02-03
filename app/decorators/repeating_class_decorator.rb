@@ -18,7 +18,9 @@ class RepeatingClassDecorator < Draper::Decorator
   end
 
   def display_first_date
-    Date.parse(first_date).try :strftime, "%b %-d %Y"
+    unless first_date.blank?
+      Date.parse(first_date).try :strftime, "%b %-d %Y"
+    end
   end
 
   def display_day_of_week
@@ -28,7 +30,7 @@ class RepeatingClassDecorator < Draper::Decorator
   end
 
   def display_time
-    if time_of_day.start_with? "0"
+    if time_of_day.try :start_with?, "0"
       time_of_day[1..-1]
     else
       time_of_day
