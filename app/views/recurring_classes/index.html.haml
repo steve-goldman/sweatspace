@@ -1,9 +1,6 @@
 .my-recurring-classes
   %h3
     My Recurring Classes
-    = link_to new_recurring_class_path, class: "btn btn-primary btn-sm pull-right" do
-      %span
-        %i.glyphicon.glyphicon-plus
   - if @recurring_classes_by_day.any?
     - @recurring_classes_by_day.each do |day, recurring_classes|
       .panel.panel-default
