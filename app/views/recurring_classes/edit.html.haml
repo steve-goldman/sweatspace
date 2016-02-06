@@ -3,5 +3,7 @@
   %span
     %i.glyphicon.glyphicon-arrow-left
 %h3< Create a recurring class
-= form_for @recurring_class, url: recurring_class_path(@recurring_class), method: :patch do |f|
-  = render partial: "form_fields", locals: { f: f }
+.row
+  .col-xs-12.col-md-6
+    = form_for @recurring_class, url: recurring_class_path(@recurring_class), method: :patch do |f|
+      = render partial: "form_fields", locals: { f: f }
