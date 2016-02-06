@@ -16,6 +16,18 @@ class ClassTimeService
     timestamp < Time.now
   end
 
+  def timespan_free
+    conflicting_classes = Clazz.confirmed.not_canceled
+      .where(instructor_profile: clazz.instructor_profile)
+      .where("id != ?", clazz.id)
+      .where("(timestamp >= ? AND timestamp <= ?) OR (end_timestamp >= ? AND end_timestamp <= ?)",
+             clazz.timestamp, clazz.end_timestamp,
+             clazz.timestamp, clazz.end_timestamp)
+    if conflicting_classes.any?
+      clazz.errors.add :class_time, "conflicts with a class on #{conflicting_classes.first.date}"
+    end
+  end
+
   def make_timestamp
     if studio.present? && date.present? && time_of_day.present?
       date_tokens = /(\d\d\d\d)-(\d\d)-(\d\d)/.match(date)

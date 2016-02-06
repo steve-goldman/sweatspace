@@ -13,19 +13,21 @@ class Clazz < ActiveRecord::Base
   belongs_to :class_template
   belongs_to :studio
   belongs_to :recurring_class
+
+  before_validation :set_timestamps
   validates_presence_of :instructor_profile, :class_template, :studio
   validates_presence_of :timestamp
   validates_format_of :date, with: /\A\d\d\d\d-\d\d-\d\d\z/i
   validates_format_of :time_of_day, with: /\A\d\d:\d\d (AM|PM)\z/i
   validates :timestamp, date: { after: Proc.new { Time.now } }
-  before_validation :set_timestamp
+  validate :timespan_free
 
   scope :confirmed, -> { where confirmed: true }
   scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }
   scope :canceled, -> { where canceled: true }
   scope :not_canceled, -> { where "canceled IS NULL OR canceled != 't'" }
 
-  delegate :class_timestamp, :in_the_past?, to: :time_service
+  delegate :timespan_free, :class_timestamp, :in_the_past?, to: :time_service
 
   private
 
@@ -33,9 +35,12 @@ class Clazz < ActiveRecord::Base
     @time_service ||= ClassTimeService.new self
   end
 
-  def set_timestamp
+  def set_timestamps
     if timestamp.nil? || date_changed? || time_of_day_changed?
       self.timestamp = time_service.make_timestamp
+      if timestamp && class_template
+        self.end_timestamp = timestamp + class_template.duration.minutes
+      end
     end
   end
 end

@@ -25,7 +25,7 @@ class ClassChangesController < ApplicationController
     if @clazz.update_attributes canceled: false
       flash[:success] = "Class un-canceled"
     else
-      flash[:danger] = "Unable to cancel class"
+      flash[:danger] = "Unable to un-cancel class"
     end
     redirect_to request.referer || classes_path
   end
