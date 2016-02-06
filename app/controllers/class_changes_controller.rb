@@ -40,10 +40,10 @@ class ClassChangesController < ApplicationController
   end
 
   def delete_and_future_weeks
-    if @clazz.repeating_class.delete_from! @clazz
-      flash[:success] = "Repeating class deleted"
+    if @clazz.recurring_class.delete_from! @clazz
+      flash[:success] = "Recurring class deleted"
     else
-      flash[:danger] = "Unable to delete repeating class"
+      flash[:danger] = "Unable to delete recurring class"
     end
     redirect_to request.referer || classes_path
   end

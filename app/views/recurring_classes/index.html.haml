@@ -1,0 +1,22 @@
+.my-recurring-classes
+  %h3
+    My Recurring Classes
+    = link_to new_recurring_class_path, class: "btn btn-primary btn-sm pull-right" do
+      %span
+        %i.glyphicon.glyphicon-plus
+  - if @recurring_classes_by_day.any?
+    - @recurring_classes_by_day.each do |day, recurring_classes|
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title= recurring_classes.first.display_day_of_week
+        - recurring_classes.each do |recurring_class|
+          %li.list-group-item
+            .row
+              .col-xs-2= recurring_class.display_time
+              .col-xs-4= recurring_class.name
+              .col-xs-3= recurring_class.display_studio
+              .col-xs-3
+                - if recurring_class.open_ended?
+                  Open ended
+                - else
+                  = recurring_class.display_num_remaining

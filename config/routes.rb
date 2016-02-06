@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :repeating_classes, only: [:index, :new, :create, :edit, :update] do
+  resources :recurring_classes, only: [:index, :new, :create, :edit, :update] do
     get :confirm, on: :member
     patch :confirmed, on: :member
   end

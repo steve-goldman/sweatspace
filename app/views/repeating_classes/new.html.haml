@@ -1,7 +1,0 @@
-= render partial: "shared/errors_for", locals: { object: @repeating_class }
-= link_to repeating_classes_path(@repeating_class), class: "btn btn-default" do
-  %span
-    %i.glyphicon.glyphicon-arrow-left
-%h3< Create a repeating class
-= form_for @repeating_class, url: { action: :create } do |f|
-  = render partial: "form_fields", locals: { f: f }

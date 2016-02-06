@@ -47,7 +47,7 @@ RSpec.describe InstructorProfile, :type => :model do
   describe "associations" do
     it { should belong_to :user }
     it { should have_many :classes }
-    it { should have_many :repeating_classes }
+    it { should have_many :recurring_classes }
     it { should have_many :class_templates }
   end
 end

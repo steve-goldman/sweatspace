@@ -6,8 +6,8 @@ class ClazzDecorator < Draper::Decorator
            :display_duration,
            :display_clazz_type,
            to: :class_template
-  decorates_association :repeating_class
-  delegate :display_num_remaining, to: :repeating_class
+  decorates_association :recurring_class
+  delegate :display_num_remaining, to: :recurring_class
 
   def display_day_of_week
     object.class_timestamp.try :strftime, "%a"

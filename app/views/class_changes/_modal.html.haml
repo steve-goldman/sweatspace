@@ -17,10 +17,10 @@
       %tr
         %td.table-key< Studio
         %td= @clazz.display_studio
-      - if @clazz.repeating_class.present?
+      - if @clazz.recurring_class.present?
         %tr
           %td.table-key< Weekly
-          - if @clazz.repeating_class.open_ended?
+          - if @clazz.recurring_class.open_ended?
             %td< Open ended
           - else
             %td= @clazz.display_num_remaining
@@ -42,7 +42,7 @@
         %td{ colspan: "2" }
           = form_for :class_change, url: delete_class_change_path(@clazz) do |f|
             = f.submit "Delete Class", class: "form-control btn btn-primary"
-      - unless @clazz.canceled? || @clazz.repeating_class.nil?
+      - unless @clazz.canceled? || @clazz.recurring_class.nil?
         %tr
           %td{ colspan: "2" }
             = form_for :class_change, url: delete_and_future_weeks_class_change_path(@clazz) do |f|

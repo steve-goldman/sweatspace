@@ -12,7 +12,7 @@ class Clazz < ActiveRecord::Base
   belongs_to :instructor_profile
   belongs_to :class_template
   belongs_to :studio
-  belongs_to :repeating_class
+  belongs_to :recurring_class
   validates_presence_of :instructor_profile, :class_template, :studio
   validates_presence_of :timestamp
   validates_format_of :date, with: /\A\d\d\d\d-\d\d-\d\d\z/i

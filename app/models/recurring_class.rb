@@ -1,4 +1,4 @@
-class RepeatingClass < ActiveRecord::Base
+class RecurringClass < ActiveRecord::Base
   PERMITTED_PARAMS = [
     "class_template_id",
     "studio_id",
@@ -38,7 +38,7 @@ class RepeatingClass < ActiveRecord::Base
 
   def delete_from! last_clazz
     classes.where("timestamp >= ?", last_clazz.timestamp).destroy_all
-    classes.each { |clazz| clazz.update_attributes repeating_class: nil }
+    classes.each { |clazz| clazz.update_attributes recurring_class: nil }
     self.destroy
   end
 
