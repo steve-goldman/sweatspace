@@ -2,6 +2,8 @@
 = link_to classes_path(@clazz), class: "btn btn-default" do
   %span
     %i.glyphicon.glyphicon-arrow-left
-%h3< Create a class
-= form_for @clazz, url: class_path(@clazz), method: :patch do |f|
-  = render partial: "form_fields", locals: { f: f }
+%h3< Create a one-time class
+.row
+  .col-xs-12.col-md-6
+    = form_for @clazz, url: class_path(@clazz), method: :patch do |f|
+      = render partial: "form_fields", locals: { f: f }

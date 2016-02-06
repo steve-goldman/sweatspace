@@ -1,4 +1,4 @@
-class RepeatingClassDecorator < Draper::Decorator
+class RecurringClassDecorator < Draper::Decorator
   delegate_all
   decorates_association :class_template
   delegate :name, to: :class_template

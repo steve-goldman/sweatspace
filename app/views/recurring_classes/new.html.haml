@@ -1,0 +1,9 @@
+= render partial: "shared/errors_for", locals: { object: @recurring_class }
+= link_to classes_path, class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
+%h3< Create a recurring class
+.row
+  .col-xs-12.col-md-6
+    = form_for @recurring_class, url: { action: :create } do |f|
+      = render partial: "form_fields", locals: { f: f }

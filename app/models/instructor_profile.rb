@@ -10,7 +10,7 @@ class InstructorProfile < ActiveRecord::Base
   belongs_to :user
   has_many :class_templates, through: :classes
   has_many :classes, class_name: "Clazz"
-  has_many :repeating_classes
+  has_many :recurring_classes
   acts_as_paranoid
   has_paper_trail
 end

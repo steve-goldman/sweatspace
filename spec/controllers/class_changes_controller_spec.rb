@@ -62,7 +62,7 @@ RSpec.describe ClassChangesController, type: :controller do
   end
 
   describe "POST :last_in_repating_class" do
-    before { clazz.update_attributes repeating_class: FactoryGirl.create(:repeating_class,
+    before { clazz.update_attributes recurring_class: FactoryGirl.create(:recurring_class,
                                                                          instructor_profile: @user.instructor_profile) }
 
 

@@ -1,0 +1,34 @@
+= render partial: "shared/errors_for", locals: { object: @recurring_class }
+= link_to edit_recurring_class_path(@recurring_class), class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
+%h3< Please confirm these details
+.row
+  .col-xs-12.col-md-6
+    %table.table
+      %tr
+        %td
+          %strong< Class
+        %td= @recurring_class.name
+      %tr
+        %td
+          %strong< Studio
+        %td= @recurring_class.display_studio
+      %tr
+        %td
+          %strong< Day of Week
+        %td= @recurring_class.display_day_of_week
+      %tr
+        %td
+          %strong< Time
+        %td= @recurring_class.display_time
+      %tr
+        %td
+          %strong< First Date
+        %td= @recurring_class.display_first_date
+      %tr
+        %td
+          %strong< Number of Weeks
+        %td= @recurring_class.display_number_of_weeks
+    = form_for @recurring_class, url: confirmed_recurring_class_path(@recurring_class), method: :patch do |f|
+      = f.submit "Confirm", class: "btn btn-primary"

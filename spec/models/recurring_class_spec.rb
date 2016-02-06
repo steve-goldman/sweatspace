@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe RepeatingClass, :type => :model do
+RSpec.describe RecurringClass, :type => :model do
   before { Timecop.freeze 100.years.ago }
 
   it "has a valid factory" do
-    expect(FactoryGirl.build(:repeating_class)).to be_valid
+    expect(FactoryGirl.build(:recurring_class)).to be_valid
   end
 
   describe "associations" do
@@ -31,7 +31,7 @@ RSpec.describe RepeatingClass, :type => :model do
   end
 
   describe ".create_classes!" do
-    subject { FactoryGirl.create :repeating_class }
+    subject { FactoryGirl.create :recurring_class }
     let(:future_dates) { [ "2016-01-25", "2016-02-01", "2016-02-08" ] }
     before { allow(subject).to receive(:future_dates).and_return(future_dates) }
 
