@@ -8,7 +8,6 @@ class RecurringClass < ActiveRecord::Base
   ]
 
   before_validation :set_day_of_week
-  after_save :create_classes_hook
 
   acts_as_paranoid
   has_paper_trail
@@ -46,15 +45,22 @@ class RecurringClass < ActiveRecord::Base
     number_of_weeks == 0
   end
 
-  def create_classes!
-    future_dates.each do |future_date|
-      classes.create! class_template: class_template,
-                      instructor_profile: instructor_profile,
-                      studio: studio,
-                      confirmed: true,
-                      date: future_date,
-                      time_of_day: time_of_day
+  def create_classes
+    ActiveRecord::Base.transaction do
+      future_dates.each do |future_date|
+        new_class = classes.create class_template: class_template,
+                                   instructor_profile: instructor_profile,
+                                   studio: studio,
+                                   confirmed: true,
+                                   date: future_date,
+                                   time_of_day: time_of_day
+        unless new_class.valid?
+          new_class.errors.to_hash.each { |key, value| errors.add key, value[0] }
+          raise ActiveRecord::Rollback
+        end
+      end
     end
+    errors.empty?
   end
 
   private
@@ -97,12 +103,6 @@ class RecurringClass < ActiveRecord::Base
   def set_day_of_week
     unless first_date.blank? || confirmed?
       self.day_of_week = Date.parse(first_date).try :strftime, "%w"
-    end
-  end
-
-  def create_classes_hook
-    if confirmed? && confirmed_changed?
-      create_classes!
     end
   end
 end

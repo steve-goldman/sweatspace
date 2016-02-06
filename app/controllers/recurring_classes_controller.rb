@@ -38,7 +38,7 @@ class RecurringClassesController < ApplicationController
   end
 
   def confirmed
-    if @recurring_class.update_attributes(confirmed: true)
+    if @recurring_class.create_classes && @recurring_class.update_attributes(confirmed: true)
       flash[:success] = "Recurring class created"
       redirect_to classes_path
     else

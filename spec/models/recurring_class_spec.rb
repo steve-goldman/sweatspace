@@ -36,11 +36,11 @@ RSpec.describe RecurringClass, :type => :model do
     before { allow(subject).to receive(:future_dates).and_return(future_dates) }
 
     it "creates 3 classes" do
-      expect { subject.create_classes! }.to change(Clazz, :count).by(3)
+      expect { subject.create_classes }.to change(Clazz, :count).by(3)
     end
 
     it "creates with the correct dates" do
-      subject.create_classes!
+      subject.create_classes
       future_dates.each do |future_date|
         expect(subject.classes.confirmed.find_by(date: future_date)).to be
       end
