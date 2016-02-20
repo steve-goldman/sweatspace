@@ -5,20 +5,13 @@ class ClassChangesController < ApplicationController
   before_action :canceled, only: :uncancel
   before_action :not_in_the_past, only: :cancel
 
-  def show
-    @clazz = @clazz.decorate
-    respond_to do |format|
-      format.js
-    end
-  end
-
   def cancel
     if @clazz.update_attributes canceled: true
       flash[:success] = "Class canceled"
     else
       flash[:danger] = "Unable to cancel class"
     end
-    redirect_to request.referer || profile_path(current_user.instructor_profile.profile_path)
+    redirect_to class_path(@clazz)
   end
 
   def uncancel
@@ -27,7 +20,7 @@ class ClassChangesController < ApplicationController
     else
       flash[:danger] = "Unable to un-cancel class"
     end
-    redirect_to request.referer || profile_path(current_user.instructor_profile.profile_path)
+    redirect_to class_path(@clazz)
   end
 
   def delete
@@ -36,7 +29,7 @@ class ClassChangesController < ApplicationController
     else
       flash[:danger] = "Unable to delete class"
     end
-    redirect_to request.referer || profile_path(current_user.instructor_profile.profile_path)
+    redirect_to profile_path(@clazz.instructor_profile.profile_path)
   end
 
   def delete_and_future_weeks
@@ -45,7 +38,7 @@ class ClassChangesController < ApplicationController
     else
       flash[:danger] = "Unable to delete recurring class"
     end
-    redirect_to request.referer || profile_path(current_user.instructor_profile.profile_path)
+    redirect_to profile_path(@clazz.instructor_profile.profile_path)
   end
 
   private

@@ -1,6 +1,11 @@
 class ClassesController < ApplicationController
-  before_action :find_clazz, only: [:edit, :update, :confirm, :confirmed]
+  before_action :find_clazz, only: [:edit, :update, :confirm, :confirmed, :show]
   before_action :owns_clazz, only: [:edit, :update, :confirm, :confirmed]
+
+  def show
+    @is_owner = owner?
+    @clazz = @clazz.decorate
+  end
 
   def new
     @clazz = Clazz.new
@@ -46,17 +51,29 @@ class ClassesController < ApplicationController
   private
 
   def find_clazz
-    @clazz = Clazz.unconfirmed.find_by id: params[:id]
+    @clazz = clazz_scope.find_by id: params[:id]
     if @clazz.nil?
       flash[:danger] = "Unable to find class"
       redirect_to root_path
     end
   end
 
+  def owner?
+    current_user.id == @clazz.instructor_profile.user_id
+  end
+
   def owns_clazz
-    unless current_user.id == @clazz.instructor_profile.user_id
+    unless owner?
       flash[:danger] = "Unauthorized access"
       redirect_to root_path
+    end
+  end
+
+  def clazz_scope
+    if action_name == "show"
+      Clazz.confirmed
+    else
+      Clazz.unconfirmed
     end
   end
 

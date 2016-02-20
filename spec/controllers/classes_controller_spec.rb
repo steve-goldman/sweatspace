@@ -19,6 +19,30 @@ RSpec.describe ClassesController, type: :controller do
     controller.instance_variable_get :@clazz
   end
 
+  describe "GET :show" do
+    def do_action
+      get :show, id: clazz.id
+    end
+
+    context "unconfirmed class" do
+      it "redirects" do
+        do_action
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
+    context "confirmed class" do
+      before do
+        clazz.update_attributes confirmed: true
+      end
+
+      it "renders the view" do
+        do_action
+        expect(response).to render_template(:show)
+      end
+    end
+  end
+
   describe "POST :create" do
     context "SUCCESS" do
       def do_action

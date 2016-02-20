@@ -7,25 +7,18 @@ RSpec.describe ClassChangesController, type: :controller do
 
   let(:clazz) { FactoryGirl.create :confirmed_clazz, instructor_profile: @user.instructor_profile }
 
-  describe "GET :show" do
-    it "renders the view" do
-      xhr :get, :show, class_id: clazz.id, format: :js
-      expect(response).to render_template(:show)
-    end
-  end
-
   describe "POST :cancel" do
     context "for a not canceled class" do
       it "redirects to the classes path" do
         post :cancel, class_id: clazz.id
-        expect(response).to redirect_to(profile_path(@user.instructor_profile.profile_path))
+        expect(response).to redirect_to(class_path(clazz))
       end
     end
 
     context "for a canceled class" do
       before { clazz.update_attributes canceled: true }
 
-      it "redirects to the rooth path" do
+      it "redirects to the root path" do
         post :cancel, class_id: clazz.id
         expect(response).to redirect_to(root_path)
       end
@@ -38,7 +31,7 @@ RSpec.describe ClassChangesController, type: :controller do
 
       it "redirects to the classes path" do
         post :uncancel, class_id: clazz.id
-        expect(response).to redirect_to(profile_path(@user.instructor_profile.profile_path))
+        expect(response).to redirect_to(class_path(clazz))
       end
     end
 

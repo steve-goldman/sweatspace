@@ -24,10 +24,9 @@
                   .col-xs-5= clazz.name
                   .col-xs-4= clazz.display_studio
             - else
-              = link_to class_change_path(clazz), remote: true, class: "list-group-item #{class_summary_class(clazz)} #{class_canceled_class(clazz)}" do
+              = link_to class_path(clazz), class: "list-group-item #{class_summary_class(clazz)} #{class_canceled_class(clazz)}" do
                 .row
                   .col-xs-3= clazz.display_time
                   .col-xs-5= clazz.name
                   .col-xs-4= clazz.display_studio
   = render partial: "prev_next_button", locals: { date_range: @date_range }
-  = modal_dialog

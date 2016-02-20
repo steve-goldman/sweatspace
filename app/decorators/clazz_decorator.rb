@@ -6,6 +6,7 @@ class ClazzDecorator < Draper::Decorator
            :display_duration,
            :display_clazz_type,
            to: :class_template
+  decorates_association :instructor_profile
   decorates_association :recurring_class
   delegate :display_num_remaining, to: :recurring_class
 
