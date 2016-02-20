@@ -87,6 +87,6 @@ class InstructorProfilesController < ApplicationController
   end
 
   def date_range
-    @date_range ||= DateRange.new current_user, params[:min_date], params[:max_date]
+    @date_range ||= DateRange.new current_user, params[:start_date]
   end
 end
