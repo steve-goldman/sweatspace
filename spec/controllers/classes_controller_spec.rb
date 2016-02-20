@@ -5,7 +5,6 @@ RSpec.describe ClassesController, type: :controller do
   before { login_instructor_user }
   before { Timecop.freeze 100.years.ago }
 
-  it_behaves_like "an indexable resource"
   it_behaves_like "a newable resource"
 
   let(:clazz) do
@@ -18,6 +17,30 @@ RSpec.describe ClassesController, type: :controller do
 
   let(:controller_clazz) do
     controller.instance_variable_get :@clazz
+  end
+
+  describe "GET :show" do
+    def do_action
+      get :show, id: clazz.id
+    end
+
+    context "unconfirmed class" do
+      it "redirects" do
+        do_action
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
+    context "confirmed class" do
+      before do
+        clazz.update_attributes confirmed: true
+      end
+
+      it "renders the view" do
+        do_action
+        expect(response).to render_template(:show)
+      end
+    end
   end
 
   describe "POST :create" do
@@ -105,7 +128,7 @@ RSpec.describe ClassesController, type: :controller do
     context "SUCCESS" do
       it "redirects to classes index" do
         do_action
-        expect(response).to redirect_to(classes_path)
+        expect(response).to redirect_to(profile_path(@user.instructor_profile.profile_path))
       end
 
       it "adds a confirmed class" do

@@ -14,11 +14,11 @@ Rails.application.routes.draw do
     resources :class_template_class_types, only: [:create, :destroy]
   end
 
-  resources :classes, only: [:index, :new, :create, :edit, :update] do
+  resources :classes, only: [:show, :new, :create, :edit, :update] do
     get :confirm, on: :member
     patch :confirmed, on: :member
 
-    resource :change, controller: :class_changes, only: :show do
+    resource :change, controller: :class_changes, only: [] do
       post :cancel
       post :uncancel
       post :delete

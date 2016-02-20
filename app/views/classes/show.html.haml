@@ -1,0 +1,16 @@
+%p
+  = link_to profile_path(@clazz.instructor_profile.profile_path), class: "btn btn-default" do
+    %span
+      %i.glyphicon.glyphicon-arrow-left
+= render partial: "show_summary"
+= render partial: "show_class_detail"
+= render partial: "show_studio_detail"
+- if @is_owner
+  - unless @clazz.in_the_past?
+    - if @clazz.canceled?
+      = render partial: "show_uncancel"
+    - else
+      = render partial: "show_cancel"
+    = render partial: "show_delete"
+    - if @clazz.recurring_class.try :open_ended?
+      = render partial: "show_delete_open_ended"

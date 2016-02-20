@@ -1,0 +1,9 @@
+%p
+  - if @date_range.has_prev?
+    = link_to profile_prev_page_path(@instructor_profile, @date_range), class: "prev-button btn btn-default" do
+      %span
+        %i.glyphicon.glyphicon-arrow-left
+  - if @date_range.has_next?
+    = link_to profile_next_page_path(@instructor_profile, @date_range), class: "prev-button btn btn-default pull-right" do
+      %span
+        %i.glyphicon.glyphicon-arrow-right
