@@ -17,7 +17,7 @@ class DateRange
   end
 
   def max_date
-    @max_date ||= (param_date(@param_max_date) || @user.today + @span.days) + 1.day - 1.second
+    @max_date ||= (param_date(@param_max_date) || @user.today + (@span - 1).days) + 1.day - 1.second
   end
 
   def prev_min_date
