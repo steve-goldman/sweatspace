@@ -18,7 +18,7 @@ RSpec.describe ClassChangesController, type: :controller do
     context "for a not canceled class" do
       it "redirects to the classes path" do
         post :cancel, class_id: clazz.id
-        expect(response).to redirect_to(classes_path)
+        expect(response).to redirect_to(profile_path(@user.instructor_profile.profile_path))
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe ClassChangesController, type: :controller do
 
       it "redirects to the classes path" do
         post :uncancel, class_id: clazz.id
-        expect(response).to redirect_to(classes_path)
+        expect(response).to redirect_to(profile_path(@user.instructor_profile.profile_path))
       end
     end
 
@@ -53,7 +53,7 @@ RSpec.describe ClassChangesController, type: :controller do
   describe "POST :delete" do
     it "redirects to the classes path" do
       post :delete, class_id: clazz.id
-      expect(response).to redirect_to(classes_path)
+      expect(response).to redirect_to(profile_path(@user.instructor_profile.profile_path))
     end
 
     it "removes a class" do

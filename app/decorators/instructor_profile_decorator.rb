@@ -9,4 +9,8 @@ class InstructorProfileDecorator < Draper::Decorator
   def profile_picture_url
     InstagramService.instance.profile_picture_url object.user.uid
   end
+
+  def owner?
+    user_signed_in? && current_user.id == @instructor_profile.user_id
+  end
 end

@@ -119,7 +119,7 @@ RSpec.describe RecurringClassesController, type: :controller do
     context "SUCCESS" do
       it "redirects to classes index" do
         do_action
-        expect(response).to redirect_to(classes_path)
+        expect(response).to redirect_to(profile_path(@user.instructor_profile.profile_path))
       end
 
       it "adds a confirmed class" do

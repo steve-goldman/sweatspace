@@ -5,7 +5,6 @@ RSpec.describe ClassesController, type: :controller do
   before { login_instructor_user }
   before { Timecop.freeze 100.years.ago }
 
-  it_behaves_like "an indexable resource"
   it_behaves_like "a newable resource"
 
   let(:clazz) do
@@ -105,7 +104,7 @@ RSpec.describe ClassesController, type: :controller do
     context "SUCCESS" do
       it "redirects to classes index" do
         do_action
-        expect(response).to redirect_to(classes_path)
+        expect(response).to redirect_to(profile_path(@user.instructor_profile.profile_path))
       end
 
       it "adds a confirmed class" do

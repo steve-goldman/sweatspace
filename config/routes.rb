@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :class_template_class_types, only: [:create, :destroy]
   end
 
-  resources :classes, only: [:index, :new, :create, :edit, :update] do
+  resources :classes, only: [:new, :create, :edit, :update] do
     get :confirm, on: :member
     patch :confirmed, on: :member
 

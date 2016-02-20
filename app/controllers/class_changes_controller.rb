@@ -18,7 +18,7 @@ class ClassChangesController < ApplicationController
     else
       flash[:danger] = "Unable to cancel class"
     end
-    redirect_to request.referer || classes_path
+    redirect_to request.referer || profile_path(current_user.instructor_profile.profile_path)
   end
 
   def uncancel
@@ -27,7 +27,7 @@ class ClassChangesController < ApplicationController
     else
       flash[:danger] = "Unable to un-cancel class"
     end
-    redirect_to request.referer || classes_path
+    redirect_to request.referer || profile_path(current_user.instructor_profile.profile_path)
   end
 
   def delete
@@ -36,7 +36,7 @@ class ClassChangesController < ApplicationController
     else
       flash[:danger] = "Unable to delete class"
     end
-    redirect_to request.referer || classes_path
+    redirect_to request.referer || profile_path(current_user.instructor_profile.profile_path)
   end
 
   def delete_and_future_weeks
@@ -45,7 +45,7 @@ class ClassChangesController < ApplicationController
     else
       flash[:danger] = "Unable to delete recurring class"
     end
-    redirect_to request.referer || classes_path
+    redirect_to request.referer || profile_path(current_user.instructor_profile.profile_path)
   end
 
   private
@@ -54,7 +54,7 @@ class ClassChangesController < ApplicationController
     @clazz = Clazz.confirmed.find_by id: params[:class_id]
     if @clazz.nil?
       flash[:danger] = "Could not find class"
-      redirect_to classes_path
+      redirect_to profile_path(current_user.instructor_profile.profile_path)
     end
   end
 
