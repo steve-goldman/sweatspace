@@ -4,6 +4,7 @@ RSpec.describe ClassChangesController, type: :controller do
   render_views
   before { login_instructor_user }
   before { Timecop.freeze 100.years.ago }
+  after { Timecop.return }
 
   let(:clazz) { FactoryGirl.create :confirmed_clazz, instructor_profile: @user.instructor_profile }
 

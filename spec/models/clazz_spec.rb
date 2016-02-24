@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Clazz, :type => :model do
   before { Timecop.freeze 100.years.ago }
+  after { Timecop.return }
 
   it "has a valid factory" do
     expect(FactoryGirl.build(:clazz)).to be_valid
