@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title< Someone Else Will Teach the Class
+  .panel-body
+    %p< Click here to indicate on your schedule that someone else will teach the class.
+    = form_for :class_change, url: substitute_class_change_path(@clazz) do |f|
+      = f.submit "Someone Else Will Teach", class: "btn btn-danger", data: { confirm: "Are you sure you want someone else to be the teacher of the class?" }

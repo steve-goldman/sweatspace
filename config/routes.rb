@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resource :change, controller: :class_changes, only: [] do
       post :cancel
       post :uncancel
+      post :substitute
+      post :unsubstitute
       post :delete
       post :delete_and_future_weeks
     end

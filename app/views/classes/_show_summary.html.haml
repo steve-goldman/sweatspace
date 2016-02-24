@@ -10,7 +10,11 @@
       .row
         .col-xs-4.col-md-2
           .class-info-key< Instructor
-        .col-xs-8.col-md-4= @clazz.instructor_profile.full_name
+        .col-xs-8.col-md-4
+          = @clazz.instructor_profile.full_name
+          - if @clazz.substituted?
+            %br
+            .substitution-warning< This class will be taught by someone else
     %li.list-group-item
       .row
         .col-xs-4.col-md-2

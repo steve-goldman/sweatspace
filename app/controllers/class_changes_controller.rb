@@ -1,9 +1,12 @@
 class ClassChangesController < ApplicationController
   before_action :find_clazz
   before_action :owns_clazz
+  before_action :not_in_the_past
   before_action :not_canceled, only: :cancel
   before_action :canceled, only: :uncancel
-  before_action :not_in_the_past, only: :cancel
+  before_action :not_substituted, only: :substitute
+  before_action :substituted, only: :unsubstitute
+
 
   def cancel
     if @clazz.update_attributes canceled: true
@@ -19,6 +22,24 @@ class ClassChangesController < ApplicationController
       flash[:success] = "Class un-canceled"
     else
       flash[:danger] = "Unable to un-cancel class"
+    end
+    redirect_to class_path(@clazz)
+  end
+
+  def substitute
+    if @clazz.update_attributes substituted: true
+      flash[:success] = "Class substituted"
+    else
+      flash[:danger] = "Unable to substitute class"
+    end
+    redirect_to class_path(@clazz)
+  end
+
+  def unsubstitute
+    if @clazz.update_attributes substituted: false
+      flash[:success] = "Class un-substituted"
+    else
+      flash[:danger] = "Unable to un-substitute class"
     end
     redirect_to class_path(@clazz)
   end
@@ -68,6 +89,20 @@ class ClassChangesController < ApplicationController
   def canceled
     unless @clazz.canceled?
       flash[:danger] = "Class not canceled"
+      redirect_to root_path
+    end
+  end
+
+  def not_substituted
+    if @clazz.substituted?
+      flash[:danger] = "Class already substituted"
+      redirect_to root_path
+    end
+  end
+
+  def substituted
+    unless @clazz.substituted?
+      flash[:danger] = "Class not substituted"
       redirect_to root_path
     end
   end

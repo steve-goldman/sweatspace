@@ -4,6 +4,7 @@ RSpec.describe RecurringClassesController, type: :controller do
   render_views
   before { login_instructor_user }
   before { Timecop.freeze 100.years.ago }
+  after { Timecop.return }
 
   it_behaves_like "an indexable resource"
   it_behaves_like "a newable resource"
