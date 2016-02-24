@@ -29,4 +29,8 @@
                   .col-xs-3= clazz.display_time
                   .col-xs-5= clazz.name
                   .col-xs-4= clazz.display_studio
+                - if clazz.substituted?
+                  .row
+                    .col-xs-12
+                      .substitution-warning< This class will be taught by someone else
   = render partial: "prev_next_button", locals: { date_range: @date_range }

@@ -26,6 +26,8 @@ class Clazz < ActiveRecord::Base
   scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }
   scope :canceled, -> { where canceled: true }
   scope :not_canceled, -> { where "canceled IS NULL OR canceled != 't'" }
+  scope :substituted, -> { where substituted: true }
+  scope :not_substituted, -> { where "substituted IS NULL OR substituted != 't'" }
 
   delegate :timespan_free, :class_timestamp, :in_the_past?, to: :time_service
 

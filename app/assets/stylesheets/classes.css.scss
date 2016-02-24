@@ -17,7 +17,7 @@
 }
 
 .canceled-class {
-  td, div {
+  div {
     text-decoration: line-through;
   }
 }
@@ -27,5 +27,9 @@
 }
 
 .class-canceled-warning {
+  color: red;
+}
+
+.substitution-warning {
   color: red;
 }

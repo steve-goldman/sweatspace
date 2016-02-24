@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206202534) do
+ActiveRecord::Schema.define(version: 20160224021020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160206202534) do
     t.string   "time_of_day"
     t.boolean  "canceled"
     t.datetime "end_timestamp"
+    t.boolean  "substituted"
   end
 
   add_index "clazzs", ["canceled"], name: "index_clazzs_on_canceled", using: :btree
