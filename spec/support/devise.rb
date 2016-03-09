@@ -14,5 +14,4 @@ def login user
   @request.env["devise.mapping"] = Devise.mappings[:user]
   @user = user
   sign_in @user
-  stub_instagram_service
 end

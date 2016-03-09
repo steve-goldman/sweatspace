@@ -1,4 +1,5 @@
 class ClassChangesController < ApplicationController
+  before_action :user_signed_in
   before_action :find_clazz
   before_action :owns_clazz
   before_action :not_in_the_past

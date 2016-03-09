@@ -1,6 +1,7 @@
 class ClassesController < ApplicationController
-  before_action :find_clazz, only: [:edit, :update, :confirm, :confirmed, :show]
-  before_action :owns_clazz, only: [:edit, :update, :confirm, :confirmed]
+  before_action :user_signed_in, except: :show
+  before_action :find_clazz, except: [:new, :create]
+  before_action :owns_clazz, except: [:new, :create, :show]
 
   def show
     @is_owner = owner?

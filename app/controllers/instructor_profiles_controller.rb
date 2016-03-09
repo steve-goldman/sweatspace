@@ -1,4 +1,5 @@
 class InstructorProfilesController < ApplicationController
+  before_action :user_signed_in, except: :show
   before_action :find_instructor_profile, only: [:edit, :update, :destroy]
   before_action :owns_instructor_profile, only: [:edit, :update, :destroy]
   before_action :find_instructor_profile_by_name, only: :show
@@ -57,7 +58,7 @@ class InstructorProfilesController < ApplicationController
   end
 
   def owner?
-    current_user.id == @instructor_profile.user_id
+    user_signed_in? && current_user.id == @instructor_profile.user_id
   end
 
   def owns_instructor_profile
