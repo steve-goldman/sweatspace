@@ -3,6 +3,7 @@
     = render partial: "shared/errors_for", locals: { object: resource }
     %h3< Create Your Account
     = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      = hidden_field_tag :token, @invitation.token
       .form-group
         = f.label :email
         = f.email_field :email, autofocus: true, class: "form-control"

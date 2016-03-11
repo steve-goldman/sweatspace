@@ -3,7 +3,7 @@ class InvitationDecorator < Draper::Decorator
 
   def display_accepted_at
     if accepted_at
-      "Accepted at #{accepted_at.strftime("%Y-%m-%d")}"
+      "Accepted on #{accepted_at.strftime("%Y-%m-%d")}"
     else
       "Not yet accepted"
     end
@@ -11,7 +11,7 @@ class InvitationDecorator < Draper::Decorator
 
   def display_user
     if accepted_at
-      "by #{user_id.email}"
+      user.email
     else
       ""
     end

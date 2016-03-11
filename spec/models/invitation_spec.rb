@@ -34,4 +34,17 @@ RSpec.describe Invitation, :type => :model do
       subject.send_by_mail
     end
   end
+
+  describe ".accepted!" do
+    let(:user) { FactoryGirl.create :user }
+    let(:accepted_at) { Time.current }
+
+    it "sets accepted_at" do
+      expect { subject.accepted! user, accepted_at }.to change(subject, :accepted_at).to(accepted_at)
+    end
+
+    it "sets user" do
+      expect { subject.accepted! user, accepted_at }.to change(subject, :user_id).to(user.id)
+    end
+  end
 end
