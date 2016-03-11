@@ -1,0 +1,13 @@
+%h3
+  Invitations
+  = link_to "Create", new_admin_invitation_path, class: "btn btn-primary btn-sm pull-right"
+- if @invitations.any?
+  %table.table
+    %tbody
+      - @invitations.each do |invitation|
+        %tr
+          %td= invitation.invited_email
+          %td= invitation.display_accepted_at
+          %td= invitation.display_user
+- else
+  %p< No invitations

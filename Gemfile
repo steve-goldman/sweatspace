@@ -51,6 +51,7 @@ gem 'jquery-turbolinks'
 gem 'instagram'
 gem 'wicked'
 gem 'date_validator', '~> 0.9.0'
+gem 'uuidtools'
 gem 'timecop'
 
 group :development, :test do

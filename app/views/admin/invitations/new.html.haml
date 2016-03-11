@@ -1,0 +1,9 @@
+= render partial: "shared/errors_for", locals: { object: @invitation }
+= link_to admin_invitations_path, class: "prev-button btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
+%h3< Create an Invitation
+.row
+  .col-xs-12.col-md-6
+    = form_for @invitation, url: { action: :create } do |f|
+      = render partial: "form_fields", locals: { f: f }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224044448) do
+ActiveRecord::Schema.define(version: 20160311160126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,18 @@ ActiveRecord::Schema.define(version: 20160224044448) do
   add_index "instructor_profiles", ["deleted_at"], name: "index_instructor_profiles_on_deleted_at", using: :btree
   add_index "instructor_profiles", ["profile_path"], name: "index_instructor_profiles_on_profile_path", using: :btree
   add_index "instructor_profiles", ["user_id"], name: "index_instructor_profiles_on_user_id", using: :btree
+
+  create_table "invitations", force: :cascade do |t|
+    t.string   "token"
+    t.string   "invited_email"
+    t.datetime "accepted_at"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "invitations", ["token"], name: "index_invitations_on_token", using: :btree
+  add_index "invitations", ["user_id"], name: "index_invitations_on_user_id", using: :btree
 
   create_table "recurring_classes", force: :cascade do |t|
     t.integer  "class_template_id"

@@ -3,5 +3,7 @@
   %span
     %i.glyphicon.glyphicon-arrow-left
 %h3< Create a Class Type
-= form_for @clazz_type, url: { action: :create} do |f|
-  = render partial: "form_fields", locals: { f: f }
+.row
+  .col-xs-12.col-md-6
+    = form_for @clazz_type, url: { action: :create} do |f|
+      = render partial: "form_fields", locals: { f: f }
