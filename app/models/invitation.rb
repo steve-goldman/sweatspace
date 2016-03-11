@@ -10,4 +10,8 @@ class Invitation < ActiveRecord::Base
 
   scope :accepted, -> { where "accepted_at IS NOT NULL" }
   scope :not_accepted, -> { where "accepted_at IS NULL" }
+
+  def send_by_mail
+    UserMailer.invited(invited_email, token).deliver_later
+  end
 end

@@ -19,4 +19,19 @@ RSpec.describe Invitation, :type => :model do
       it { should_not validate_presence_of(:user_id) }
     end
   end
+
+  describe ".send_by_mail" do
+    subject { FactoryGirl.build :invitation }
+
+    let(:mail) { OpenStruct.new(deliver_later: true) }
+
+    before do
+      allow(UserMailer).to receive(:invited).with(subject.invited_email, subject.token).and_return(mail)
+    end
+
+    it "invokes the mailer" do
+      expect(mail).to receive(:deliver_later)
+      subject.send_by_mail
+    end
+  end
 end
