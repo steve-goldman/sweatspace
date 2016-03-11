@@ -1,9 +1,0 @@
-!!!
-%html{ lang: "en" }
-  %head= render partial: "layouts/head"
-  %body{ data: { controller: controller.controller_path, action: controller.action_name } }
-    .container
-      .row
-        .col-md-12
-          = yield
-    = yield :javascripts

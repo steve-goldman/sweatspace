@@ -1,4 +1,5 @@
 class Admin::ControllerBase < ApplicationController
+  before_action :user_signed_in
   before_action :authenticate_admin_user!
 
   private

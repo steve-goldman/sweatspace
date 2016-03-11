@@ -21,7 +21,7 @@ class DateRange
       if @param_start_date
         bounded_start_date param_date(@param_start_date)
       else
-        user.today
+        today
       end
   end
 
@@ -54,7 +54,7 @@ class DateRange
 
   def param_date date
     begin
-      Date.parse(date).in_time_zone(user.timezone)
+      Date.parse(date).in_time_zone(timezone)
     rescue
       nil
     end
@@ -65,11 +65,11 @@ class DateRange
   end
 
   def bounded_start_date date
-    bounded_date date, user.today, user.today + (span * num_pages - 1).days
+    bounded_date date, today, today + (span * num_pages - 1).days
   end
 
   def bounded_end_date date
-    bounded_date date, user.today + span.days - 1.second, user.today + (span * num_pages).days - 1.second
+    bounded_date date, today + span.days - 1.second, today + (span * num_pages).days - 1.second
   end
 
   def bounded_date date, floor, ceiling
@@ -80,5 +80,13 @@ class DateRange
     else
       date
     end
+  end
+
+  def today
+    user ? user.today : Time.now.midnight
+  end
+
+  def timezone
+    user ? user.timezone : "Eastern Time (US & Canada)"
   end
 end

@@ -1,4 +1,5 @@
 class RecurringClassesController < ApplicationController
+  before_action :user_signed_in
   before_action :find_recurring_class, only: [:edit, :update, :confirm, :confirmed]
   before_action :owns_recurring_class, only: [:edit, :update, :confirm, :confirmed]
 

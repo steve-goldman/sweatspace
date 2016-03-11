@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224021020) do
+ActiveRecord::Schema.define(version: 20160224044448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20160224021020) do
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.datetime "deleted_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "instructor_profiles", ["deleted_at"], name: "index_instructor_profiles_on_deleted_at", using: :btree
