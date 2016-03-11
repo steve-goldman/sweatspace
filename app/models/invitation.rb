@@ -14,4 +14,9 @@ class Invitation < ActiveRecord::Base
   def send_by_mail
     UserMailer.invited(invited_email, token).deliver_later
   end
+
+  def accepted! user, accepted_at
+    update_attributes accepted_at: accepted_at,
+                      user_id: user.id
+  end
 end

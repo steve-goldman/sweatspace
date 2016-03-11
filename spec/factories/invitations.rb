@@ -2,7 +2,13 @@ FactoryGirl.define do
   factory :invitation do
     token "MyString"
     invited_email "user@email.net"
-    accepted_at "2016-03-11 11:01:26"
-    association :user
+
+    factory :not_accepted_invitation, class: "Invitation" do
+    end
+
+    factory :accepted_invitation, class: "Invitation" do
+      accepted_at { Time.current }
+      association :user
+    end
   end
 end
