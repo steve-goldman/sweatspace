@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  PERMITTED_PARAMS = [
+    :name,
+    :email,
+    :password,
+    :password_confirmation
+  ]
+
   devise :database_authenticatable, :rememberable, :trackable, :validatable, :registerable, :recoverable
   validates_presence_of :name
   validates :email, email: true

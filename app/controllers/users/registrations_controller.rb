@@ -24,4 +24,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to root_path
     end
   end
+
+  def sign_up_params
+    params.require(resource_name).permit(User::PERMITTED_PARAMS)
+  end
 end
