@@ -60,7 +60,7 @@ class ClassesController < ApplicationController
   end
 
   def owner?
-    current_user.id == @clazz.instructor_profile.user_id
+    user_signed_in? && current_user.id == @clazz.instructor_profile.user_id
   end
 
   def owns_clazz
