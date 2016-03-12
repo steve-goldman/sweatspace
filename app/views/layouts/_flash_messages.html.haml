@@ -3,4 +3,4 @@
     .row
       .col-xs-offset-2.col-xs-8
         - flash.each do |key, value|
-          %p{ class: "alert-#{key}" }= value
+          %p{ class: "alert-#{flash_key(key)}" }= value
