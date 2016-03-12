@@ -1,5 +1,6 @@
 class ClassesController < ApplicationController
   before_action :user_signed_in, except: :show
+  before_action :user_has_profile, except: :show
   before_action :find_clazz, except: [:new, :create]
   before_action :owns_clazz, except: [:new, :create, :show]
 

@@ -1,5 +1,6 @@
 class InstructorProfilesController < ApplicationController
   before_action :user_signed_in, except: :show
+  before_action :user_has_profile, except: [:show, :new, :create]
   before_action :find_instructor_profile, only: [:edit, :update, :destroy]
   before_action :owns_instructor_profile, only: [:edit, :update, :destroy]
   before_action :find_instructor_profile_by_name, only: :show
