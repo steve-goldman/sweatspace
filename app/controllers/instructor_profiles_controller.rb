@@ -13,7 +13,7 @@ class InstructorProfilesController < ApplicationController
   end
 
   def new
-    @instructor_profile = InstructorProfile.new profile_path: current_user.nickname
+    @instructor_profile = InstructorProfile.new profile_path: current_user.name.downcase.gsub(" ", "-")
   end
 
   def edit

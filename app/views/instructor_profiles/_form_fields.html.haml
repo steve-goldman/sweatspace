@@ -3,3 +3,13 @@
   = f.text_field :profile_path, class: "form-control profile-path-input"
 .form-actions
   = f.submit "Save", class: "btn btn-primary"
+
+:javascript
+  function setLabel(profile_path) {
+    $(".profile-path-label").html("Profile path (http://sweatspace.io/" + profile_path + ")");
+  };
+  $(".profile-path-input").keyup(function(event) {
+    setLabel(event.target.value);
+  });
+  var initial_profile_path = $(".profile-path-input").attr("value");
+  setLabel(initial_profile_path);
