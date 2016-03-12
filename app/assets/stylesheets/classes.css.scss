@@ -33,3 +33,7 @@
 .substitution-warning {
   color: red;
 }
+
+#datepicker[readonly], #timepicker[readonly] {
+  background-color: white !important;
+}
