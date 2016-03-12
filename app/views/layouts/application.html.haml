@@ -4,9 +4,10 @@
   %body{ data: { controller: controller.controller_path, action: controller.action_name } }
     %div
       = render partial: "layouts/navigation"
-      .container
+      .container#body
         .row
           .col-md-12
             = render partial: "layouts/flash_messages"
             = yield
+      = render partial: "layouts/footer"
     = yield :javascripts

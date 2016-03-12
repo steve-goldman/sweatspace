@@ -20,4 +20,12 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def after_sign_in_path_for resource
+    if current_user.instructor_profile
+      profile_path current_user.instructor_profile.profile_path
+    else
+      root_path
+    end
+  end
 end

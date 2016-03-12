@@ -16,4 +16,16 @@ module ApplicationHelper
       key
     end
   end
+
+  def home_path
+    if current_user.try(:instructor_profile).try(:persisted?)
+      profile_path current_user.instructor_profile.profile_path
+    else
+      root_path
+    end
+  end
+
+  def current_year
+    Time.current.strftime "%Y"
+  end
 end

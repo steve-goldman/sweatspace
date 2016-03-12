@@ -1,5 +1,5 @@
 .form-group
   = f.label :invited_email, "Email Address"
-  = f.text_field :invited_email, autofocus: true, class: "form-control"
+  = f.email_field :invited_email, autofocus: true, class: "form-control"
 .form-actions
   = f.submit "Send", class: "btn btn-primary"

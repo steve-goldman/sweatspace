@@ -1,3 +1,19 @@
-%h3< You've been invited to join Sweat Space!
-%p< Please click the following link to sign up.
-%p= link_to "Sign Up!", new_user_registration_url(token: @token)
+%p
+  We want to sweat with you.
+
+%p
+  Join SweatSpace: a new community of NYC yoga and fitness teachers
+  who are looking to build better, stronger connections with our
+  students and with each other.
+
+%p
+  = link_to "Click here", new_user_registration_url(token: @token)
+  to get started, and do not hesitate to reach out with questions and
+  comments. We're counting on your feedback to make SweatSpace as
+  awesome as it can be.
+
+%p
+  = link_to "Our FAQ", faq_url
+  will help you out.
+
+The SweatSpace Team
