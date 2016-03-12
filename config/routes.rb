@@ -34,5 +34,6 @@ Rails.application.routes.draw do
   end
 
   resources :instructor_profiles, except: :destroy
+  get :faq, to: "home#faq", as: :faq
   get "/:id", to: "instructor_profiles#show", as: :profile
 end
