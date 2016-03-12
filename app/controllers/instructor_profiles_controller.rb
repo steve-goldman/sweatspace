@@ -23,7 +23,7 @@ class InstructorProfilesController < ApplicationController
     @instructor_profile = current_user.build_instructor_profile create_params
     if @instructor_profile.save
       flash[:success] = "Instructor profile created"
-      redirect_to root_path
+      redirect_to profile_path(@instructor_profile.profile_path)
     else
       render :new
     end
