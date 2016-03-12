@@ -23,4 +23,7 @@
             - else
               = link_to class_path(clazz), class: "list-group-item future-class" do
                 = render partial: "class_row", locals: { clazz: clazz }
+  - elsif @is_owner
+    .alert.alert-info
+      To add a class, click the "New" button on the top right.
   = render partial: "prev_next_button", locals: { date_range: @date_range }
