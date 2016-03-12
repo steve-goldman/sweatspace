@@ -24,4 +24,8 @@ module ApplicationHelper
       root_path
     end
   end
+
+  def current_year
+    Time.current.strftime "%Y"
+  end
 end
