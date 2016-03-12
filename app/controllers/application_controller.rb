@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def user_does_not_have_profile
+    unless current_user.instructor_profile.nil?
+      redirect_to root_path
+    end
+  end
 end
