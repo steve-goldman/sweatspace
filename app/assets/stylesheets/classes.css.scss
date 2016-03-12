@@ -30,8 +30,9 @@
   color: red;
 }
 
-.substitution-warning {
+.substitution-warning, .cancelation-warning {
   color: red;
+  font-weight: bold;
 }
 
 #datepicker[readonly], #timepicker[readonly] {

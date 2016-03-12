@@ -1,5 +1,6 @@
 class ClassesController < ApplicationController
   before_action :user_signed_in, except: :show
+  before_action :user_has_profile, except: :show
   before_action :find_clazz, except: [:new, :create]
   before_action :owns_clazz, except: [:new, :create, :show]
 
@@ -60,7 +61,7 @@ class ClassesController < ApplicationController
   end
 
   def owner?
-    current_user.id == @clazz.instructor_profile.user_id
+    user_signed_in? && current_user.id == @clazz.instructor_profile.user_id
   end
 
   def owns_clazz

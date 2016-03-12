@@ -1,10 +1,7 @@
 .panel.panel-default
   .panel-heading
     %h3.panel-title
-      - if @clazz.canceled
-        .class-canceled-warning< This class has been canceled
-      - else
-        Summary
+      Summary
   %ul.list-group
     %li.list-group-item
       .row
@@ -12,7 +9,10 @@
           .class-info-key< Instructor
         .col-xs-8.col-md-4
           = @clazz.instructor_profile.full_name
-          - if @clazz.substituted?
+          - if @clazz.canceled?
+            %br
+            .cancelation-warning< This class has been canceled
+          - elsif @clazz.substituted?
             %br
             .substitution-warning< This class will be taught by someone else
     %li.list-group-item

@@ -1,5 +1,6 @@
 class InstructorProfilesController < ApplicationController
   before_action :user_signed_in, except: :show
+  before_action :user_has_profile, except: [:show, :new, :create]
   before_action :find_instructor_profile, only: [:edit, :update, :destroy]
   before_action :owns_instructor_profile, only: [:edit, :update, :destroy]
   before_action :find_instructor_profile_by_name, only: :show
@@ -23,7 +24,7 @@ class InstructorProfilesController < ApplicationController
     @instructor_profile = current_user.build_instructor_profile create_params
     if @instructor_profile.save
       flash[:success] = "Instructor profile created"
-      redirect_to root_path
+      redirect_to profile_path(@instructor_profile.profile_path)
     else
       render :new
     end
