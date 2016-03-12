@@ -1,7 +1,12 @@
 .row
   .col-xs-12.col-md-6
     = render partial: "shared/errors_for", locals: { object: resource }
-    %h3< Log in
+    %h3< Instructor Log in
+    .alert.alert-info
+      %p
+        Do you want to be a beta tester?
+        = mail_to "emilytorockio@gmail.com", "Email us"
+        to request an account!
     = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
       .form-group
         = f.label :email
