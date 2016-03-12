@@ -18,19 +18,9 @@
         %ul.list-group
           - classes.each do |clazz|
             - if clazz.in_the_past?
-              %li{ class: "list-group-item #{class_summary_class(clazz)} #{class_canceled_class(clazz)}" }
-                .row
-                  .col-xs-3= clazz.display_time
-                  .col-xs-5= clazz.name
-                  .col-xs-4= clazz.display_studio
+              %li{ class: "list-group-item past-class" }
+                = render partial: "class_row", locals: { clazz: clazz }
             - else
-              = link_to class_path(clazz), class: "list-group-item #{class_summary_class(clazz)} #{class_canceled_class(clazz)}" do
-                .row
-                  .col-xs-3= clazz.display_time
-                  .col-xs-5= clazz.name
-                  .col-xs-4= clazz.display_studio
-                - if clazz.substituted?
-                  .row
-                    .col-xs-12
-                      .substitution-warning< This class will be taught by someone else
+              = link_to class_path(clazz), class: "list-group-item future-class" do
+                = render partial: "class_row", locals: { clazz: clazz }
   = render partial: "prev_next_button", locals: { date_range: @date_range }
