@@ -14,7 +14,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
 
       it "calls accepted! on the invitation" do
         expect_any_instance_of(Invitation).to receive(:accepted!)
-        post :create, token: invitation.token
+        post :create, user: { name: "name" }, token: invitation.token
       end
     end
 
@@ -25,7 +25,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
 
       it "does not call accepted! on the invitation" do
         expect_any_instance_of(Invitation).to_not receive(:accepted!)
-        post :create, token: invitation.token
+        post :create, user: { name: "name" }, token: invitation.token
       end
     end
   end
