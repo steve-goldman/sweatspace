@@ -30,6 +30,7 @@ class RecurringClass < ActiveRecord::Base
 
   scope :confirmed, -> { where confirmed: true }
   scope :unconfirmed, -> { where "confirmed IS NULL OR confirmed != 't'" }
+  scope :open_ended, -> { where number_of_weeks: 0 }
 
   def remaining_classes
     classes.where "timestamp > ?", Time.now
