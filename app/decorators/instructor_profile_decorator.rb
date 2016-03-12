@@ -3,10 +3,6 @@ class InstructorProfileDecorator < Draper::Decorator
   decorates_association :classes
 
   def full_name
-    "#{first_name} #{last_name}"
-  end
-
-  def owner?
-    user_signed_in? && current_user.id == @instructor_profile.user_id
+    user.name
   end
 end
