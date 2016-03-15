@@ -14,6 +14,7 @@ RSpec.describe Studio, :type => :model do
   describe "validations" do
     it { should validate_presence_of :name }
     it { should validate_presence_of :url }
+    it { should validate_presence_of :map_url }
     it { should validate_presence_of :timezone }
   end
 end
