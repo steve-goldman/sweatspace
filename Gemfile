@@ -52,6 +52,7 @@ gem 'instagram'
 gem 'wicked'
 gem 'date_validator', '~> 0.9.0'
 gem 'uuidtools'
+gem 'redcarpet'
 gem 'timecop'
 
 group :development, :test do
