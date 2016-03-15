@@ -4,5 +4,6 @@ class HomeController < ApplicationController
   end
 
   def faq
+    @faq = Faq.instance
   end
 end

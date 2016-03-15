@@ -1,3 +1,8 @@
 %h3< FAQ
-.alert.alert-info
-  Questions and answers will go here.
+.row
+  .col-xs-12.col-md-6
+    - @faq.faq_items.each do |faq_item|
+      .faq_item
+        %p.question= faq_item.question
+        :markdown
+          #{faq_item.answer}
