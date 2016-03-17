@@ -16,4 +16,6 @@ class InstructorProfile < ActiveRecord::Base
   acts_as_paranoid
   has_paper_trail
   mount_uploader :cover_photo, CoverPhotoUploader
+  validates :cover_photo,
+            file_size: { less_than: 5.megabytes }
 end

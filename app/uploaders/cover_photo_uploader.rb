@@ -2,9 +2,7 @@
 
 class CoverPhotoUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -24,6 +22,14 @@ class CoverPhotoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+  version :scaled_full do
+    process resize_to_fill: [600, 375, "South"]
+  end
+
+  version :scaled_thumb, from_version: :scaled_full do
+    process resize_to_fit: [160, 100]
+  end
+
   # Process files as they are uploaded:
   # process :scale => [200, 300]
   #
@@ -38,9 +44,9 @@ class CoverPhotoUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    ["jpg", "jpeg", "gif", "png"]
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
