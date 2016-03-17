@@ -54,6 +54,7 @@ gem 'date_validator', '~> 0.9.0'
 gem 'uuidtools'
 gem 'redcarpet'
 gem 'carrierwave'
+gem 'carrierwave-aws'
 gem 'mini_magick'
 gem 'file_validators'
 
