@@ -24,7 +24,7 @@ class InstructorProfilesController < ApplicationController
   def create
     @instructor_profile = current_user.build_instructor_profile create_params
     if @instructor_profile.save
-      flash[:success] = "Instructor profile created"
+      flash[:success] = "Profile created"
       redirect_to profile_path(@instructor_profile.profile_path)
     else
       render :new
@@ -33,11 +33,11 @@ class InstructorProfilesController < ApplicationController
 
   def update
     if @instructor_profile.update_attributes create_params
-      flash[:success] = "Instructor profile saved"
-      redirect_to root_path
+      flash[:success] = "Profile saved"
     else
-      render :edit
-    end      
+      flash[:danger] = @instructor_profile.errors.full_messages.first
+    end
+    redirect_to profile_path(@instructor_profile.profile_path)
   end
 
   private

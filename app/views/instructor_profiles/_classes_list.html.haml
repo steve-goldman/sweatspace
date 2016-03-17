@@ -1,0 +1,19 @@
+.classes
+  %p.date-range= @presenter.count_in_range_display
+  - if @classes_by_date.any?
+    - @classes_by_date.each do |date, classes|
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title= @presenter.header_display_date date
+        %ul.list-group
+          - classes.each do |clazz|
+            - if clazz.in_the_past?
+              %li{ class: "list-group-item past-class" }
+                = render partial: "class_row", locals: { clazz: clazz }
+            - else
+              = link_to class_path(clazz), class: "list-group-item future-class" do
+                = render partial: "class_row", locals: { clazz: clazz }
+  - elsif @is_owner
+    .alert.alert-info
+      To add a class, click the "New" button on the top right.
+  = render partial: "prev_next_button", locals: { date_range: @date_range }

@@ -53,7 +53,10 @@ gem 'wicked'
 gem 'date_validator', '~> 0.9.0'
 gem 'uuidtools'
 gem 'redcarpet'
-gem 'timecop'
+gem 'carrierwave'
+gem 'carrierwave-aws'
+gem 'mini_magick'
+gem 'file_validators'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
@@ -73,4 +76,5 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.0'
+  gem 'timecop'
 end

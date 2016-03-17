@@ -2,6 +2,8 @@ class InstructorProfile < ActiveRecord::Base
   PERMITTED_PARAMS = [
     "profile_path",
     "user_id",
+    "cover_photo",
+    "remove_cover_photo"
   ]
 
   validates_presence_of :profile_path
@@ -13,4 +15,7 @@ class InstructorProfile < ActiveRecord::Base
   has_many :recurring_classes, dependent: :destroy
   acts_as_paranoid
   has_paper_trail
+  mount_uploader :cover_photo, CoverPhotoUploader
+  validates :cover_photo,
+            file_size: { less_than: 5.megabytes }
 end

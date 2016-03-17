@@ -1,0 +1,14 @@
+%h3
+  - if @instructor_profile.cover_photo?
+    .cover-photo= image_tag @instructor_profile.cover_photo.scaled_full.url
+  = "#{@instructor_profile.full_name}'s Schedule"
+  - if @is_owner
+    .pull-right
+      = link_to "Cover Photo", edit_cover_photo_path, remote: true, class: "btn btn-default"
+      = button_tag type: "button", class: "btn btn-primary dropdown-toggle", data: { toggle: "dropdown" } do
+        New
+        %span.caret
+      %ul.dropdown-menu
+        %li= link_to "One-time class", new_class_path
+        %li= link_to "Recurring class", new_recurring_class_path
+= modal_dialog
