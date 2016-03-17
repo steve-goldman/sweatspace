@@ -34,10 +34,8 @@ class InstructorProfilesController < ApplicationController
   def update
     if @instructor_profile.update_attributes create_params
       flash[:success] = "Instructor profile saved"
-      redirect_to root_path
-    else
-      render :edit
-    end      
+    end
+    redirect_to profile_path(@instructor_profile.profile_path)
   end
 
   private

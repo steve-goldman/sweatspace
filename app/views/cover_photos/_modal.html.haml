@@ -1,0 +1,8 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      = button_tag class: "close", "data-dismiss": "modal" do
+        %span< &times;
+      %h4.modal-title< Cover Photo
+    .modal-body
+      = render partial: "form"

@@ -1,0 +1,11 @@
+= form_for @instructor_profile, url: instructor_profile_path(@instructor_profile), method: :patch do |f|
+  .form-group
+    = f.label :cover_photo
+    - if @instructor_profile.cover_photo?
+      .cover-photo-preview
+        = image_tag @instructor_profile.cover_photo_url
+      = f.check_box :remove_cover_photo
+      Remove cover photo
+    = f.file_field :cover_photo
+  .form-actions
+    = f.submit "Update", class: "btn btn-primary"
