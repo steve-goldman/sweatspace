@@ -3,7 +3,5 @@
   %span
     %i.glyphicon.glyphicon-arrow-left
 %h3< Create a Studio
-.row
-  .col-xs-12.col-md-6
-    = form_for @studio, url: { action: :create} do |f|
-      = render partial: "form_fields", locals: { f: f }
+= form_for @studio, url: { action: :create} do |f|
+  = render partial: "form_fields", locals: { f: f }

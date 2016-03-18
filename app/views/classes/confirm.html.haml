@@ -3,24 +3,22 @@
   %span
     %i.glyphicon.glyphicon-arrow-left
 %h3< Please confirm these details
-.row
-  .col-xs-12.col-md-6
-    %table.table
-      %tr
-        %td
-          %strong< Class
-        %td= @clazz.name
-      %tr
-        %td
-          %strong< Studio
-        %td= @clazz.display_studio
-      %tr
-        %td
-          %strong< Date
-        %td= "#{@clazz.display_day_of_week} #{@clazz.display_date}"
-      %tr
-        %td
-          %strong< Time
-        %td= @clazz.display_time
-    = form_for @clazz, url: confirmed_class_path(@clazz), method: :patch do |f|
-      = f.submit "Confirm", class: "btn btn-primary"
+%table.table
+  %tr
+    %td
+      %strong< Class
+    %td= @clazz.name
+  %tr
+    %td
+      %strong< Studio
+    %td= @clazz.display_studio
+  %tr
+    %td
+      %strong< Date
+    %td= "#{@clazz.display_day_of_week} #{@clazz.display_date}"
+  %tr
+    %td
+      %strong< Time
+    %td= @clazz.display_time
+= form_for @clazz, url: confirmed_class_path(@clazz), method: :patch do |f|
+  = f.submit "Confirm", class: "btn btn-primary"

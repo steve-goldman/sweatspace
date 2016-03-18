@@ -6,8 +6,10 @@
       = render partial: "layouts/navigation"
       .container#body
         .row
-          .col-md-12
+          .col-xs-12.col-md-6
             = render partial: "layouts/flash_messages"
             = yield
-      = render partial: "layouts/footer"
+      .row
+        .col-xs-12.col-md-6
+          = render partial: "layouts/footer"
     = yield :javascripts
