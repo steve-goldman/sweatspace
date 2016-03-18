@@ -4,7 +4,7 @@ class ClazzDecorator < Draper::Decorator
   delegate :name,
            :description,
            :display_duration,
-           :display_clazz_type,
+           :display_clazz_types,
            to: :class_template
   decorates_association :instructor_profile
   decorates_association :recurring_class

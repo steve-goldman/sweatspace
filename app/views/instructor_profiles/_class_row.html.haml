@@ -1,6 +1,8 @@
 .row
-  .col-xs-3= clazz.display_time
-  .col-xs-5= clazz.name
+  .col-xs-4= clazz.display_time
+  .col-xs-4
+    .class-name= clazz.name
+    .class-types= clazz.display_clazz_types
   .col-xs-4= clazz.display_studio
 - if clazz.canceled?
   .cancelation-warning< This class has been canceled
