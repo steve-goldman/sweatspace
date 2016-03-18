@@ -1,7 +1,7 @@
-%h3
+.profile-header
   - if @instructor_profile.cover_photo?
     .cover-photo= sweatspace_image @instructor_profile.cover_photo.scaled_full
-  = "#{@instructor_profile.full_name}'s Schedule"
+  .name= @instructor_profile.full_name
   - if @is_owner
     .pull-right
       = link_to "Cover Photo", edit_cover_photo_path, remote: true, class: "btn btn-default"
