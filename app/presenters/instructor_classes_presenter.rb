@@ -11,7 +11,7 @@ class InstructorClassesPresenter
   end
 
   def header_display_date date
-    Date.parse(date).strftime("%A, %b. %e, %Y").downcase
+    Date.parse(date).strftime "%A, %b. %e, %Y"
   end
 
   private
