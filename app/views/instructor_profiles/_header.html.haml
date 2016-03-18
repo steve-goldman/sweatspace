@@ -1,6 +1,6 @@
 %h3
   - if @instructor_profile.cover_photo?
-    .cover-photo= image_tag @instructor_profile.cover_photo.scaled_full.url
+    .cover-photo= sweatspace_image @instructor_profile.cover_photo.scaled_full
   = "#{@instructor_profile.full_name}'s Schedule"
   - if @is_owner
     .pull-right

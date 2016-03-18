@@ -113,6 +113,8 @@ GEM
     file_validators (2.0.2)
       activemodel (>= 3.0)
       mime-types (>= 1.0)
+    font_assets (0.1.12)
+      rack
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -308,6 +310,7 @@ DEPENDENCIES
   faker (~> 1.6, >= 1.6.1)
   figaro
   file_validators
+  font_assets
   haml (~> 4.0.6)
   instagram
   jbuilder (~> 2.0)

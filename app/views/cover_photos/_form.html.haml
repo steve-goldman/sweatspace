@@ -1,7 +1,7 @@
 = form_for @instructor_profile, url: instructor_profile_path(@instructor_profile), method: :patch do |f|
   - if @instructor_profile.cover_photo?
     .form-group
-      .cover-photo-preview= image_tag @instructor_profile.cover_photo.scaled_thumb.url
+      .cover-photo-preview= sweatspace_image @instructor_profile.cover_photo.scaled_thumb
       = f.check_box :remove_cover_photo
       Remove cover photo
   .form-group
