@@ -5,7 +5,7 @@
     - @recurring_classes_by_day.each do |day, recurring_classes|
       .panel.panel-default
         .panel-heading
-          %h4.panel-title= recurring_classes.first.display_day_of_week
+          .panel-title= recurring_classes.first.display_day_of_week
         - recurring_classes.each do |recurring_class|
           %li.list-group-item
             .row

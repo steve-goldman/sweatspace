@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Cancel Class
+    .panel-title< Cancel Class
   .panel-body
     %p< Click here to indicate on your schedule that the class has been canceled.
     = form_for :class_change, url: cancel_class_change_path(@clazz) do |f|

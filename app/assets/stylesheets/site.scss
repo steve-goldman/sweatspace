@@ -1,0 +1,27 @@
+.container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.col-xs-12, .col-md-6 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#body {
+  min-height: 400px;
+}
+
+.footer {
+  text-align: center;
+  font-size: small;
+  margin: 20px;
+}
+
+.navbar-default {
+  background-color: $sweatspace-blue;
+
+  .navbar-brand {
+    color: white;
+  }
+}

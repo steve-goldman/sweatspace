@@ -5,12 +5,10 @@
     %div
       = render partial: "layouts/navigation"
       .container#body
-        .row
-          .col-xs-12.col-md-6
-            = render partial: "layouts/flash_messages"
-            = yield
-      .container
-        .row
-          .col-xs-12.col-md-6
-            = render partial: "layouts/footer"
+        .col-xs-12.col-md-6
+          = render partial: "layouts/flash_messages"
+          = yield
+      .container#footer
+        .col-xs-12.col-md-6
+          = render partial: "layouts/footer"
     = yield :javascripts
