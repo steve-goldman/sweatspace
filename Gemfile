@@ -57,6 +57,7 @@ gem 'carrierwave'
 gem 'carrierwave-aws'
 gem 'mini_magick'
 gem 'file_validators'
+gem 'font_assets'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'

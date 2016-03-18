@@ -86,4 +86,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {
     host: "sweatspace.herokuapp.com"
   }
+
+  config.font_assets.origin = "http://sweatspace.herokuapp.com"
 end
