@@ -4,8 +4,11 @@
   }
 
   .date-range {
-    font-size: small;
-    font-style: italic;
+    font-size: 12px;
+
+    .class-count {
+      text-align: center;
+    }
   }
 
   .prev-button {

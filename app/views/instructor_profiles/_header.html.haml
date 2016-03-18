@@ -3,7 +3,7 @@
     .cover-photo= sweatspace_image @instructor_profile.cover_photo.scaled_full
   .name= @instructor_profile.full_name
   - if @is_owner
-    .pull-right
+    .TEMP
       = link_to "Cover Photo", edit_cover_photo_path, remote: true, class: "btn btn-default"
       = button_tag type: "button", class: "btn btn-primary dropdown-toggle", data: { toggle: "dropdown" } do
         New
