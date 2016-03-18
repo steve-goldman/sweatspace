@@ -9,7 +9,8 @@
           .col-xs-12.col-md-6
             = render partial: "layouts/flash_messages"
             = yield
-      .row
-        .col-xs-12.col-md-6
-          = render partial: "layouts/footer"
+      .container
+        .row
+          .col-xs-12.col-md-6
+            = render partial: "layouts/footer"
     = yield :javascripts

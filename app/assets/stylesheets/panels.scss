@@ -1,0 +1,27 @@
+.panel {
+  border-radius: 0px;
+  margin-bottom: 0px;
+  text-transform: lowercase;
+}
+
+.panel-title {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.panel-default {
+  border: 0px;
+  font-size: 14px;
+  letter-spacing: 0px;
+  a {
+    color: black;
+  }
+
+  .panel-heading {
+    background-color: $sweatspace-blue;
+    border-radius: 0px;
+    border: 0px;
+    color: white;
+  }
+}

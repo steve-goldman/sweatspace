@@ -4,8 +4,11 @@
   }
 
   .date-range {
-    font-size: small;
-    font-style: italic;
+    font-size: 12px;
+
+    .class-count {
+      text-align: center;
+    }
   }
 
   .prev-button {
@@ -13,6 +16,12 @@
 
   .next-button {
     float: right;
+  }
+
+  .class-types, .class-duration {
+    font-size: 10px;
+    color: #747474;
+    font-style: oblique;
   }
 }
 

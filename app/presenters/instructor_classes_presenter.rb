@@ -7,11 +7,11 @@ class InstructorClassesPresenter
   end
 
   def count_in_range_display
-    "#{classes_count} #{'class'.pluralize(classes_count)} from #{date_range.start_date.to_date} to #{date_range.end_date.to_date}"
+    "#{classes_count} #{'class'.pluralize(classes_count)}"
   end
 
   def header_display_date date
-    Date.parse(date).strftime "%A %b %e, %Y"
+    Date.parse(date).strftime "%A, %b. %e, %Y"
   end
 
   private

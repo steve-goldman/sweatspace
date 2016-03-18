@@ -1,5 +1,5 @@
 .classes
-  %p.date-range= @presenter.count_in_range_display
+  = render partial: "prev_next_button", locals: { count: @presenter.count_in_range_display, date_range: @date_range }
   - if @classes_by_date.any?
     - @classes_by_date.each do |date, classes|
       .panel.panel-default
@@ -16,4 +16,3 @@
   - elsif @is_owner
     .alert.alert-info
       To add a class, click the "New" button on the top right.
-  = render partial: "prev_next_button", locals: { date_range: @date_range }
