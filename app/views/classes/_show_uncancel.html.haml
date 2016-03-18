@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Un-cancel Class
+    .panel-title< Un-cancel Class
   .panel-body
     %p< Click here to make your schedule no longer indicate that the class is canceled.
     = form_for :class_change, url: uncancel_class_change_path(@clazz) do |f|

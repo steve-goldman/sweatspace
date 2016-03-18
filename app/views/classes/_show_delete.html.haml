@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Delete Class
+    .panel-title< Delete Class
   .panel-body
     %p< Click here to remove this class from your schedule. Be careful, this could confuse your students.
     = form_for :class_change, url: delete_class_change_path(@clazz) do |f|

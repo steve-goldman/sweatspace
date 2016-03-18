@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Someone Else No Longer Teaching the Class
+    .panel-title< Someone Else No Longer Teaching the Class
   .panel-body
     %p< Click here to indicate on your schedule that you will teach the class.
     = form_for :class_change, url: unsubstitute_class_change_path(@clazz) do |f|

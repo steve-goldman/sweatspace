@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    %h3.panel-title< Delete Open-Ended Class
+    .panel-title< Delete Open-Ended Class
   .panel-body
     %p< Click here to delete this and future meetings of this class. This cannot be undone.
     = form_for :class_change, url: delete_and_future_weeks_class_change_path(@clazz) do |f|
