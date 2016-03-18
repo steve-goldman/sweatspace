@@ -5,9 +5,9 @@
   %ul.list-group
     %li.list-group-item
       .row
-        .col-xs-4.col-md-2
+        .col-xs-4
           .class-info-key< Instructor
-        .col-xs-8.col-md-4
+        .col-xs-8
           = @clazz.instructor_profile.full_name
           - if @clazz.canceled?
             %br
@@ -17,21 +17,21 @@
             .substitution-warning< This class will be taught by someone else
     %li.list-group-item
       .row
-        .col-xs-4.col-md-2
+        .col-xs-4
           .class-info-key< Date
-        .col-xs-8.col-md-4= @clazz.display_long_date
+        .col-xs-8= @clazz.display_long_date
     %li.list-group-item
       .row
-        .col-xs-4.col-md-2
+        .col-xs-4
           .class-info-key< Time
-        .col-xs-8.col-md-4= @clazz.display_time
+        .col-xs-8= @clazz.display_time
     %li.list-group-item
       .row
-        .col-xs-4.col-md-2
+        .col-xs-4
           .class-info-key< Studio
-        .col-xs-8.col-md-4= @clazz.display_studio
+        .col-xs-8= @clazz.display_studio
     %li.list-group-item
       .row
-        .col-xs-4.col-md-2
+        .col-xs-4
           .class-info-key< Class
-        .col-xs-8.col-md-4= @clazz.name
+        .col-xs-8= @clazz.name

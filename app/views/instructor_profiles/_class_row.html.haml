@@ -3,10 +3,6 @@
   .col-xs-5= clazz.name
   .col-xs-4= clazz.display_studio
 - if clazz.canceled?
-  .row
-    .col-xs-12
-      .cancelation-warning< This class has been canceled
+  .cancelation-warning< This class has been canceled
 - elsif clazz.substituted?
-  .row
-    .col-xs-12
-      .substitution-warning< This class will be taught by someone else
+  .substitution-warning< This class will be taught by someone else
