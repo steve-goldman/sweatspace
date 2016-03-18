@@ -44,4 +44,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
 
   config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
+
+  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+  #config.action_controller.asset_host = "https://drurn8pj7hko8.cloudfront.net"
 end
