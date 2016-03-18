@@ -3,8 +3,17 @@
   margin-bottom: 0px;
 }
 
+.panel-title {
+  text-align: center;
+}
+
 .panel-default {
   border: 0px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  a {
+    color: black;
+  }
 
   .panel-heading {
     background-color: $sweatspace-blue;
