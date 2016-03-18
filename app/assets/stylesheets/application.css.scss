@@ -13,6 +13,7 @@
  *= require_self
  */
 
+@import "defs";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "pickadate/default";
@@ -26,3 +27,4 @@
 @import "footer";
 @import "faq";
 @import "instructor_profiles";
+@import "panels";
