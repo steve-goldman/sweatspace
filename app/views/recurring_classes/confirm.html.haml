@@ -1,32 +1,35 @@
 = render partial: "shared/errors_for", locals: { object: @recurring_class }
-= link_to edit_recurring_class_path(@recurring_class), class: "btn btn-default" do
+= link_to edit_recurring_class_path(@recurring_class), class: "btn btn-default back-button" do
   %span
     %i.glyphicon.glyphicon-arrow-left
-%h3< Please confirm these details
-%table.table
-  %tr
-    %td
-      %strong< Class
-    %td= @recurring_class.name
-  %tr
-    %td
-      %strong< Studio
-    %td= @recurring_class.display_studio
-  %tr
-    %td
-      %strong< Day of Week
-    %td= @recurring_class.display_day_of_week
-  %tr
-    %td
-      %strong< Time
-    %td= @recurring_class.display_time
-  %tr
-    %td
-      %strong< First Date
-    %td= @recurring_class.display_first_date
-  %tr
-    %td
-      %strong< Number of Weeks
-    %td= @recurring_class.display_number_of_weeks
-= form_for @recurring_class, url: confirmed_recurring_class_path(@recurring_class), method: :patch do |f|
-  = f.submit "Confirm", class: "btn btn-primary"
+.panel.panel-default
+  .panel-heading
+    .panel-title< Please confirm these details
+  %ul.list-group
+    = form_for @recurring_class, url: confirmed_recurring_class_path(@recurring_class), method: :patch do |f|
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Class
+          .col-xs-8= @recurring_class.name
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Studio
+          .col-xs-8= @recurring_class.display_studio
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Day of Week
+          .col-xs-8= @recurring_class.display_day_of_week
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Time
+          .col-xs-8= @recurring_class.display_time
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< First Date
+          .col-xs-8= @recurring_class.display_first_date
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Number of Weeks
+          .col-xs-8= @recurring_class.display_number_of_weeks
+      %li.list-group-item
+        .center= f.submit "Confirm", class: "btn btn-primary"

@@ -1,17 +1,21 @@
-.form-group
-  = f.label :class_template_id, "Class"
-  = f.select :class_template_id, class_template_options, {}, class: "form-control"
-.form-group
-  = f.label :studio_id, "Studio"
-  = f.select :studio_id, studio_options, {}, class: "form-control"
-.form-group
-  = f.label :date
-  = f.text_field :date, class: "form-control", id: "datepicker", readonly: true
-.form-group
-  = f.label :time_of_day
-  = f.text_field :time_of_day, class: "form-control", id: "timepicker", readonly: true
-.form-actions
-  = f.submit "Save", class: "btn btn-primary"
+%li.list-group-item
+  .row
+    .col-xs-3.vcenter.class-info-key< Class
+    .col-xs-8.vcenter= f.select :class_template_id, class_template_options, {}, class: "form-control"
+%li.list-group-item
+  .row
+    .col-xs-3.vcenter.class-info-key< Studio
+    .col-xs-8.vcenter= f.select :studio_id, studio_options, {}, class: "form-control input-xs"
+%li.list-group-item
+  .row
+    .col-xs-3.vcenter.class-info-key< Date
+    .col-xs-8.vcenter= f.text_field :date, class: "form-control", id: "datepicker", readonly: true
+%li.list-group-item
+  .row
+    .col-xs-3.vcenter.class-info-key< Time of Day
+    .col-xs-8.vcenter= f.text_field :time_of_day, class: "form-control input-xs", id: "timepicker", readonly: true
+%li.list-group-item
+  .center= f.submit "Save", class: "btn btn-primary"
 
 :javascript
   $(document).ready(function() {
