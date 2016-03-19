@@ -1,23 +1,28 @@
 .classes {
   .past-class {
     color: lightgrey;
+
+    .class-types, .class-duration {
+      color: lightgrey;
+    }
   }
 
   .date-range {
     font-size: 12px;
     margin-left: 5px;
     margin-right: 5px;
-
-    .class-count {
-      text-align: center;
-    }
+    position: relative;
+    text-align: center;
   }
 
-  .prev-button {
+  .prev-week {
+    position: absolute;
+    left: 5px;
   }
 
-  .next-button {
-    float: right;
+  .next-week {
+    position: absolute;
+    right: 5px;
   }
 
   .class-types, .class-duration {
