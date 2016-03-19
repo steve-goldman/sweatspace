@@ -2,6 +2,6 @@
   .panel-heading
     .panel-title< Delete Class
   .panel-body
-    %p< Click here to remove this class from your schedule. Be careful, this could confuse your students.
+    %p< Remove this class from your schedule.
     = form_for :class_change, url: delete_class_change_path(@clazz) do |f|
       = f.submit "Delete Class", class: "btn btn-danger", data: { confirm: "Are you sure you want to delete the class?" }

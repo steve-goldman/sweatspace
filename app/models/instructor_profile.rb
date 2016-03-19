@@ -2,6 +2,8 @@ class InstructorProfile < ActiveRecord::Base
   PERMITTED_PARAMS = [
     "profile_path",
     "user_id",
+    "profile_photo",
+    "remove_profile_photo",
     "cover_photo",
     "remove_cover_photo"
   ]
@@ -17,5 +19,8 @@ class InstructorProfile < ActiveRecord::Base
   has_paper_trail
   mount_uploader :cover_photo, CoverPhotoUploader
   validates :cover_photo,
+            file_size: { less_than: 5.megabytes }
+  mount_uploader :profile_photo, ProfilePhotoUploader
+  validates :profile_photo,
             file_size: { less_than: 5.megabytes }
 end

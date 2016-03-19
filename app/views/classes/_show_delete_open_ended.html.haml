@@ -2,6 +2,6 @@
   .panel-heading
     .panel-title< Delete Open-Ended Class
   .panel-body
-    %p< Click here to delete this and future meetings of this class. This cannot be undone.
+    %p< Remove this and future meetings of this class from your schedule.
     = form_for :class_change, url: delete_and_future_weeks_class_change_path(@clazz) do |f|
       = f.submit "Delete Open-Ended Class", class: "btn btn-danger", data: { confirm: "Are you sure you want to delete the open-ended class?" }

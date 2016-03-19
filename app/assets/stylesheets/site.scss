@@ -36,7 +36,7 @@
   }
 }
 
-.list-group-item {
+.list-group-item, .panel-body {
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -50,6 +50,11 @@
 .btn {
   text-transform: lowercase;
   letter-spacing: 2px;
+}
+
+.btn-primary {
+  /* this is hacky */
+  color: white !important;
 }
 
 .center {
