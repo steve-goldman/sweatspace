@@ -1,0 +1,20 @@
+= form_for @instructor_profile, url: instructor_profile_path(@instructor_profile), method: :patch do |f|
+  %li.list-group-item
+    .row
+      .col-xs-3.vcenter.class-info-key< Facebook
+      .col-xs-8.vcenter= f.text_field :facebook, class: "form-control"
+  %li.list-group-item
+    .row
+      .col-xs-3.vcenter.class-info-key< Instagram
+      .col-xs-8.vcenter= f.text_field :instagram, class: "form-control"
+  %li.list-group-item
+    .row
+      .col-xs-3.vcenter.class-info-key< Twitter
+      .col-xs-8.vcenter= f.text_field :twitter, class: "form-control"
+  %li.list-group-item
+    .row
+      .col-xs-3.vcenter.class-info-key< Youtube
+      .col-xs-8.vcenter= f.text_field :youtube, class: "form-control"
+  %li.list-group-item
+    = f.submit "Update", class: "btn btn-primary", data: { disable_with: "Please wait..." }
+    = button_tag "Cancel", class: "btn btn-default", "data-dismiss" => "modal"

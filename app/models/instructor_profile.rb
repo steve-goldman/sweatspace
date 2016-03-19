@@ -5,7 +5,11 @@ class InstructorProfile < ActiveRecord::Base
     "profile_photo",
     "remove_profile_photo",
     "cover_photo",
-    "remove_cover_photo"
+    "remove_cover_photo",
+    "facebook",
+    "instagram",
+    "youtube",
+    "twitter",
   ]
 
   validates_presence_of :profile_path
