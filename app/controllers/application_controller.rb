@@ -34,6 +34,6 @@ class ApplicationController < ActionController::Base
   private
 
   def use_ssl?
-    !Rails.env.development?
+    Rails.env.production?
   end
 end
