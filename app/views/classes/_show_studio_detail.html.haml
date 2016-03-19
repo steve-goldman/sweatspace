@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    .panel-title< About the Studio
-  %ul.list-group
-    %li.list-group-item= link_to "Map", @clazz.studio.map_url, target: "_blank"
-    %li.list-group-item= link_to "Visit the Studio", @clazz.studio.url, class: "btn btn-primary", target: "_blank"
+    .panel-title< The Space
+  .panel-body
+    = render partial: "studio_address"
+    = render partial: "studio_map"

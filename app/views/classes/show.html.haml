@@ -1,12 +1,13 @@
-%p
-  = link_to profile_path(@clazz.instructor_profile.profile_path), class: "btn btn-default" do
-    %span
-      %i.glyphicon.glyphicon-arrow-left
+= link_to profile_path(@clazz.instructor_profile.profile_path), class: "btn btn-default back-button" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
+.profile-header
+  = render partial: "shared/profile_photo", locals: { instructor_profile: @clazz.instructor_profile, is_owner: @is_owner }
+  .name= @clazz.instructor_profile.full_name
 = render partial: "show_summary"
 = render partial: "show_class_detail"
 = render partial: "show_studio_detail"
 - if @is_owner
   - unless @clazz.in_the_past?
-    = render partial: "show_cancellation"
-    = render partial: "show_substitution"
     = render partial: "show_deletion"
+= modal_dialog

@@ -1,37 +1,6 @@
-.panel.panel-default
-  .panel-heading
-    .panel-title
-      Summary
-  %ul.list-group
-    %li.list-group-item
-      .row
-        .col-xs-4
-          .class-info-key< Instructor
-        .col-xs-8
-          = @clazz.instructor_profile.full_name
-          - if @clazz.canceled?
-            %br
-            .cancelation-warning< This class has been canceled
-          - elsif @clazz.substituted?
-            %br
-            .substitution-warning< This class will be taught by someone else
-    %li.list-group-item
-      .row
-        .col-xs-4
-          .class-info-key< Date
-        .col-xs-8= @clazz.display_long_date
-    %li.list-group-item
-      .row
-        .col-xs-4
-          .class-info-key< Time
-        .col-xs-8= @clazz.display_time
-    %li.list-group-item
-      .row
-        .col-xs-4
-          .class-info-key< Studio
-        .col-xs-8= @clazz.display_studio
-    %li.list-group-item
-      .row
-        .col-xs-4
-          .class-info-key< Class
-        .col-xs-8= @clazz.name
+.class-summary
+  %div= @clazz.name
+  %div= @clazz.display_studio
+  %div= @clazz.display_long_date
+  %div= @clazz.display_time
+  %div= @clazz.display_studio
