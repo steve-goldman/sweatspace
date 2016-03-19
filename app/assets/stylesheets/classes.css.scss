@@ -1,6 +1,10 @@
 .classes {
   .past-class {
     color: lightgrey;
+
+    .class-types, .class-duration {
+      color: lightgrey;
+    }
   }
 
   .date-range {
