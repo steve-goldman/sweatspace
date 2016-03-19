@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319002356) do
+ActiveRecord::Schema.define(version: 20160319024556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,9 @@ ActiveRecord::Schema.define(version: 20160319002356) do
     t.string   "timezone"
     t.datetime "deleted_at"
     t.string   "map_url"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "address_3"
   end
 
   add_index "studios", ["deleted_at"], name: "index_studios_on_deleted_at", using: :btree
