@@ -1,2 +1,3 @@
 .studio-map
-  %div= link_to "Map", @clazz.studio.map_url, class: "btn btn-default", target: "_blank"
+  = link_to @clazz.studio.map_url, target: "_blank" do
+    = image_tag @clazz.studio.map_preview_url

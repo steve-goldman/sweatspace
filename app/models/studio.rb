@@ -4,6 +4,9 @@ class Studio < ActiveRecord::Base
     "url",
     "map_url",
     "timezone",
+    "address_1",
+    "address_2",
+    "address_3",
   ]
 
   acts_as_paranoid
