@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  force_ssl if: :use_ssl?
+
   def user_signed_in
     unless user_signed_in?
       redirect_to root_path
@@ -27,5 +29,11 @@ class ApplicationController < ActionController::Base
     else
       root_path
     end
+  end
+
+  private
+
+  def use_ssl?
+    !Rails.env.development?
   end
 end
