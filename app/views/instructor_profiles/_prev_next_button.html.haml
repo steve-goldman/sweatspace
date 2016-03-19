@@ -1,10 +1,6 @@
 .date-range
   - if @date_range.has_next?
-    = link_to "Next Week", profile_next_page_path(@instructor_profile, @date_range), class: "pull-right"
-  - else
-    %span.pull-right< Next Week
+    = link_to "Next Week", profile_next_page_path(@instructor_profile, @date_range), class: "next-week"
   - if @date_range.has_prev?
-    = link_to "Last Week", profile_prev_page_path(@instructor_profile, @date_range), class: "pull-left"
-  - else
-    %span.pull-left< Last Week
-  .class-count= "#{count} this week"
+    = link_to "Previous Week", profile_prev_page_path(@instructor_profile, @date_range), class: "prev-week"
+  = "#{count} this week"
