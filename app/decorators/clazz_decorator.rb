@@ -8,6 +8,7 @@ class ClazzDecorator < Draper::Decorator
            to: :class_template
   decorates_association :instructor_profile
   decorates_association :recurring_class
+  decorates_association :studio
   delegate :display_num_remaining, to: :recurring_class
 
   def display_day_of_week
