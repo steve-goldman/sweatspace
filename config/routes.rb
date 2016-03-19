@@ -34,7 +34,8 @@ Rails.application.routes.draw do
   end
 
   resources :instructor_profiles, except: :destroy
-  resources :cover_photos, only: :edit
+  #resources :cover_photos, only: :edit
+  resources :profile_photos, only: :edit
 
   get :faq, to: "home#faq", as: :faq
   get "/:id", to: "instructor_profiles#show", as: :profile
