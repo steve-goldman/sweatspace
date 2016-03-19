@@ -1,7 +1,10 @@
 = render partial: "shared/errors_for", locals: { object: @clazz }
-= link_to profile_path(current_user.instructor_profile.profile_path), class: "btn btn-default" do
+= link_to profile_path(current_user.instructor_profile.profile_path), class: "btn btn-default back-button" do
   %span
     %i.glyphicon.glyphicon-arrow-left
-%h3< Create a one-time class
-= form_for @clazz, url: class_path(@clazz), method: :patch do |f|
-  = render partial: "form_fields", locals: { f: f }
+.panel.panel-default
+  .panel-heading
+    .panel-title< Create a one-time class
+  %ul.list-group
+    = form_for @clazz, url: class_path(@clazz), method: :patch do |f|
+      = render partial: "form_fields", locals: { f: f }

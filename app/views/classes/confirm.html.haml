@@ -1,24 +1,27 @@
 = render partial: "shared/errors_for", locals: { object: @clazz }
-= link_to edit_class_path(@clazz), class: "btn btn-default" do
+= link_to edit_class_path(@clazz), class: "btn btn-default back-button" do
   %span
     %i.glyphicon.glyphicon-arrow-left
-%h3< Please confirm these details
-%table.table
-  %tr
-    %td
-      %strong< Class
-    %td= @clazz.name
-  %tr
-    %td
-      %strong< Studio
-    %td= @clazz.display_studio
-  %tr
-    %td
-      %strong< Date
-    %td= "#{@clazz.display_day_of_week} #{@clazz.display_date}"
-  %tr
-    %td
-      %strong< Time
-    %td= @clazz.display_time
-= form_for @clazz, url: confirmed_class_path(@clazz), method: :patch do |f|
-  = f.submit "Confirm", class: "btn btn-primary"
+.panel.panel-default
+  .panel-heading
+    .panel-title< Please confirm these details
+  %ul.list-group
+    = form_for @clazz, url: confirmed_class_path(@clazz), method: :patch do |f|
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Class
+          .col-xs-8= @clazz.name
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Studio
+          .col-xs-8= @clazz.display_studio
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Date
+          .col-xs-8= "#{@clazz.display_day_of_week} #{@clazz.display_date}"
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Time
+          .col-xs-8= @clazz.display_time
+      %li.list-group-item
+        .center= f.submit "Confirm", class: "btn btn-primary"
