@@ -3,4 +3,8 @@
     = link_to (is_owner ? edit_profile_photo_path : profile_path(instructor_profile.profile_path)), remote: (is_owner ? true : false) do
       = sweatspace_image instructor_profile.profile_photo.scaled_full
 - elsif is_owner
-  .center= link_to "Set Profile Photo", edit_profile_photo_path, remote: true, class: "btn btn-success"
+  .center
+    = link_to edit_profile_photo_path, remote: true, class: "btn btn-success" do
+      Profile Photo
+      %span
+        %i.glyphicon.glyphicon-edit

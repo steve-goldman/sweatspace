@@ -12,4 +12,7 @@
     = social_link :youtube, @instructor_profile, @is_owner do
       %span.fa.fa-youtube
   - if @is_owner && !@instructor_profile.any_social?
-    = link_to "Social", edit_social_ids_path, remote: true, class: "btn btn-success"
+    = link_to edit_social_ids_path, remote: true, class: "btn btn-success" do
+      Social
+      %span
+        %i.glyphicon.glyphicon-edit
