@@ -1,21 +1,28 @@
 = render partial: "shared/errors_for", locals: { object: resource }
-%h3< Create Your Account
-= form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
-  = hidden_field_tag :token, @invitation.token
-  .form-group
-    = f.label :name
-    = f.text_field :name, autofocus: true, class: "form-control"
-  .form-group
-    = f.label :email
-    = f.email_field :email, class: "form-control"
-  .form-group
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    = f.password_field :password, autocomplete: "off", class: "form-control"
-  .form-group
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
-  .form-actions
-    = f.submit "Sign Up", class: "btn btn-primary"
+.panel.panel-default
+  .panel-heading
+    .panel-title< Create Your Account
+  %ul.list-group
+    = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      = hidden_field_tag :token, @invitation.token
+      %li.list-group-item
+        .row
+          .col-xs-3.vcenter.class-info-key< Name
+          .col-xs-8.vcenter= f.text_field :name, autofocus: true, class: "form-control"
+      %li.list-group-item
+        .row
+          .col-xs-3.vcenter.class-info-key< Email
+          .col-xs-8.vcenter= f.email_field :email, class: "form-control"
+      %li.list-group-item
+        .row
+          .col-xs-3.vcenter.class-info-key
+            Password
+            - if @minimum_password_length
+              %em< (#{@minimum_password_length} characters minimum)
+          .col-xs-8.vcenter= f.password_field :password, autocomplete: "off", class: "form-control"
+      %li.list-group-item
+        .row
+          .col-xs-3.vcenter.class-info-key< Password Confirmation
+          .col-xs-8.vcenter= f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+      %li.list-group-item
+        .center= f.submit "Sign Up", class: "btn btn-primary"
