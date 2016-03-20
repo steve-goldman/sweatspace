@@ -1,6 +1,10 @@
-%h3< Welcome to SweatSpace!
-- if @can_create_schedule
-  = link_to new_instructor_profile_path, class: "btn btn-success" do
-    Create My Profile
-    %span
-      %i.glyphicon.glyphicon-plus
+.panel.panel-default
+  .panel-heading
+    .panel-title< Welcome to SweatSpace
+  .panel-body
+    - if @can_create_schedule
+      = link_to new_instructor_profile_path, class: "btn btn-success" do
+        %span.create-profile
+          Create My Profile
+          %span
+            %i.glyphicon.glyphicon-plus
