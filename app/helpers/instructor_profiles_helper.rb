@@ -9,15 +9,9 @@ module InstructorProfilesHelper
                  start_date: date_range.next_start_date
   end
 
-  def social_link site, instructor_profile, is_owner, &block
-    path = @is_owner ? edit_social_ids_path : @instructor_profile.send("#{site}_link")
+  def social_link site, instructor_profile, &block
+    path = @instructor_profile.send("#{site}_link")
     options = { class: "btn btn-social-icon btn-#{site}" }
-    if @is_owner
-      options[:remote] = true
-    else
-      options[:target] = "_blank"
-    end
-
     link_to path, options do
       block.call
     end
