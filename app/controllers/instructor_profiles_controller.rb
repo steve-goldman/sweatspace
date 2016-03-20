@@ -33,7 +33,7 @@ class InstructorProfilesController < ApplicationController
 
   def update
     if @instructor_profile.update_attributes create_params
-      flash[:success] = "Profile saved"
+      #flash[:success] = "Profile saved"
     else
       flash[:danger] = @instructor_profile.errors.full_messages.first
     end
