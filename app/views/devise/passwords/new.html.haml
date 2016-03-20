@@ -1,8 +1,12 @@
 = render partial: "shared/errors_for", locals: { object: resource }
-%h3< Forgot your password?
-= form_for resource, as: resource_name, url: user_password_path, method: :post do |f|
-  .form-group
-    = f.label :email
-    = f.email_field :email, autofocus: true, class: "form-control"
-  .form-actions
-    = f.submit "Send me reset password instructions", class: "btn btn-primary"
+.panel.panel-default
+  .panel-heading
+    .panel-title< Password Recovery
+  %ul.list-group
+    = form_for resource, as: resource_name, url: user_password_path, method: :post do |f|
+      %li.list-group-item
+        .row
+          .col-xs-3.vcenter.class-info-key< Email
+          .col-xs-8.vcenter= f.email_field :email, autofocus: true, class: "form-control"
+      %li.list-group-item
+        .center= f.submit "Send me reset password instructions", class: "btn btn-primary"
