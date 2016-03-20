@@ -15,4 +15,7 @@
                 = render partial: "class_row", locals: { clazz: clazz }
   - elsif @is_owner
     .alert.alert-info
-      To add a class, click the "New" button above.
+      To add a class, click the
+      %span
+        %i.glyphicon.glyphicon-plus
+      button above.
