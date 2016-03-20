@@ -24,7 +24,6 @@ class InstructorProfilesController < ApplicationController
   def create
     @instructor_profile = current_user.build_instructor_profile create_params
     if @instructor_profile.save
-      flash[:success] = "Profile created"
       redirect_to profile_path(@instructor_profile.profile_path)
     else
       render :new
@@ -32,9 +31,7 @@ class InstructorProfilesController < ApplicationController
   end
 
   def update
-    if @instructor_profile.update_attributes create_params
-      flash[:success] = "Profile saved"
-    else
+    unless @instructor_profile.update_attributes create_params
       flash[:danger] = @instructor_profile.errors.full_messages.first
     end
     redirect_to profile_path(@instructor_profile.profile_path)
@@ -71,7 +68,11 @@ class InstructorProfilesController < ApplicationController
   end
 
   def create_params
-    params.require(:instructor_profile).permit(InstructorProfile::PERMITTED_PARAMS)
+    if params.has_key? :instructor_profile
+      params.require(:instructor_profile).permit(InstructorProfile::PERMITTED_PARAMS)
+    else
+      {}
+    end
   end
 
   def classes_by_date

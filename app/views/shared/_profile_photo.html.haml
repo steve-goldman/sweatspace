@@ -3,8 +3,8 @@
     = link_to profile_path(instructor_profile.profile_path) do
       = sweatspace_image instructor_profile.profile_photo.scaled_full
     - if is_owner
-      = link_to edit_profile_photo_path, remote: true do
-        %span.edit-icon
+      = link_to edit_profile_photo_path, class: "btn btn-success edit-icon", remote: true do
+        %span
           %i.glyphicon.glyphicon-edit
 - elsif is_owner
   .center

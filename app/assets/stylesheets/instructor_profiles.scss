@@ -22,16 +22,13 @@
 
   .edit-icon {
     position: absolute;
-    font-size: 24px;
-    margin-left: 56px;
-    margin-top: -82px;
+    margin-left: 47px;
+    margin-top: -81px;
     left: 50%;
     top: 50%;
     .glyphicon {
-      color: black;
-      background-color: lightgrey;
-      padding: 1px;
-      border-radius: 2px;
+      margin-left: -2px;
+      margin-right: -5px;
     }
   }
 }
@@ -57,9 +54,6 @@
   }
 
   .edit-icon {
-    color: black;
-    background-color: lightgrey;
-
     .glyphicon {
       margin-left: -2px;
       margin-right: -5px;

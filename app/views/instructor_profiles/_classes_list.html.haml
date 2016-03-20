@@ -1,5 +1,5 @@
 .classes
-  = render partial: "prev_next_button", locals: { count: @presenter.count_in_range_display, date_range: @date_range }
+  = render partial: "prev_next_button", locals: { count_message: @presenter.count_message, date_range: @date_range }
   - if @classes_by_date.any?
     - @classes_by_date.each do |date, classes|
       .panel.panel-default
@@ -15,4 +15,7 @@
                 = render partial: "class_row", locals: { clazz: clazz }
   - elsif @is_owner
     .alert.alert-info
-      To add a class, click the "New" button above.
+      To add a class, click the
+      %span
+        %i.glyphicon.glyphicon-plus
+      button above.
