@@ -3,4 +3,4 @@
     = link_to "Next Week", profile_next_page_path(@instructor_profile, @date_range), class: "next-week"
   - if @date_range.has_prev?
     = link_to "Previous Week", profile_prev_page_path(@instructor_profile, @date_range), class: "prev-week"
-  = "#{count} this week"
+  = count_message
