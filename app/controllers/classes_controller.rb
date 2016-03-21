@@ -40,6 +40,7 @@ class ClassesController < ApplicationController
 
   def confirm
     @clazz = @clazz.decorate
+    @back_link = edit_class_path @clazz
   end
 
   def confirmed

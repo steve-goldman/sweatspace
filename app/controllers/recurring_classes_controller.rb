@@ -38,6 +38,7 @@ class RecurringClassesController < ApplicationController
 
   def confirm
     @recurring_class = @recurring_class.decorate
+    @back_link = edit_recurring_class_path @recurring_class
   end
 
   def confirmed
