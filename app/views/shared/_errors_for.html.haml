@@ -1,6 +1,8 @@
 - if object.errors.any?
   .flash
     .row
-      .col-xs-offset-2.col-xs-8
+      .col-xs-offset-1.col-xs-10
         - object.errors.full_messages.each do |message|
-          %p.alert-danger= message
+          .alert.alert-danger= message
+  :javascript
+    HideFlash();

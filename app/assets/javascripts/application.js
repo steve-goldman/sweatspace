@@ -18,5 +18,5 @@
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 //= require jquery.mmenu
-//= require submit_on_change
+//= require flash
 //= require_tree .
