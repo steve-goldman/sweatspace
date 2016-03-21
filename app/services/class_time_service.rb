@@ -19,7 +19,7 @@ class ClassTimeService
   def timespan_free
     conflicting_classes = Clazz.confirmed.not_canceled
       .where(instructor_profile: clazz.instructor_profile)
-      .where("id != ?", clazz.id)
+      .where("id != ?", clazz.id ? clazz.id : -1)
       .where("(timestamp >= ? AND timestamp <= ?) OR (end_timestamp >= ? AND end_timestamp <= ?)",
              clazz.timestamp, clazz.end_timestamp,
              clazz.timestamp, clazz.end_timestamp)
