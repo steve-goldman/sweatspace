@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :class_template_studios, only: [:create, :destroy]
     resources :class_template_class_types, only: [:create, :destroy]
     resources :invitations, only: [:index, :new, :create]
+    resources :newsletter_signups, only: :index
   end
 
   resources :classes, only: [:show, :new, :create, :edit, :update] do
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
   #resources :cover_photos, only: :edit
   resource :profile_photo, only: :edit, controller: :profile_photos
   resource :social_ids, only: :edit
+  resources :newsletter_signups, only: [:new, :create]
 
   get :faq, to: "home#faq", as: :faq
   get "/:id", to: "instructor_profiles#show", as: :profile

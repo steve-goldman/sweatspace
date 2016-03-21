@@ -1,0 +1,16 @@
+= render partial: "shared/errors_for", locals: { object: @newsletter_signup }
+.panel.panel-default
+  .panel-heading
+    .panel-title< Newsletter Signup
+  %ul.list-group
+    = form_for @newsletter_signup do |f|
+      - if @referer
+        = hidden_field_tag :referer, @referer
+      %li.list-group-item
+        Stay in the loop as we add new features to SweatSpace.  No spam, we promise.
+      %li.list-group-item
+        .row
+          .col-xs-3.vcenter.class-info-key< Email
+          .col-xs-8.vcenter= f.email_field :email, autofocus: true, class: "form-control"
+      %li.list-group-item
+        .center= f.submit "Sign Up", class: "btn btn-primary"
