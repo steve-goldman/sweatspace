@@ -1,6 +1,7 @@
-%h3< FAQ
 - @faq.faq_items.each do |faq_item|
-  .faq_item
-    %p.question= faq_item.question
-    :markdown
-      #{faq_item.answer}
+  .panel.panel-default
+    .panel-heading
+      .panel-title= faq_item.question
+    .panel-body
+      :markdown
+        #{faq_item.answer}
