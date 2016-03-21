@@ -2,6 +2,8 @@
   .panel-heading
     .panel-title< Delete Class
   .panel-body
-    %p< Remove this class from your schedule.
+    %p< Click here to remove this class meeting from your schedule.
+    - if @clazz.recurring_class
+      %p< Other meetings for this recurring class will not be affected.
     = form_for :class_change, url: delete_class_change_path(@clazz) do |f|
       = f.submit "Delete Class", class: "btn btn-danger", data: { confirm: "Are you sure you want to delete the class?" }
