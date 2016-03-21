@@ -1,3 +1,3 @@
 = render partial: "show_delete"
-- if @clazz.recurring_class.try :open_ended?
-  = render partial: "show_delete_open_ended"
+- if @clazz.recurring_class
+  = render partial: "show_delete_recurring"

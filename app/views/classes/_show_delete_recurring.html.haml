@@ -1,7 +1,7 @@
 .panel.panel-default
   .panel-heading
-    .panel-title< Delete Open-Ended Class
+    .panel-title< Delete Recurring Class
   .panel-body
     %p< Remove this and future meetings of this class from your schedule.
     = form_for :class_change, url: delete_and_future_weeks_class_change_path(@clazz) do |f|
-      = f.submit "Delete Open-Ended Class", class: "btn btn-danger", data: { confirm: "Are you sure you want to delete the open-ended class?" }
+      = f.submit "Delete Recurring Class", class: "btn btn-danger", data: { confirm: "Are you sure you want to delete the recurring class?" }
