@@ -3,10 +3,12 @@ class ClassesController < ApplicationController
   before_action :user_has_profile, except: :show
   before_action :find_clazz, except: [:new, :create]
   before_action :owns_clazz, except: [:new, :create, :show]
+  before_action :set_back_link, except: :show
 
   def show
     @is_owner = owner?
     @clazz = @clazz.decorate
+    @back_link = profile_path @clazz.instructor_profile.profile_path
   end
 
   def new
@@ -81,5 +83,9 @@ class ClassesController < ApplicationController
 
   def create_params
     params.require(:clazz).permit(Clazz::PERMITTED_PARAMS)
+  end
+
+  def set_back_link
+    @back_link = profile_path current_user.instructor_profile.profile_path
   end
 end

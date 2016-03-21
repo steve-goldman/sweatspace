@@ -16,6 +16,11 @@
     .col-xs-8.vcenter= f.text_field :time_of_day, class: "form-control input-xs", id: "timepicker", readonly: true
 %li.list-group-item
   .center= f.submit "Save", class: "btn btn-primary"
+%li.list-group-item
+  .row
+    .col-xs-12.alert.alert-info
+      Don't see your class or studio?
+      = mail_to "emilytorockio@gmail.com", "Email us"
 
 :javascript
   $(document).ready(function() {

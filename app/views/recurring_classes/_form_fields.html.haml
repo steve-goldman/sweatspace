@@ -20,6 +20,11 @@
     .col-xs-8.vcenter= f.select :number_of_weeks, number_of_weeks_options, {}, class: "form-control"
 %li.list-group-item
   .center= f.submit "Save", class: "btn btn-primary"
+%li.list-group-item
+  .row
+    .col-xs-12.alert.alert-info
+      Don't see your class or studio?
+      = mail_to "emilytorockio@gmail.com", "Email us"
 
 :javascript
   $(document).ready(function() {
