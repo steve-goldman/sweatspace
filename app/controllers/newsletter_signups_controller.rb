@@ -2,6 +2,9 @@ class NewsletterSignupsController < ApplicationController
   def new
     @newsletter_signup = NewsletterSignup.new
     @referer = request.referer
+    if @referer
+      @back_link = @referer
+    end
   end
 
   def create
