@@ -1,6 +1,8 @@
 .footer
-  &copy;
-  = current_year
-  | Sweat Space
-  |
-  = mail_to "emilytorockio@gmail.com", "Email Us"
+  .newsletter= link_to "Sign up for our newsletter!", new_newsletter_signup_path
+  .copyright
+    &copy;
+    = current_year
+    | Sweat Space
+    |
+    = mail_to "emilytorockio@gmail.com", "Email Us"

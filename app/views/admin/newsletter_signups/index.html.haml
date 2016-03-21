@@ -1,0 +1,14 @@
+%h3
+  Newsletter Signups
+- if @newsletter_signups.any?
+  %table.table
+    %thead
+      %tr
+        %td= "#{@count} #{'address'.pluralize @count}"
+    %tbody
+      - @newsletter_signups.each do |newsletter_signup|
+        %tr
+          %td= newsletter_signup.display_created_at
+          %td= newsletter_signup.email
+- else
+  %p< No newsletter signups
