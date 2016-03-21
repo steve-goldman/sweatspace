@@ -3,7 +3,8 @@ Rails.application.routes.draw do
              controllers: { registrations: "users/registrations" },
              path_names: { sign_up: "" }
 
-  root to: "home#dashboard"
+  root to: "home#random_profile"
+  get "random", to: "home#random_profile", as: :random_profile
 
   namespace :admin do
     resources :class_types, except: [:show, :destroy], controller: :clazz_types
