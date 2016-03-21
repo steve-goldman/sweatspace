@@ -8,7 +8,7 @@ class ClassesController < ApplicationController
   def show
     @is_owner = owner?
     @clazz = @clazz.decorate
-    @back_link = profile_path @clazz.instructor_profile.profile_path
+    @back_link = request.referer || profile_path(@clazz.instructor_profile.profile_path)
   end
 
   def new
