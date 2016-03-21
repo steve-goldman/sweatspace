@@ -30,6 +30,6 @@ module ApplicationHelper
   end
 
   def contact_address
-    "emilytorockio@gmail.com"
+    ContactService.instance.contact_address
   end
 end

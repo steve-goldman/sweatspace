@@ -6,10 +6,14 @@
     = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
       %li.list-group-item
         .alert.alert-info
-          %p
-            Do you want to be a beta tester?
-            = mail_to contact_address, "Email us"
-            to request an account!
+          Do you want to be a beta tester?
+          = mail_to contact_address, "Email us"
+          to request an account!
+      %li.list-group-item
+        .alert.alert-info
+          Not an instructor?
+          = link_to "Sign up for our newsletter", new_newsletter_signup_path
+          to be the first to know when we add more features!
       %li.list-group-item
         .row
           .col-xs-3.vcenter.class-info-key< Email
