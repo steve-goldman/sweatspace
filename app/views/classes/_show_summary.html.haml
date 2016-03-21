@@ -2,4 +2,7 @@
   .class-name= @clazz.name
   .studio-name= @clazz.display_studio
   %div= @clazz.display_long_date
-  %div= @clazz.display_time
+  %div
+    = @clazz.display_time
+    for
+    = @clazz.display_duration
