@@ -2,10 +2,13 @@
   .container-fluid
     %nav.nav.navbar-nav.navbar-left
       .navbar-header
-        = link_to "#", id: "menu-hamburger" do
-          %span.navbar-brand#menu-hamburger
-            %i.glyphicon.glyphicon-menu-hamburger
-            = link_to "SweatSpace", home_path, class: "navbar-brand"
+        - if @back_link
+          = link_to @back_link do
+            %span.navbar-brand
+              %i.glyphicon.glyphicon-chevron-left
+        = link_to "#", class: "navbar-brand", id: "menu-hamburger" do
+          SweatSpace
+          %span.caret
       %nav#my-menu
         %ul
           - if user_signed_in?
