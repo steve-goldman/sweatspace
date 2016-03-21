@@ -28,4 +28,8 @@ module ApplicationHelper
   def current_year
     Time.current.strftime "%Y"
   end
+
+  def contact_address
+    "emilytorockio@gmail.com"
+  end
 end
