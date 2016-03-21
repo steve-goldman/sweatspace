@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
-  def dashboard
-    @can_create_schedule = user_signed_in? && current_user.instructor_profile.nil?
+  def random_profile
+    offset = rand InstructorProfile.count
+    random_profile = InstructorProfile.offset(offset).first
+    redirect_to profile_path(random_profile.profile_path)
   end
 
   def faq
