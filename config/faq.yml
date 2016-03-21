@@ -8,7 +8,9 @@ faq_items:
       Stronger, better, easier connections between instructors, their students, and each other. That's SweatSpace.
   - question: "Who can join SweatSpace?"
     answer: |
-      SweatSpace is currently invite-only and limited to people who teach yoga and group fitness classes in New York City. If you or someone you know is interested in joining, please reach out to us here -- someone from our team will get back to you quickly.
+      SweatSpace is currently invite-only and limited to people who teach yoga and group fitness classes in New York City. If you or someone you know is interested in joining, please [reach out to us](mailto:%CONTACT_ADDRESS%) -- someone from our team will get back to you quickly.
+
+      For everyone else, please [sign up for our newsletter](%NEWSLETTER_SIGNUP_PATH%) to be the first to know when we add new features.  We have big plans for SweatSpace and are excited for you to be involved.
   - question: "How often do I need to update my schedule on SweatSpace?"
     answer: |
       We allow your schedule to be viewed one month in advance. SweatSpace makes keeping your schedule up-to-date as easy as possible -- you enter in your recurring schedule once and then easily go in and make changes when you are picking up or subbing out classes.
