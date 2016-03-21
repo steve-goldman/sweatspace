@@ -62,6 +62,11 @@
   text-align: center;
   font-size: 18px;
   letter-spacing: 2px;
+  margin-bottom: 8px;
+
+  .class-name, .studio-name {
+    font-weight: bold;
+  }
 }
 
 .studio-address {
