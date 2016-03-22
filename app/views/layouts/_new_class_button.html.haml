@@ -1,6 +1,7 @@
 - if @is_owner
-  .new-class-button.dropdown
-    = button_tag type: "button", class: "btn btn-success dropdown-toggle", data: { toggle: "dropdown" } do
+  .dropdown
+    = button_tag type: "button", class: "btn btn-success btn-sm navbar-btn dropdown-toggle", data: { toggle: "dropdown" } do
+      Class
       %span
         %i.glyphicon.glyphicon-plus
       %span.caret

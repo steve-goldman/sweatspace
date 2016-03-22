@@ -35,6 +35,10 @@
   .container-fluid {
     padding-left: 0px;
 
+    .dropdown {
+      display: inline;
+    }
+
     .navbar-brand {
       margin-left: 0px;
       color: white;
@@ -46,6 +50,11 @@
       }
     }
   }
+}
+
+.alert {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .list-group-item, .panel-body {
