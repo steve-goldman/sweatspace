@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "SweatSpace <no-reply@sweatspace.io>"
+  default from: "SweatSpace <hello@sweatspace.io>"
   layout "mailer"
 end
