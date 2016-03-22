@@ -57,3 +57,17 @@
     }
   }
 }
+
+.social-url-example {
+  margin-left: 8px;
+  font-size: 10px;
+
+  .stem, .name {
+    display: inline;
+  }
+
+  .name {
+    margin-left: -2px;
+    background-color: yellow;
+  }
+}

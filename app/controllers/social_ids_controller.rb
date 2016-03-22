@@ -3,6 +3,6 @@ class SocialIdsController < ApplicationController
   before_action :user_has_profile
 
   def edit
-    @instructor_profile = current_user.instructor_profile
+    @instructor_profile = current_user.instructor_profile.decorate
   end
 end

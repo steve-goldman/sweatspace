@@ -1,21 +1,49 @@
 = form_for @instructor_profile, url: instructor_profile_path(@instructor_profile), method: :patch do |f|
   %li.list-group-item
+    .alert.alert-info
+      Fill in the highlighted portion for your profile on the services you want to link to.
+  %li.list-group-item
+    .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem= @instructor_profile.facebook_stem
+          .name< your-profile
     .row
       .col-xs-3.vcenter.class-info-key< Facebook
       .col-xs-8.vcenter= f.text_field :facebook, class: "form-control"
   %li.list-group-item
     .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem= @instructor_profile.instagram_stem
+          .name< your-profile
+    .row
       .col-xs-3.vcenter.class-info-key< Instagram
       .col-xs-8.vcenter= f.text_field :instagram, class: "form-control"
   %li.list-group-item
+    .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem= @instructor_profile.spotify_stem
+          .name< your-profile
     .row
       .col-xs-3.vcenter.class-info-key< Spotify
       .col-xs-8.vcenter= f.text_field :spotify, class: "form-control"
   %li.list-group-item
     .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem= @instructor_profile.twitter_stem
+          .name< your-profile
+    .row
       .col-xs-3.vcenter.class-info-key< Twitter
       .col-xs-8.vcenter= f.text_field :twitter, class: "form-control"
   %li.list-group-item
+    .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem= @instructor_profile.youtube_stem
+          .name< your-profile
     .row
       .col-xs-3.vcenter.class-info-key< Youtube
       .col-xs-8.vcenter= f.text_field :youtube, class: "form-control"
