@@ -33,6 +33,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_out_path_for resource
+    request.referer || root_path
+  end
+
   private
 
   def use_ssl?
