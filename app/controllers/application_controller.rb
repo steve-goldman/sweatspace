@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   force_ssl if: :use_ssl?
 
+  before_action :navbar
+
   def user_signed_in
     unless user_signed_in?
       redirect_to root_path
@@ -35,5 +37,10 @@ class ApplicationController < ActionController::Base
 
   def use_ssl?
     Rails.env.production?
+  end
+
+  def navbar
+    @navbar = NavbarConfig.instance.clear
+    @navbar.user = current_user
   end
 end

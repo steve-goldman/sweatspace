@@ -38,7 +38,7 @@ class RecurringClassesController < ApplicationController
 
   def confirm
     @recurring_class = @recurring_class.decorate
-    @back_link = edit_recurring_class_path @recurring_class
+    NavbarConfig.instance.back_link = edit_recurring_class_path @recurring_class
   end
 
   def confirmed
@@ -84,6 +84,6 @@ class RecurringClassesController < ApplicationController
   end
 
   def set_back_link
-    @back_link = profile_path current_user.instructor_profile.profile_path
+    NavbarConfig.instance.back_link = profile_path current_user.instructor_profile.profile_path
   end
 end

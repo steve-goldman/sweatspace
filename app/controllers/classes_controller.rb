@@ -8,7 +8,7 @@ class ClassesController < ApplicationController
   def show
     @is_owner = owner?
     @clazz = @clazz.decorate
-    @back_link = request.referer || profile_path(@clazz.instructor_profile.profile_path)
+    NavbarConfig.instance.back_link = request.referer || profile_path(@clazz.instructor_profile.profile_path)
   end
 
   def new
@@ -40,7 +40,7 @@ class ClassesController < ApplicationController
 
   def confirm
     @clazz = @clazz.decorate
-    @back_link = edit_class_path @clazz
+    NavbarConfig.instance.back_link = edit_class_path @clazz
   end
 
   def confirmed
@@ -87,6 +87,6 @@ class ClassesController < ApplicationController
   end
 
   def set_back_link
-    @back_link = profile_path current_user.instructor_profile.profile_path
+    NavbarConfig.instance.back_link = profile_path current_user.instructor_profile.profile_path
   end
 end

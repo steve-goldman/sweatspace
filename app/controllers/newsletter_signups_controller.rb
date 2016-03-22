@@ -3,7 +3,7 @@ class NewsletterSignupsController < ApplicationController
     @newsletter_signup = NewsletterSignup.new
     @referer = request.referer
     if @referer
-      @back_link = @referer
+      NavbarConfig.instance.back_link = @referer
     end
   end
 
