@@ -4,7 +4,7 @@
   %table.table
     %thead
       %tr
-        %td= "#{@count} #{'instructor_profile'.pluralize @count}"
+        %td{ colspan: 3 }= "#{@count} instructor #{'profile'.pluralize @count}"
     %tbody
       - @instructor_profiles.each do |instructor_profile|
         %tr
