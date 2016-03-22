@@ -2,6 +2,19 @@
   .panel-heading
     .panel-title< Delete Recurring Class
   .panel-body
-    %p< Remove this and future meetings of this recurring class from your schedule.
+    %p< Click the button to make remove meetings of the recurring class:
+    %p
+      .class-detail= @clazz.name
+      .class-detail= @clazz.display_studio
+      %span.class-detail
+        = @clazz.recurring_class.display_day_of_week
+        at
+        = @clazz.recurring_class.display_time
+        on or after
+        = @clazz.display_date
+    %p
+      Meetings for this recurring class before
+      = @clazz.display_date
+      will not be affected.
     = form_for :class_change, url: delete_and_future_weeks_class_change_path(@clazz) do |f|
-      = f.submit "Delete Recurring Class", class: "btn btn-danger", data: { confirm: "Are you sure you want to delete the recurring class?" }
+      = f.submit "Delete Recurring Class", class: "btn btn-danger", data: { confirm: "Are you sure you want to do this?" }
