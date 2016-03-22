@@ -79,4 +79,8 @@ class InstructorProfileDecorator < Draper::Decorator
       "#{youtube_protocol}#{youtube_stem}#{youtube}"
     end
   end
+
+  def display_created_at
+    created_at.strftime "%Y-%m-%d"
+  end
 end

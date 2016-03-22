@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "random", to: "home#random_profile", as: :random_profile
 
   namespace :admin do
+    resources :instructor_profiles, only: :index
     resources :class_types, except: [:show, :destroy], controller: :clazz_types
     resources :studios, except: [:show, :destroy]
     resources :class_templates, except: [:show, :destroy]
