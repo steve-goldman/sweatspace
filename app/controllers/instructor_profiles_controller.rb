@@ -11,6 +11,8 @@ class InstructorProfilesController < ApplicationController
     @date_range = date_range
     @presenter = InstructorClassesPresenter.new classes_by_date, date_range
     NavbarConfig.instance.new_class_button = owner?
+    NavbarConfig.instance.needs_new_profile_info = owner? && cookies["acked_new_profile_info"].nil?
+
     @instructor_profile = @instructor_profile.decorate
   end
 

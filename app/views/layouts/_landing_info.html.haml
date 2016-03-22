@@ -1,5 +1,5 @@
 - if @navbar.needs_landing_info?
-  .alert.alert-success#landing-info
+  .alert.alert-success.info-box#landing-info
     %h4< Welcome to SweatSpace!
     %p
       We are a new community for New York City-based fitness instructors and the people who love their classes.  Check out our
@@ -19,7 +19,7 @@
       = link_to "sign up for our newsletter", new_newsletter_signup_path
       &mdash; we have big plans for SweatSpace and want you with us at every step.
     %p
-      = form_for :got_it, url: got_its_path, method: :post, remote: true, id: "form-got-it" do |f|
+      = form_for :got_it, url: got_its_path, method: :post, remote: true do |f|
         = hidden_field_tag :key, "acked_landing_page_info"
         = f.submit "Got It", class: "btn btn-primary btn-got-it", id: "landing-page-got-it-btn"
   :javascript
