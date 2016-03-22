@@ -2,6 +2,6 @@ class ContactService
   include Singleton
 
   def contact_address
-    "emilytorockio@gmail.com"
+    "hello@sweatspace.io"
   end
 end

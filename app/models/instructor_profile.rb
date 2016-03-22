@@ -8,6 +8,7 @@ class InstructorProfile < ActiveRecord::Base
     "remove_cover_photo",
     "facebook",
     "instagram",
+    "spotify",
     "youtube",
     "twitter",
   ]

@@ -6,6 +6,9 @@
     - if @instructor_profile.instagram_link
       = social_link :instagram, @instructor_profile do
         %span.fa.fa-instagram
+    - if @instructor_profile.spotify_link
+      = social_link :spotify, @instructor_profile do
+        %span.fa.fa-spotify
     - if @instructor_profile.twitter_link
       = social_link :twitter, @instructor_profile do
         %span.fa.fa-twitter

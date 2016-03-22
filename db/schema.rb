@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321200811) do
+ActiveRecord::Schema.define(version: 20160322022741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160321200811) do
     t.string   "instagram"
     t.string   "youtube"
     t.string   "twitter"
+    t.string   "spotify"
   end
 
   add_index "instructor_profiles", ["deleted_at"], name: "index_instructor_profiles_on_deleted_at", using: :btree

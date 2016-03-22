@@ -22,6 +22,12 @@ class InstructorProfileDecorator < Draper::Decorator
     end
   end
 
+  def spotify_link
+    unless spotify.blank?
+      "http://open.spotify.com/user/#{spotify}"
+    end
+  end
+
   def twitter_link
     unless twitter.blank?
       "https://twitter.com/#{twitter}"
