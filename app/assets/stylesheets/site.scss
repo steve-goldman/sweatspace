@@ -94,3 +94,9 @@
   margin-top: 0px;
   margin-bottom: 4px;
 }
+
+.shadow {
+  -moz-box-shadow: 0 0 5px 5px #555;
+  -webkit-box-shadow: 0 0 5px 5px #555;
+  box-shadow: 0 0 5px 5px #555;
+}
