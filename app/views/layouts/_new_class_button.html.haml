@@ -1,10 +1,9 @@
-- if @is_owner
-  .dropdown
-    = button_tag type: "button", class: "btn btn-success btn-sm navbar-btn dropdown-toggle", data: { toggle: "dropdown" } do
-      Class
-      %span
-        %i.glyphicon.glyphicon-plus
-      %span.caret
-    %ul.dropdown-menu
-      %li= link_to "One-time class", new_class_path
-      %li= link_to "Recurring class", new_recurring_class_path
+.dropdown
+  = button_tag type: "button", class: "btn btn-success btn-sm navbar-btn dropdown-toggle", data: { toggle: "dropdown" } do
+    Class
+    %span
+      %i.glyphicon.glyphicon-plus
+    %span.caret
+  %ul.dropdown-menu
+    %li= link_to "One-time class", new_class_path
+    %li= link_to "Recurring class", new_recurring_class_path

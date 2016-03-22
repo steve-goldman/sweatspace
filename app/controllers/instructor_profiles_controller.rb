@@ -10,8 +10,7 @@ class InstructorProfilesController < ApplicationController
     @classes_by_date = classes_by_date
     @date_range = date_range
     @presenter = InstructorClassesPresenter.new classes_by_date, date_range
-    @is_owner = owner?
-    NavbarConfig.instance.new_class_button = @is_owner
+    NavbarConfig.instance.new_class_button = owner?
     @instructor_profile = @instructor_profile.decorate
   end
 

@@ -15,11 +15,11 @@
     - if @instructor_profile.youtube_link
       = social_link :youtube, @instructor_profile do
         %span.fa.fa-youtube
-    - if @is_owner
+    - if @navbar.new_class_button?
       = link_to edit_social_ids_path, class: "btn btn-success edit-icon", remote: true do
         %span
           %i.glyphicon.glyphicon-edit
-  - if @is_owner && !@instructor_profile.any_social?
+  - if @navbar.new_class_button? && !@instructor_profile.any_social?
     = link_to edit_social_ids_path, remote: true, class: "btn btn-success" do
       Social
       %span
