@@ -1,19 +1,19 @@
 %nav.navbar.navbar-default
   .container-fluid
-    - if @back_link
-      = link_to @back_link do
+    - if @navbar.back_link
+      = link_to @navbar.back_link do
         %span.navbar-brand
           %i.glyphicon.glyphicon-chevron-left
     = link_to "#", class: "navbar-brand", id: "menu-hamburger" do
       SweatSpace
       %span.caret
-    - if user_signed_in? && current_user.instructor_profile.nil?
+    - if @navbar.create_profile_button?
       = link_to new_instructor_profile_path, class: "btn btn-success btn-sm navbar-btn" do
         %span
           Profile
           %span
             %i.glyphicon.glyphicon-plus
-    - if user_signed_in? && !current_user.instructor_profile.nil?
+    - if @navbar.new_class_button?
       = render partial: "layouts/new_class_button"
     = link_to random_profile_path, class: "btn btn-danger btn-sm navbar-btn pull-right" do
       %span
