@@ -14,6 +14,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
+  def after_sign_up_path_for resource
+    welcome_instructor_profiles_path
+  end
+
   def create_succeeded?
     self.resource.persisted?
   end

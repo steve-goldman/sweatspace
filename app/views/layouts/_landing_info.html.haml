@@ -1,0 +1,28 @@
+- if @navbar.needs_landing_info?
+  .alert.alert-success.info-box#landing-info
+    %h4< Welcome to SweatSpace!
+    %p
+      We are a new community for New York City-based fitness instructors and the people who love their classes.  Check out our
+      = link_to "FAQ", faq_path
+      for more info.
+    %p
+      We're just getting started and don't have a traditional home page yet.  Click on the
+      %span
+        %i.fa.fa-bolt
+      on the top right to discover instructor profiles!
+    %p
+      SweatSpace accounts are invitation only.  Are you an instructor who wants early access?
+      = mail_to contact_address, "Email us"
+      to request an account.
+    %p
+      For everyone else, please
+      = link_to "sign up for our newsletter", new_newsletter_signup_path
+      &mdash; we have big plans for SweatSpace and want you with us at every step.
+    %p
+      = form_for :got_it, url: got_its_path, method: :post, remote: true do |f|
+        = hidden_field_tag :key, "acked_landing_page_info"
+        = f.submit "Got It", class: "btn btn-primary btn-got-it", id: "landing-page-got-it-btn"
+  :javascript
+    $("#landing-page-got-it-btn").click(function() {
+      $("#landing-info").fadeOut();
+    });
