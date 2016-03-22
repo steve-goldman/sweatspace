@@ -1,6 +1,6 @@
-- if @classes_by_date.any?
-  .classes
-    = render partial: "prev_next_button", locals: { count_message: @presenter.count_message, date_range: @date_range }
+.classes
+  = render partial: "prev_next_button", locals: { count_message: @presenter.count_message, date_range: @date_range }
+  - if @classes_by_date.any?
     - @classes_by_date.each do |date, classes|
       .panel.panel-default
         .panel-heading
@@ -13,7 +13,7 @@
             - else
               = link_to class_path(clazz), class: "list-group-item future-class" do
                 = render partial: "class_row", locals: { clazz: clazz }
-- elsif @is_owner
+- if @classes_by_date.empty? && @navbar.new_class_button?
   .alert.alert-info.add-class-help-text
     Click the
     %span
