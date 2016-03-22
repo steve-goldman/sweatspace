@@ -6,7 +6,8 @@
     = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
       %li.list-group-item
         .alert.alert-info
-          Do you want to be a beta tester?
+          Accounts are currently only for instructors.
+          Are you an instructor who wants early access?
           = mail_to contact_address, "Email us"
           to request an account!
       %li.list-group-item

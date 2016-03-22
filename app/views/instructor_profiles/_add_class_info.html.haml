@@ -1,0 +1,10 @@
+- if @classes_by_date.empty?
+  .alert.alert-info.add-class-help-text
+    - if @navbar.new_class_button?
+      Click the
+      %span
+        %i.glyphicon.glyphicon-plus
+      button at the top to add classes to your schedule.
+    - else
+      = @instructor_profile.full_name
+      has no classes scheduled for this week.

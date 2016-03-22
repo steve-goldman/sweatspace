@@ -21,4 +21,6 @@
           .col-xs-3.class-info-key< Time
           .col-xs-8= @clazz.display_time
       %li.list-group-item
-        .center= f.submit "Confirm", class: "btn btn-primary"
+        .center
+          = f.submit "Confirm", class: "btn btn-primary"
+          = link_to "Cancel", profile_path(current_user.instructor_profile.profile_path), class: "btn btn-default"

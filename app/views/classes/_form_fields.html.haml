@@ -15,7 +15,9 @@
     .col-xs-3.vcenter.class-info-key< Time of Day
     .col-xs-8.vcenter= f.text_field :time_of_day, class: "form-control input-xs", id: "timepicker", readonly: true
 %li.list-group-item
-  .center= f.submit "Save", class: "btn btn-primary"
+  .center
+    = f.submit "Save", class: "btn btn-primary"
+    = link_to "Cancel", profile_path(current_user.instructor_profile.profile_path), class: "btn btn-default"
 %li.list-group-item
   .row
     .col-xs-12
