@@ -35,7 +35,10 @@ Rails.application.routes.draw do
     patch :confirmed, on: :member
   end
 
-  resources :instructor_profiles, except: :destroy
+  resources :instructor_profiles, except: :destroy do
+    get :welcome, on: :collection
+  end
+
   #resources :cover_photos, only: :edit
   resource :profile_photo, only: :edit, controller: :profile_photos
   resource :social_ids, only: :edit

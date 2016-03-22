@@ -1,7 +1,7 @@
 class InstructorProfilesController < ApplicationController
   before_action :user_signed_in, except: :show
-  before_action :user_does_not_have_profile, only: [:new, :create]
-  before_action :user_has_profile, except: [:show, :new, :create]
+  before_action :user_does_not_have_profile, only: [:new, :create, :welcome]
+  before_action :user_has_profile, except: [:show, :new, :create, :welcome]
   before_action :find_instructor_profile, only: [:edit, :update, :destroy]
   before_action :owns_instructor_profile, only: [:edit, :update, :destroy]
   before_action :find_instructor_profile_by_name, only: :show
@@ -35,6 +35,9 @@ class InstructorProfilesController < ApplicationController
       flash[:danger] = @instructor_profile.errors.full_messages.first
     end
     redirect_to profile_path(@instructor_profile.profile_path)
+  end
+
+  def welcome
   end
 
   private
