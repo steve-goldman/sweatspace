@@ -1,6 +1,6 @@
-.classes
-  = render partial: "prev_next_button", locals: { count_message: @presenter.count_message, date_range: @date_range }
-  - if @classes_by_date.any?
+- if @classes_by_date.any?
+  .classes
+    = render partial: "prev_next_button", locals: { count_message: @presenter.count_message, date_range: @date_range }
     - @classes_by_date.each do |date, classes|
       .panel.panel-default
         .panel-heading
@@ -13,9 +13,9 @@
             - else
               = link_to class_path(clazz), class: "list-group-item future-class" do
                 = render partial: "class_row", locals: { clazz: clazz }
-  - elsif @is_owner
-    .alert.alert-info
-      To add a class, click the
-      %span
-        %i.glyphicon.glyphicon-plus
-      button above.
+- elsif @is_owner
+  .alert.alert-info.add-class-help-text
+    Click the
+    %span
+      %i.glyphicon.glyphicon-plus
+    button at the top to add classes to your schedule.
