@@ -58,7 +58,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = "https://d3317nsgohh9rm.cloudfront.net"
+  config.action_controller.asset_host = "https://cdn.sweatspace.io"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -84,8 +84,8 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = {
-    host: "sweatspace.herokuapp.com"
+    host: "www.sweatspace.io"
   }
 
-  config.font_assets.origin = "https://sweatspace.herokuapp.com"
+  config.font_assets.origin = "https://www.sweatspace.io"
 end

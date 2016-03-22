@@ -12,5 +12,6 @@ RSpec.describe User, type: :model do
 
   describe "associations" do
     it { should have_one :instructor_profile }
+    it { should have_one :invitation }
   end
 end
