@@ -18,9 +18,10 @@
   .center= f.submit "Save", class: "btn btn-primary"
 %li.list-group-item
   .row
-    .col-xs-12.alert.alert-info
-      Don't see your class or studio?
-      = mail_to contact_address, "Email us"
+    .col-xs-12
+      .alert.alert-info
+        Don't see your class or studio?
+        = mail_to contact_address, "Email us"
 
 :javascript
   $(document).ready(function() {
