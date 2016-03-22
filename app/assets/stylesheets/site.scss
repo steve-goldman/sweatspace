@@ -100,3 +100,16 @@
   -webkit-box-shadow: 0 0 5px 5px #555;
   box-shadow: 0 0 5px 5px #555;
 }
+
+#landing-info {
+  padding-bottom: 42px;
+
+  p {
+    font-size: 12px;
+  }
+
+  .btn-got-it {
+    float: right;
+    margin-right: 8px;
+  }
+}

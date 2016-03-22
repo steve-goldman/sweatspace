@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   resource :profile_photo, only: :edit, controller: :profile_photos
   resource :social_ids, only: :edit
   resources :newsletter_signups, only: [:new, :create]
+  resources :got_its, only: :create
 
   get :faq, to: "home#faq", as: :faq
   get "/:id", to: "instructor_profiles#show", as: :profile
