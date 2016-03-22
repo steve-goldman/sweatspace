@@ -7,6 +7,17 @@
     = link_to "#", class: "navbar-brand", id: "menu-hamburger" do
       SweatSpace
       %span.caret
+    - if user_signed_in? && current_user.instructor_profile.nil?
+      = link_to new_instructor_profile_path, class: "btn btn-success btn-sm navbar-btn" do
+        %span
+          Profile
+          %span
+            %i.glyphicon.glyphicon-plus
+    - if user_signed_in? && !current_user.instructor_profile.nil?
+      = render partial: "layouts/new_class_button"
+    = link_to random_profile_path, class: "btn btn-danger btn-sm navbar-btn pull-right" do
+      %span
+        %i.glyphicon.glyphicon-flash
     %nav#my-menu
       %ul
         - if user_signed_in?
@@ -15,15 +26,6 @@
             = render partial: "layouts/navigation/admin"
         - else
           = render partial: "layouts/navigation/signed_out_user"
-    - if user_signed_in? && current_user.instructor_profile.nil?
-      = link_to new_instructor_profile_path, class: "btn btn-success navbar-btn" do
-        %span
-          Profile
-          %span
-            %i.glyphicon.glyphicon-plus
-    = link_to random_profile_path, class: "btn btn-danger btn-sm navbar-btn pull-right" do
-      %span
-        %i.glyphicon.glyphicon-flash
 
 :javascript
   $(function() {
