@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates :email, email: true
   has_one :instructor_profile, dependent: :destroy
+  has_one :invitation, dependent: :destroy
   acts_as_paranoid
 
   def today
