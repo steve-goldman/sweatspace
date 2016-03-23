@@ -13,7 +13,7 @@ class InstructorProfilesController < ApplicationController
     NavbarConfig.instance.new_class_button = owner?
     NavbarConfig.instance.needs_new_profile_info = params.key?(:info_boxes) ||
                                                    (owner? && cookies["acked_new_profile_info"].nil?)
-
+    NavbarConfig.instance.profile_page = true
     @instructor_profile = @instructor_profile.decorate
   end
 
