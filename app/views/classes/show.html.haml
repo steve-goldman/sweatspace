@@ -1,7 +1,6 @@
-.profile-header
+.section.profile-header
   = render partial: "shared/profile_photo", locals: { instructor_profile: @clazz.instructor_profile }
   .name= @clazz.instructor_profile.full_name
-%hr.divider
 = render partial: "show_summary"
 = render partial: "show_class_detail"
 = render partial: "show_studio_detail"
