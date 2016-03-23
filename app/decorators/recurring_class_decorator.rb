@@ -3,8 +3,16 @@ class RecurringClassDecorator < Draper::Decorator
   decorates_association :class_template
   delegate :name, to: :class_template
 
-  def display_studio
+  def studio_site
+    studio.site
+  end
+
+  def studio_name
     studio.name
+  end
+
+  def studio_full_name
+    "#{studio_name} #{studio_site}"
   end
 
   def display_number_of_weeks

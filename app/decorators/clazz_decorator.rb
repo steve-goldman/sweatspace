@@ -27,8 +27,16 @@ class ClazzDecorator < Draper::Decorator
     object.class_timestamp.try :strftime, "%l:%M %p"
   end
 
-  def display_studio
+  def studio_name
     studio.name
+  end
+
+  def studio_site
+    studio.site
+  end
+
+  def studio_full_name
+    "#{studio_name} #{studio_site}"
   end
 
   def studio_url

@@ -1,6 +1,7 @@
 class Studio < ActiveRecord::Base
   PERMITTED_PARAMS = [
     "name",
+    "site",
     "url",
     "map_url",
     "timezone",

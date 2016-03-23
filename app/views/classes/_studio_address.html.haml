@@ -1,9 +1,9 @@
 .studio-address
   %div
-    = link_to @clazz.studio_url, class: "studio-name", target: "_blank" do
+    = link_to @clazz.studio_url, class: "studio-full-name", target: "_blank" do
       %span
         %i.glyphicon.glyphicon-new-window
-      = @clazz.display_studio
+      = @clazz.studio_full_name
   - if @clazz.studio.address_1?
     %div= @clazz.studio.address_1
   - if @clazz.studio.address_2?

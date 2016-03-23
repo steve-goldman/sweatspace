@@ -2,7 +2,7 @@ class Admin::StudiosController < Admin::ControllerBase
   before_action :find_studio, only: [:edit, :update]
 
   def index
-    @studios = Studio.all
+    @studios = Studio.order name: :asc, site: :asc
   end
 
   def new

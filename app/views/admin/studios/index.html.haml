@@ -6,6 +6,7 @@
     - @studios.each do |studio|
       %tr
         %td= studio.name
+        %td= studio.site
         %td= link_to "Edit", edit_admin_studio_path(studio), class: "btn btn-info btn-xs pull-right"
 - else
   %p< No studios
