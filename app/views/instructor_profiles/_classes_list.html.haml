@@ -9,7 +9,7 @@
           - classes.each do |clazz|
             - if clazz.in_the_past?
               %li{ class: "list-group-item past-class" }
-                = render partial: "class_row", locals: { clazz: clazz }
+                = render partial: "class_row", locals: { clazz: clazz, arrow: false }
             - else
               = link_to class_path(clazz), class: "list-group-item future-class" do
-                = render partial: "class_row", locals: { clazz: clazz }
+                = render partial: "class_row", locals: { clazz: clazz, arrow: true }

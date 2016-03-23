@@ -1,16 +1,19 @@
 %li.list-group-item
-  .row
-    .col-xs-offset-1.col-xs-11.profile-path-label
+  .alert.alert-info
+    The URL you choose below will be your home on SweatSpace.  We suggest
+    using your name, but this can be anything you want.
 %li.list-group-item
   .row
     .col-xs-3.vcenter.class-info-key< Profile Path
-    .col-xs-8.vcenter= f.text_field :profile_path, class: "form-control profile-path-input"
+    .col-xs-8.vcenter
+      .profile-path-label
+      = f.text_field :profile_path, class: "form-control profile-path-input"
 %li.list-group-item
   .center= f.submit "Save", class: "btn btn-primary"
 
 :javascript
   function setLabel(profile_path) {
-    $(".profile-path-label").html("http://sweatspace.io/" + profile_path);
+    $(".profile-path-label").html("www.sweatspace.io/" + profile_path);
   };
   $(".profile-path-input").keyup(function(event) {
     setLabel(event.target.value);

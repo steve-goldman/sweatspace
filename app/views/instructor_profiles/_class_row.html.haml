@@ -5,8 +5,8 @@
   .col-xs-5
     .class-name= clazz.name
     .class-types= clazz.display_clazz_types
-  .col-xs-4= clazz.display_studio
-- if clazz.canceled?
-  .cancelation-warning< This class has been canceled
-- elsif clazz.substituted?
-  .substitution-warning< This class will be taught by someone else
+  .col-xs-4.position-relative
+    = clazz.display_studio
+    - if arrow
+      %span.class-detail-arrow
+        %i.glyphicon.glyphicon-chevron-right

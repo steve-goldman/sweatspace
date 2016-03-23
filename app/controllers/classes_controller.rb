@@ -45,7 +45,7 @@ class ClassesController < ApplicationController
 
   def confirmed
     if @clazz.update_attributes confirmed: true
-      flash[:success] = "One-time class created"
+      flash[:success] = "Class created"
       redirect_to profile_path(current_user.instructor_profile.profile_path)
     else
       @clazz = @clazz.decorate

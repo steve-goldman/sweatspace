@@ -1,4 +1,7 @@
 .profile-header {
+  padding-top: 8px;
+  padding-bottom: 8px;
+
   .name {
     text-transform: lowercase;
     text-align: center;
@@ -43,7 +46,6 @@
 
 .social-links {
   text-align: center;
-  margin-bottom: 4px;
 
   .btn {
     margin-left: 2px;
@@ -70,4 +72,8 @@
     margin-left: -2px;
     background-color: yellow;
   }
+}
+
+.profile-path-label {
+  font-size: 10px;
 }

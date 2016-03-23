@@ -16,11 +16,11 @@
       = social_link :youtube, @instructor_profile do
         %span.fa.fa-youtube
     - if @navbar.new_class_button?
-      = link_to edit_social_ids_path, class: "btn btn-success edit-icon", remote: true do
+      = link_to edit_social_ids_path, class: "btn btn-edit edit-icon", remote: true do
         %span
           %i.glyphicon.glyphicon-edit
   - if @navbar.new_class_button? && !@instructor_profile.any_social?
-    = link_to edit_social_ids_path, remote: true, class: "btn btn-success" do
+    = link_to edit_social_ids_path, remote: true, class: "btn btn-edit" do
       Social
       %span
         %i.glyphicon.glyphicon-edit
