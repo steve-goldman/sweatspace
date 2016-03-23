@@ -6,10 +6,17 @@
       = link_to "FAQ", faq_path
       for more info.
     %p
-      We're just getting started and don't have a traditional home page yet.  Click on the
+      We're just getting started and don't have a traditional home page yet.
+      - if @navbar.profile_page?
+        Below this box is an instructor's profile.
+      Click on the
       %span
-        %i.fa.fa-bolt
-      on the top right to discover instructor profiles!
+        %i.glyphicon.glyphicon-flash
+      on the top right to discover
+      - if @navbar.profile_page?
+        another!
+      - else
+        instructor profiles!
     %p
       SweatSpace accounts are invitation only.  Are you an instructor who wants early access?
       = mail_to contact_address, "Email us"
