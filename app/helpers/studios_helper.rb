@@ -14,12 +14,14 @@ module StudiosHelper
   private
 
   def all_studios
-    Studio.all.order name: :asc
+    Studio.all.order name: :asc, site: :asc
   end
 
   def make_studio_options studios
     studios.map do |studio|
-      [studio.name, studio.id]
+      label = studio.name
+      label = "#{label} #{studio.site}" if studio.site
+      [label, studio.id]
     end
   end
 end
