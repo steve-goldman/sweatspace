@@ -1,11 +1,25 @@
 class HomeController < ApplicationController
+  def home
+    if user_signed_in? && current_user.instructor_profile
+      redirect_to profile_path(current_user.instructor_profile.profile_path)
+    else
+      redirect_to_random
+    end
+  end
+
   def random_profile
-    offset = rand InstructorProfile.count
-    random_profile = InstructorProfile.offset(offset).first
-    redirect_to profile_path(random_profile.profile_path)
+    redirect_to_random
   end
 
   def faq
     @faq = Faq.instance
+  end
+
+  private
+
+  def redirect_to_random
+    offset = rand InstructorProfile.count
+    random_profile = InstructorProfile.offset(offset).first
+    redirect_to profile_path(random_profile.profile_path)
   end
 end

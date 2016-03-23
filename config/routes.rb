@@ -3,7 +3,7 @@ Rails.application.routes.draw do
              controllers: { registrations: "users/registrations" },
              path_names: { sign_up: "" }
 
-  root to: "home#random_profile"
+  root to: "home#home"
   get "random", to: "home#random_profile", as: :random_profile
 
   namespace :admin do
