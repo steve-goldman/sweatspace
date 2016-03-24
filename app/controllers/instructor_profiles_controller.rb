@@ -11,6 +11,7 @@ class InstructorProfilesController < ApplicationController
     @date_range = date_range
     @presenter = InstructorClassesPresenter.new classes_by_date, date_range
     NavbarConfig.instance.new_class_button = owner?
+    NavbarConfig.instance.needs_landing_info = params.key?(:info_boxes) || cookies["acked_landing_page_info"].nil?
     NavbarConfig.instance.needs_new_profile_info = params.key?(:info_boxes) ||
                                                    (owner? && cookies["acked_new_profile_info"].nil?)
     NavbarConfig.instance.profile_page = true
