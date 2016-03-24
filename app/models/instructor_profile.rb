@@ -24,8 +24,8 @@ class InstructorProfile < ActiveRecord::Base
   has_paper_trail
   mount_uploader :cover_photo, CoverPhotoUploader
   validates :cover_photo,
-            file_size: { less_than: 5.megabytes }
+            file_size: { less_than: 10.megabytes }
   mount_uploader :profile_photo, ProfilePhotoUploader
   validates :profile_photo,
-            file_size: { less_than: 5.megabytes }
+            file_size: { less_than: 10.megabytes }
 end
