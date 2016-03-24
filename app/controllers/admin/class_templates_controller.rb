@@ -10,6 +10,7 @@ class Admin::ClassTemplatesController < Admin::ControllerBase
   end
 
   def edit
+    @class_template = @class_template.decorate
   end
 
   def create
