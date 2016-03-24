@@ -36,7 +36,7 @@ class ClazzDecorator < Draper::Decorator
   end
 
   def studio_full_name
-    "#{studio_name} #{studio_site}"
+    studio.full_name
   end
 
   def studio_url
