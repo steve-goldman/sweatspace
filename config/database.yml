@@ -20,6 +20,10 @@ test:
   <<: *default
   database: sweatspace_db_test
 
+staging:
+  <<: *default
+  database: sweatspace_db_staging
+
 production:
   <<: *default
   database: sweatspace_db_production
