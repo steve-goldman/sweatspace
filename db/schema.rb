@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323145229) do
+ActiveRecord::Schema.define(version: 20160324233550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 20160323145229) do
 
   create_table "instructor_profiles", force: :cascade do |t|
     t.string   "profile_path"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "user_id"
     t.datetime "deleted_at"
     t.string   "cover_photo"
@@ -95,9 +95,11 @@ ActiveRecord::Schema.define(version: 20160323145229) do
     t.string   "youtube"
     t.string   "twitter"
     t.string   "spotify"
+    t.boolean  "non_searchable"
   end
 
   add_index "instructor_profiles", ["deleted_at"], name: "index_instructor_profiles_on_deleted_at", using: :btree
+  add_index "instructor_profiles", ["non_searchable"], name: "index_instructor_profiles_on_non_searchable", using: :btree
   add_index "instructor_profiles", ["profile_path"], name: "index_instructor_profiles_on_profile_path", using: :btree
   add_index "instructor_profiles", ["user_id"], name: "index_instructor_profiles_on_user_id", using: :btree
 
