@@ -3,7 +3,7 @@ class GotItsController < ApplicationController
 
   def create
     unless @key.nil?
-      cookies[@key] = Time.current
+      cookies.permanent[@key] = Time.current
     end
   end
 
