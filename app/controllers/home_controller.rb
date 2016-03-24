@@ -18,8 +18,8 @@ class HomeController < ApplicationController
   private
 
   def redirect_to_random
-    offset = rand InstructorProfile.count
-    random_profile = InstructorProfile.offset(offset).first
+    offset = rand InstructorProfile.searchable.count
+    random_profile = InstructorProfile.searchable.offset(offset).first
     redirect_to profile_path(random_profile.profile_path)
   end
 end

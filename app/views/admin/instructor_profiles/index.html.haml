@@ -10,6 +10,9 @@
         %tr
           %td= instructor_profile.display_created_at
           %td= instructor_profile.full_name
+          %td
+            - if instructor_profile.non_searchable
+              NS
           %td= link_to instructor_profile.profile_path, profile_path(instructor_profile.profile_path)
 - else
   %p< No instructor profiles.

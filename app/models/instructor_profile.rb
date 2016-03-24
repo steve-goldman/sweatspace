@@ -28,4 +28,5 @@ class InstructorProfile < ActiveRecord::Base
   mount_uploader :profile_photo, ProfilePhotoUploader
   validates :profile_photo,
             file_size: { less_than: 10.megabytes }
+  scope :searchable, -> { where "non_searchable IS NULL OR non_searchable != 't'" }
 end
