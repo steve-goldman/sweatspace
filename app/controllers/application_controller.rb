@@ -46,6 +46,5 @@ class ApplicationController < ActionController::Base
   def navbar
     @navbar = NavbarConfig.instance.clear
     @navbar.user = current_user
-    @navbar.needs_landing_info = params.key?(:info_boxes) || cookies["acked_landing_page_info"].nil?
   end
 end
