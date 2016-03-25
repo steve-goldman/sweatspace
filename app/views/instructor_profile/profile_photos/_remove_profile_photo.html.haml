@@ -1,0 +1,6 @@
+- if @instructor_profile.profile_photo?
+  .panel.panel-default
+    .panel-heading
+      .panel-title< Remove Profile Photo
+    %ul.list-group
+      = render partial: "remove_profile_photo_form"
