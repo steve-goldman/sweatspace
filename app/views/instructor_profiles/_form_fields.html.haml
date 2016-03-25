@@ -6,17 +6,10 @@
   .row
     .col-xs-3.vcenter.class-info-key< Profile Path
     .col-xs-8.vcenter
-      .profile-path-label
+      .profile-path-label< www.sweatspace.io/
       = f.text_field :profile_path, class: "form-control profile-path-input"
 %li.list-group-item
   .center= f.submit "Save", class: "btn btn-primary"
 
 :javascript
-  function setLabel(profile_path) {
-    $(".profile-path-label").html("www.sweatspace.io/" + profile_path);
-  };
-  $(".profile-path-input").keyup(function(event) {
-    setLabel(event.target.value);
-  });
-  var initial_profile_path = $(".profile-path-input").attr("value");
-  setLabel(initial_profile_path);
+  new InputLabelKeyMatcher(".profile-path-input", ".profile-path-label");
