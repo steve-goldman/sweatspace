@@ -40,9 +40,11 @@ Rails.application.routes.draw do
     get :welcome, on: :collection
   end
 
-  #resources :cover_photos, only: :edit
-  resource :profile_photo, only: :edit, controller: :profile_photos
-  resource :social_ids, only: :edit
+  namespace :instructor_profile do
+    resource :profile_photo, only: :edit
+    resource :social_ids, only: :edit
+  end
+
   resources :newsletter_signups, only: [:new, :create]
   resources :got_its, only: :create
 
