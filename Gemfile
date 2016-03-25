@@ -60,6 +60,7 @@ gem 'file_validators'
 gem 'font_assets'
 gem 'font-awesome-rails'
 gem 'bootstrap-social-rails'
+gem 'google-analytics-rails', '1.1.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
