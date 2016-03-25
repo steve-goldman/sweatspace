@@ -3,12 +3,12 @@
     = link_to profile_path(instructor_profile.profile_path) do
       = sweatspace_image instructor_profile.profile_photo.scaled_full
     - if @navbar.new_class_button?
-      = link_to edit_profile_photo_path, class: "btn btn-edit edit-icon", remote: true do
+      = link_to edit_profile_photo_path, class: "btn btn-edit edit-icon" do
         %span
           %i.glyphicon.glyphicon-edit
 - elsif @navbar.new_class_button?
   .center
-    = link_to edit_profile_photo_path, remote: true, class: "btn btn-edit" do
+    = link_to edit_profile_photo_path, class: "btn btn-edit" do
       Profile Photo
       %span
         %i.glyphicon.glyphicon-edit

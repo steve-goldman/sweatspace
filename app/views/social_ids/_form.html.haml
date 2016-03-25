@@ -47,6 +47,5 @@
     .row
       .col-xs-3.vcenter.class-info-key< Youtube
       .col-xs-8.vcenter= f.text_field :youtube, class: "form-control"
-  %li.list-group-item
+  %li.list-group-item.center
     = f.submit "Update", class: "btn btn-primary", data: { disable_with: "Please wait..." }
-    = button_tag "Cancel", class: "btn btn-default", "data-dismiss" => "modal"
