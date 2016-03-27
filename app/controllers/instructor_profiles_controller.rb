@@ -1,10 +1,10 @@
 class InstructorProfilesController < ApplicationController
-  before_action :user_signed_in, except: :show
+  before_action :user_signed_in, except: [:show, :profile_photo]
   before_action :user_does_not_have_profile, only: [:new, :create, :welcome]
-  before_action :user_has_profile, except: [:show, :new, :create, :welcome]
+  before_action :user_has_profile, except: [:show, :profile_photo, :new, :create, :welcome]
   before_action :find_instructor_profile, only: [:edit, :update, :destroy]
   before_action :owns_instructor_profile, only: [:edit, :update, :destroy]
-  before_action :find_instructor_profile_by_name, only: :show
+  before_action :find_instructor_profile_by_name, only: [:show, :profile_photo]
 
   def show
     @classes_by_date = classes_by_date
@@ -15,6 +15,10 @@ class InstructorProfilesController < ApplicationController
     NavbarConfig.instance.needs_new_profile_info = params.key?(:info_boxes) ||
                                                    (owner? && cookies["acked_new_profile_info"].nil?)
     NavbarConfig.instance.profile_page = true
+    @instructor_profile = @instructor_profile.decorate
+  end
+
+  def profile_photo
     @instructor_profile = @instructor_profile.decorate
   end
 
@@ -59,7 +63,7 @@ class InstructorProfilesController < ApplicationController
   end
 
   def find_instructor_profile_by_name
-    @instructor_profile = InstructorProfile.find_by profile_path: params[:id]
+    @instructor_profile = InstructorProfile.find_by profile_path: (params[:id] || params[:instructor_profile_id])
     assert_instructor_profile
   end
 

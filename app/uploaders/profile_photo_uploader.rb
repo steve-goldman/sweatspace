@@ -18,6 +18,10 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+  version :scaled_large do
+    process resize_to_fill: [500, 500, "Center"]
+  end
+
   version :scaled_full do
     process resize_to_fill: [168, 168, "Center"]
   end

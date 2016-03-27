@@ -1,7 +1,7 @@
 require 'carrierwave/orm/activerecord'
 
 CarrierWave.configure do |config|
-  if Rails.env.production?
+  if Rails.env.production? || Rails.env.staging?
     config.storage = :aws
     config.aws_bucket = Figaro.env.aws_s3_bucket_name
     config.aws_acl = "public-read"
