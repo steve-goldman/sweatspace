@@ -1,0 +1,2 @@
+$("#modal-new-element").html("<%= escape_javascript(render('shared/image_modal', image: @instructor_profile.profile_photo.scaled_large, header: @instructor_profile.full_name)) %>");
+$("#modal-new-element").modal({ keyboard: true }).modal('show');

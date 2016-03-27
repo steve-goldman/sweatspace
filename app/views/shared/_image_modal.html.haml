@@ -1,0 +1,8 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      = button_tag class: "close", "data-dismiss" => "modal" do
+        %span< &times;
+      %h4= header
+    .modal-body
+      .modal-image= sweatspace_image image

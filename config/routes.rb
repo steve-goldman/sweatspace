@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   resources :instructor_profiles, except: :destroy do
     get :welcome, on: :collection
+    get :profile_photo
   end
 
   namespace :instructor_profile do
