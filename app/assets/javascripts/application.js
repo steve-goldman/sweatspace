@@ -19,4 +19,5 @@
 //= require pickadate/picker.time
 //= require jquery.mmenu
 //= require flash
+//= require input_label_key_matcher
 //= require_tree .

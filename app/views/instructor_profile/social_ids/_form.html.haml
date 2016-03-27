@@ -1,0 +1,52 @@
+= form_for @instructor_profile, url: instructor_profile_path(@instructor_profile), method: :patch do |f|
+  %li.list-group-item
+    .alert.alert-info
+      Complete the URLs for the profiles you want to link to.
+  %li.list-group-item
+    .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem#facebook-label= @instructor_profile.facebook_stem
+    .row
+      .col-xs-3.vcenter.class-info-key< Facebook
+      .col-xs-8.vcenter= f.text_field :facebook, class: "form-control", id: "facebook-input"
+  %li.list-group-item
+    .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem#instagram-label= @instructor_profile.instagram_stem
+    .row
+      .col-xs-3.vcenter.class-info-key< Instagram
+      .col-xs-8.vcenter= f.text_field :instagram, class: "form-control", id: "instagram-input"
+  %li.list-group-item
+    .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem#spotify-label= @instructor_profile.spotify_stem
+    .row
+      .col-xs-3.vcenter.class-info-key< Spotify
+      .col-xs-8.vcenter= f.text_field :spotify, class: "form-control", id: "spotify-input"
+  %li.list-group-item
+    .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem#twitter-label= @instructor_profile.twitter_stem
+    .row
+      .col-xs-3.vcenter.class-info-key< Twitter
+      .col-xs-8.vcenter= f.text_field :twitter, class: "form-control", id: "twitter-input"
+  %li.list-group-item
+    .row
+      .col-xs-offset-3.col-xs-9
+        .social-url-example
+          .stem#youtube-label= @instructor_profile.youtube_stem
+    .row
+      .col-xs-3.vcenter.class-info-key< Youtube
+      .col-xs-8.vcenter= f.text_field :youtube, class: "form-control", id: "youtube-input"
+  %li.list-group-item.center
+    = f.submit "Update", class: "btn btn-primary", data: { disable_with: "Please wait..." }
+:javascript
+  new InputLabelKeyMatcher("#facebook-input", "#facebook-label", "hello");
+  new InputLabelKeyMatcher("#instagram-input", "#instagram-label", "hello");
+  new InputLabelKeyMatcher("#spotify-input", "#spotify-label", "hello");
+  new InputLabelKeyMatcher("#twitter-input", "#twitter-label", "hello");
+  new InputLabelKeyMatcher("#youtube-input", "#youtube-label", "hello");

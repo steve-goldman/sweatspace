@@ -1,0 +1,4 @@
+= form_for @instructor_profile, url: instructor_profile_path(@instructor_profile), method: :patch do |f|
+  = f.hidden_field :remove_profile_photo, value: true
+  %li.list-group-item.center
+    = f.submit "Remove", class: "btn btn-primary", data: { disable_with: "Please wait..." }

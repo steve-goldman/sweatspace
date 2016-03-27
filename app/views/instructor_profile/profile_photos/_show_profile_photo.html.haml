@@ -1,0 +1,7 @@
+- if @instructor_profile.profile_photo?
+  .panel.panel-default
+    .panel-heading
+      .panel-title< Your Profile Photo
+    %ul.list-group
+      %li.list-group-item.center
+        = sweatspace_image @instructor_profile.profile_photo.scaled_full
