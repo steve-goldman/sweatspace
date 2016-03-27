@@ -50,5 +50,8 @@ Rails.application.routes.draw do
   resources :got_its, only: :create
 
   get :faq, to: "home#faq", as: :faq
+
+  get "robots.txt", to: "robots#show", controller: :robots
+
   get "/:id", to: "instructor_profiles#show", as: :profile
 end
