@@ -44,9 +44,15 @@ body {
 .navbar-default {
   background-color: $sweatspace-blue;
   margin-bottom: 8px;
+}
+
+.navbar {
+  border-radius: 0px;
+  border: 0px;
 
   .container-fluid {
     padding-left: 0px;
+    color: white;
 
     .dropdown {
       display: inline;
@@ -62,6 +68,21 @@ body {
         top: 0px;
       }
     }
+
+    .navbar-text {
+      display: inline-block;
+      margin-left: 15px;
+    }
+  }
+}
+
+.navbar-ghosting {
+  background-color: red;
+  margin-bottom: 0px;
+
+  p.ghosting-as {
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
