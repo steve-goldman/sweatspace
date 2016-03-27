@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :class_template_class_types, only: [:create, :destroy]
     resources :invitations, only: [:index, :new, :create]
     resources :newsletter_signups, only: :index
+    resource :ghosting_session, only: [:create, :destroy]
   end
 
   resources :classes, only: [:show, :new, :create, :edit, :update] do

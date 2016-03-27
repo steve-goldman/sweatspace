@@ -1,0 +1,4 @@
+%p.navbar-text.ghosting-as
+  Ghosting as:
+  = current_user.name
+= link_to "End", admin_ghosting_session_path, method: :delete, class: "btn btn-sm navbar-btn btn-success pull-right"

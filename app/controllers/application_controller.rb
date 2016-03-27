@@ -7,6 +7,24 @@ class ApplicationController < ActionController::Base
 
   before_action :navbar
 
+  alias_method :devise_current_user, :current_user
+
+  def current_user
+    @current_user ||=
+      if devise_current_user.try(:admin?) && cookies[:ghosting_user_id]
+        @ghosting = true
+        User.find cookies[:ghosting_user_id].to_i
+      else
+        devise_current_user
+      end
+  end
+
+  def ghosting?
+    @ghosting == true
+  end
+
+  helper_method :ghosting?
+
   def user_signed_in
     unless user_signed_in?
       redirect_to root_path

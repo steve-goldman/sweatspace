@@ -14,5 +14,10 @@
             - if instructor_profile.non_searchable
               NS
           %td= link_to instructor_profile.profile_path, profile_path(instructor_profile.profile_path)
+          %td
+            - if instructor_profile.user_id != current_user.id
+              = form_for :ghosting_session, url: admin_ghosting_session_path do |f|
+                = f.hidden_field :user_id, value: instructor_profile.user_id
+                = f.submit "Ghost As", class: "btn btn-xs btn-danger"
 - else
   %p< No instructor profiles.
