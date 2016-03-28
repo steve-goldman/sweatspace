@@ -2,7 +2,7 @@ class Admin::ClazzTypesController < Admin::ControllerBase
   before_action :find_clazz_type, only: [:edit, :update]
 
   def index
-    @clazz_types = ClazzType.all
+    @clazz_types = ClazzType.order name: :asc
   end
 
   def new
