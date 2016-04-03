@@ -11,8 +11,8 @@
       = render partial: "form_fields", locals: { f: f }
 .panel.panel-default
   .panel-heading
-    .panel-title< Associated Class Templates
-  = render partial: "class_templates_list"
+    .panel-title< Associated Studio Brands
+  = render partial: "studio_brand_list"
   .panel-footer
-    = form_for :class_template_studio, url: admin_class_template_studios_path, method: :post do |f|
-      = render partial: "class_template_form_fields", locals: { f: f }
+    = form_for :studio_brand_studio, url: admin_studio_brand_studios_path, method: :post do |f|
+      = render partial: "studio_brand_form_fields", locals: { f: f }

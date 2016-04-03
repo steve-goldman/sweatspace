@@ -3,6 +3,7 @@ class ClassTemplate < ActiveRecord::Base
     "name",
     "description",
     "duration",
+    "studio_brand_id",
   ]
 
   acts_as_paranoid
@@ -11,9 +12,9 @@ class ClassTemplate < ActiveRecord::Base
   has_many :class_template_class_types
   has_many :clazz_types, through: :class_template_class_types
   has_many :classes, class_name: "Clazz"
-  has_many :class_template_studios
-  has_many :studios, through: :class_template_studios
+  belongs_to :studio_brand
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :duration
+  validates_presence_of :studio_brand_id
 end

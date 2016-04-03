@@ -1,6 +1,0 @@
-- if @class_template.class_template_studios.any?
-  %ul.list-group
-    - @class_template.class_template_studios.each do |class_template_studio|
-      %li.list-group-item
-        = link_to class_template_studio.studio.full_name, edit_admin_studio_path(class_template_studio.studio)
-        = link_to "Remove", admin_class_template_studio_path(class_template_studio), method: :delete, class: "btn btn-danger btn-xs pull-right"

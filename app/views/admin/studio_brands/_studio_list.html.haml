@@ -1,0 +1,6 @@
+- if @studio_brand.studios.any?
+  %ul.list-group
+    - sorted_records(@studio_brand.studio_brand_studios, :studio_full_name).each do |studio_brand_studio|
+      %li.list-group-item
+        = link_to studio_brand_studio.studio_full_name, edit_admin_studio_path(studio_brand_studio.studio)
+        = link_to "Remove", admin_studio_brand_studio_path(studio_brand_studio), method: :delete, class: "btn btn-danger btn-xs pull-right"

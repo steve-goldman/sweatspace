@@ -1,6 +1,12 @@
 .form-group
+  = f.label :studio_brand_id, "Studio Brand"
+  - if f.object.studio_brand.nil?
+    = f.select :studio_brand_id, studio_brand_options, { }, class: "form-control"
+  - else
+    %p= link_to f.object.studio_brand.name, edit_admin_studio_brand_path(f.object.studio_brand)
+.form-group
   = f.label :name
-  = f.text_field :name, autofocus: true, class: "form-control"
+  = f.text_field :name, class: "form-control"
 .form-group
   = f.label :duration, "Duration (minutes)"
   = f.number_field :duration, class: "form-control"

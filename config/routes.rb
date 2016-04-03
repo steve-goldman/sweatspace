@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     resources :instructor_profiles, only: :index
     resources :class_types, except: [:show, :destroy], controller: :clazz_types
     resources :studios, except: [:show, :destroy]
+    resources :studio_brands, except: [:show, :destroy]
+    resources :studio_brand_studios, only: [:create, :destroy]
     resources :class_templates, except: [:show, :destroy]
-    resources :class_template_studios, only: [:create, :destroy]
     resources :class_template_class_types, only: [:create, :destroy]
     resources :invitations, only: [:index, :new, :create]
     resources :newsletter_signups, only: :index

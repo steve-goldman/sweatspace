@@ -2,7 +2,7 @@ class Admin::StudiosController < Admin::ControllerBase
   before_action :find_studio, only: [:edit, :update]
 
   def index
-    @studios = Studio.order name: :asc, site: :asc
+    @studios = Studio.order(name: :asc, site: :asc).decorate
   end
 
   def new
@@ -10,6 +10,7 @@ class Admin::StudiosController < Admin::ControllerBase
   end
 
   def edit
+    @studio = @studio.decorate
   end
 
   def create

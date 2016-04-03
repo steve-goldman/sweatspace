@@ -1,0 +1,7 @@
+= render partial: "shared/errors_for", locals: { object: @studio_brand }
+= link_to admin_studios_path, class: "btn btn-default" do
+  %span
+    %i.glyphicon.glyphicon-arrow-left
+%h3< Create a Studio
+= form_for @studio_brand, url: { action: :create} do |f|
+  = render partial: "form_fields", locals: { f: f }
