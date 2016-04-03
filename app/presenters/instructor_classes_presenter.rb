@@ -20,6 +20,14 @@ class InstructorClassesPresenter
     Date.parse(date).strftime "%A, %b. %e"
   end
 
+  def any_one_time?
+    classes_by_date.values.any? do |classes|
+      classes.any? do |clazz|
+        clazz.recurring_class.nil?
+      end
+    end
+  end
+
   private
 
   def classes_count

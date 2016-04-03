@@ -11,8 +11,7 @@ class ClassTemplateDecorator < Draper::Decorator
   end
 
   def studio_brand_name
-    # TODO
-    studio_brand.try :name
+    studio_brand.name
   end
 
   def clazz_type_name
