@@ -5,6 +5,7 @@ class ClazzDecorator < Draper::Decorator
            :description,
            :display_duration,
            :display_clazz_types,
+           :studio_brand,
            to: :class_template
   decorates_association :instructor_profile
   decorates_association :recurring_class
@@ -40,6 +41,6 @@ class ClazzDecorator < Draper::Decorator
   end
 
   def studio_url
-    studio.url
+    studio_brand.url
   end
 end

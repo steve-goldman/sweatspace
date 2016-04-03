@@ -3,12 +3,8 @@ module StudiosHelper
     make_studio_options all_studios
   end
 
-  def not_class_template_studio_options class_template
-    make_studio_options(all_studios - class_template.studios)
-  end
-
-  def class_template_studio_options class_template
-    make_studio_options class_template.studios
+  def not_studio_brand_studio_options studio_brand
+    make_studio_options(all_studios - studio_brand.studios)
   end
 
   private

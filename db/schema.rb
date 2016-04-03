@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324233550) do
+ActiveRecord::Schema.define(version: 20160403193252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,28 +26,18 @@ ActiveRecord::Schema.define(version: 20160324233550) do
   add_index "class_template_class_types", ["class_template_id"], name: "index_class_template_class_types_on_class_template_id", using: :btree
   add_index "class_template_class_types", ["clazz_type_id"], name: "index_class_template_class_types_on_clazz_type_id", using: :btree
 
-  create_table "class_template_studios", force: :cascade do |t|
-    t.integer  "class_template_id"
-    t.integer  "studio_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  add_index "class_template_studios", ["class_template_id"], name: "index_class_template_studios_on_class_template_id", using: :btree
-  add_index "class_template_studios", ["studio_id"], name: "index_class_template_studios_on_studio_id", using: :btree
-
   create_table "class_templates", force: :cascade do |t|
-    t.integer  "studio_id"
     t.text     "description"
     t.integer  "duration"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "name"
     t.datetime "deleted_at"
+    t.integer  "studio_brand_id"
   end
 
   add_index "class_templates", ["deleted_at"], name: "index_class_templates_on_deleted_at", using: :btree
-  add_index "class_templates", ["studio_id"], name: "index_class_templates_on_studio_id", using: :btree
+  add_index "class_templates", ["studio_brand_id"], name: "index_class_templates_on_studio_brand_id", using: :btree
 
   create_table "clazz_types", force: :cascade do |t|
     t.string   "name"
@@ -144,9 +134,31 @@ ActiveRecord::Schema.define(version: 20160324233550) do
   add_index "recurring_classes", ["instructor_profile_id"], name: "index_recurring_classes_on_instructor_profile_id", using: :btree
   add_index "recurring_classes", ["studio_id"], name: "index_recurring_classes_on_studio_id", using: :btree
 
-  create_table "studios", force: :cascade do |t|
+  create_table "studio_brand_studios", force: :cascade do |t|
+    t.integer  "studio_brand_id"
+    t.integer  "studio_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "studio_brand_studios", ["deleted_at"], name: "index_studio_brand_studios_on_deleted_at", using: :btree
+  add_index "studio_brand_studios", ["studio_brand_id"], name: "index_studio_brand_studios_on_studio_brand_id", using: :btree
+  add_index "studio_brand_studios", ["studio_id"], name: "index_studio_brand_studios_on_studio_id", using: :btree
+
+  create_table "studio_brands", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+  end
+
+  add_index "studio_brands", ["deleted_at"], name: "index_studio_brands_on_deleted_at", using: :btree
+  add_index "studio_brands", ["name"], name: "index_studio_brands_on_name", using: :btree
+
+  create_table "studios", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "timezone"

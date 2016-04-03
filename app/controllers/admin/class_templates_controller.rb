@@ -2,7 +2,7 @@ class Admin::ClassTemplatesController < Admin::ControllerBase
   before_action :find_class_template, only: [:edit, :update]
 
   def index
-    @class_templates = ClassTemplate.order(name: :asc).decorate
+    @class_templates = ClassTemplate.includes(:studio_brand).order("studio_brands.name asc").order(name: :asc).decorate
   end
 
   def new

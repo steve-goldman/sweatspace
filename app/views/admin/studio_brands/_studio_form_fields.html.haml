@@ -1,0 +1,5 @@
+= f.hidden_field :studio_brand_id, value: @studio_brand.id
+.form-group
+  = f.select :studio_id, not_studio_brand_studio_options(@studio_brand), {}, class: "form-control"
+.form-actions
+  = f.submit "Add Studio", class: "btn btn-primary"

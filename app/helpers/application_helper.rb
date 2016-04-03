@@ -32,4 +32,10 @@ module ApplicationHelper
   def contact_address
     ContactService.instance.contact_address
   end
+
+  def sorted_records records, key
+    records.sort do |a, b|
+      a.send(key) <=> b.send(key)
+    end
+  end
 end

@@ -1,0 +1,11 @@
+%h3
+  Studio Brands
+  = link_to "Add a Studio Brand", new_admin_studio_brand_path, class: "btn btn-primary btn-sm pull-right"
+- if @studio_brands.any?
+  %table.table
+    - @studio_brands.each do |studio_brand|
+      %tr
+        %td= studio_brand.name
+        %td= link_to "Edit", edit_admin_studio_brand_path(studio_brand), class: "btn btn-info btn-xs pull-right"
+- else
+  %p< No studio brands
