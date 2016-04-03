@@ -6,3 +6,5 @@
     = @clazz.display_time
     for
     = @clazz.display_duration
+  - unless @clazz.recurring_class
+    .one-time-class< Not part of instructor's regular schedule

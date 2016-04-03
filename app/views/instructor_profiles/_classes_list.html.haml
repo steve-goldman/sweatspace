@@ -13,3 +13,7 @@
             - else
               = link_to class_path(clazz), class: "list-group-item future-class" do
                 = render partial: "class_row", locals: { clazz: clazz, arrow: true }
+    - if @presenter.any_one_time?
+      .legend
+        %span.legend-key< *
+        %span< Class is not part of the instructor's regular schedule
