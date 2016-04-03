@@ -1,9 +1,10 @@
 = form_for @instructor_profile, url: instructor_profile_path(@instructor_profile), method: :patch do |f|
   %li.list-group-item
-    #file-input= f.file_field :profile_photo
+    = f.file_field :profile_photo, id: "file-input"
   %li.list-group-item.center
     = f.submit "Update", class: "btn btn-primary", data: { disable_with: "Please wait..." }
 :javascript
   $("#file-input").change(function() {
     $("#file-input").closest("form").submit();
+    $("#file-input").prop("disabled", true);
   });
