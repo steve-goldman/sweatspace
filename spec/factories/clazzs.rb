@@ -3,6 +3,7 @@ FactoryGirl.define do
     association :instructor_profile
     association :class_template
     association :studio
+    duration 60
     date "2016-01-24"
     time_of_day "05:49 PM"
 

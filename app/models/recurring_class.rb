@@ -2,6 +2,7 @@ class RecurringClass < ActiveRecord::Base
   PERMITTED_PARAMS = [
     "class_template_id",
     "studio_id",
+    "duration",
     "first_date",
     "time_of_day",
     "number_of_weeks"
@@ -17,7 +18,7 @@ class RecurringClass < ActiveRecord::Base
   belongs_to :studio
   has_many :classes, class_name: "Clazz"
   validates_presence_of :instructor_profile, :class_template, :studio
-  validates_presence_of :day_of_week, :time_of_day, :class_template_id, :studio_id, :instructor_profile_id
+  validates_presence_of :duration, :day_of_week, :time_of_day, :class_template_id, :studio_id, :instructor_profile_id
   validates_numericality_of :day_of_week,
                             only_integer: true,
                             greater_than_or_equal_to: 0,
@@ -52,6 +53,7 @@ class RecurringClass < ActiveRecord::Base
         new_class = classes.create class_template: class_template,
                                    instructor_profile: instructor_profile,
                                    studio: studio,
+                                   duration: duration,
                                    confirmed: true,
                                    date: future_date,
                                    time_of_day: time_of_day

@@ -6,12 +6,16 @@
     = form_for @recurring_class, url: confirmed_recurring_class_path(@recurring_class), method: :patch do |f|
       %li.list-group-item
         .row
+          .col-xs-3.class-info-key< Studio
+          .col-xs-8= @recurring_class.studio_full_name
+      %li.list-group-item
+        .row
           .col-xs-3.class-info-key< Class
           .col-xs-8= @recurring_class.name
       %li.list-group-item
         .row
-          .col-xs-3.class-info-key< Studio
-          .col-xs-8= @recurring_class.studio_full_name
+          .col-xs-3.class-info-key< Length
+          .col-xs-8= @recurring_class.display_duration
       %li.list-group-item
         .row
           .col-xs-3.class-info-key< Day of Week

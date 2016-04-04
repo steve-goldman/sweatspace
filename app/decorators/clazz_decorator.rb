@@ -3,7 +3,6 @@ class ClazzDecorator < Draper::Decorator
   decorates_association :class_template
   delegate :name,
            :description,
-           :display_duration,
            :display_clazz_types,
            :studio_brand,
            to: :class_template
@@ -11,6 +10,10 @@ class ClazzDecorator < Draper::Decorator
   decorates_association :recurring_class
   decorates_association :studio
   delegate :display_num_remaining, to: :recurring_class
+
+  def display_duration
+    "#{object.duration} minutes"
+  end
 
   def display_day_of_week
     object.class_timestamp.try :strftime, "%a"

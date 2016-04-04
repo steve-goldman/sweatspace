@@ -19,6 +19,7 @@ RSpec.describe Clazz, :type => :model do
     it { should validate_presence_of :instructor_profile }
     it { should validate_presence_of :class_template }
     it { should validate_presence_of :studio }
+    it { should validate_presence_of :duration }
     it { should allow_value("2016-01-24").for(:date) }
     it { should allow_value("05:31 PM").for(:time_of_day) }
   end

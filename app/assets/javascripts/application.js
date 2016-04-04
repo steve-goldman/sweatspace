@@ -20,4 +20,5 @@
 //= require jquery.mmenu
 //= require flash
 //= require input_label_key_matcher
+//= require classes_by_studio
 //= require_tree .

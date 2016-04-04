@@ -1,9 +1,6 @@
-class ClassesController < ApplicationController
-  before_action :user_signed_in, except: :show
-  before_action :user_has_profile, except: :show
+class ClassesController < ClassesControllerBase
   before_action :find_clazz, except: [:new, :create]
   before_action :owns_clazz, except: [:new, :create, :show]
-  before_action :set_back_link, except: :show
 
   def show
     @is_owner = owner?
@@ -84,9 +81,5 @@ class ClassesController < ApplicationController
 
   def create_params
     params.require(:clazz).permit(Clazz::PERMITTED_PARAMS)
-  end
-
-  def set_back_link
-    NavbarConfig.instance.back_link = profile_path current_user.instructor_profile.profile_path
   end
 end

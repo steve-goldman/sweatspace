@@ -48,6 +48,9 @@ Rails.application.routes.draw do
     resource :social_ids, only: :edit
   end
 
+  resource :class_templates_by_studio, only: :show, controller: :class_templates_by_studio
+  resource :duration_by_class_template, only: :show, controller: :duration_by_class_template
+
   resources :newsletter_signups, only: [:new, :create]
   resources :got_its, only: :create
 

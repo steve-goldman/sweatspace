@@ -1,9 +1,6 @@
-class RecurringClassesController < ApplicationController
-  before_action :user_signed_in
-  before_action :user_has_profile
+class RecurringClassesController < ClassesControllerBase
   before_action :find_recurring_class, only: [:edit, :update, :confirm, :confirmed]
   before_action :owns_recurring_class, only: [:edit, :update, :confirm, :confirmed]
-  before_action :set_back_link, except: :index
 
   def index
     @recurring_classes_by_day = recurring_classes_by_day
@@ -81,9 +78,5 @@ class RecurringClassesController < ApplicationController
 
   def create_params
     params.require(:recurring_class).permit(RecurringClass::PERMITTED_PARAMS)
-  end
-
-  def set_back_link
-    NavbarConfig.instance.back_link = profile_path current_user.instructor_profile.profile_path
   end
 end

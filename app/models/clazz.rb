@@ -2,6 +2,7 @@ class Clazz < ActiveRecord::Base
   PERMITTED_PARAMS = [
     "class_template_id",
     "studio_id",
+    "duration",
     "date",
     "time_of_day"
   ]
@@ -15,8 +16,7 @@ class Clazz < ActiveRecord::Base
   belongs_to :recurring_class
 
   before_validation :set_timestamps
-  validates_presence_of :instructor_profile, :class_template, :studio
-  validates_presence_of :timestamp
+  validates_presence_of :instructor_profile, :class_template, :studio, :timestamp, :duration
   validates_format_of :date, with: /\A\d\d\d\d-\d\d-\d\d\z/i
   validates_format_of :time_of_day, with: /\A\d\d:\d\d (AM|PM)\z/i
   validates :timestamp, date: { after: Proc.new { Time.now } }
@@ -38,10 +38,10 @@ class Clazz < ActiveRecord::Base
   end
 
   def set_timestamps
-    if timestamp.nil? || date_changed? || time_of_day_changed?
+    if timestamp.nil? || date_changed? || time_of_day_changed? || duration_changed?
       self.timestamp = time_service.make_timestamp
-      if timestamp && class_template
-        self.end_timestamp = timestamp + class_template.duration.minutes
+      if timestamp && duration
+        self.end_timestamp = timestamp + duration.minutes
       end
     end
   end
