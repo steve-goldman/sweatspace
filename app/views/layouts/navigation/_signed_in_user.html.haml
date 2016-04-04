@@ -1,6 +1,6 @@
 - if current_user.instructor_profile
   %li.menu-link= link_to "Home", home_path
 - else
-  %li.menu-link= link_to "Create Profile", new_instructor_profile_path
+  %li.menu-link= link_to "Home", welcome_instructor_profiles_path
 %li.menu-link= link_to "FAQ", faq_path
 %li.menu-link= link_to "Log Out", destroy_user_session_path, method: :delete
