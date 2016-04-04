@@ -1,11 +1,15 @@
 %li.list-group-item
   .row
-    .col-xs-3.vcenter.class-info-key< Class
-    .col-xs-8.vcenter= f.select :class_template_id, class_template_options, {}, class: "form-control"
+    .col-xs-3.vcenter.class-info-key< Studio
+    .col-xs-8.vcenter= f.select :studio_id, studio_options, { prompt: "Select the studio" }, class: "form-control input-xs", autofocus: true, id: "studio-select"
 %li.list-group-item
   .row
-    .col-xs-3.vcenter.class-info-key< Studio
-    .col-xs-8.vcenter= f.select :studio_id, studio_options, {}, class: "form-control input-xs"
+    .col-xs-3.vcenter.class-info-key< Class
+    .col-xs-8.vcenter
+      - if f.object.studio
+        = f.select :class_template_id, class_template_options(f.object.studio), {}, class: "form-control", id: "class-template-select"
+      - else
+        = f.select :class_template_id, [], {}, class: "form-control", id: "class-template-select", disabled: true
 %li.list-group-item
   .row
     .col-xs-3.vcenter.class-info-key< First Date
@@ -30,6 +34,7 @@
         = mail_to contact_address, "Email us"
 
 :javascript
+  new ClassesByStudio();
   $(document).ready(function() {
     $('#datepicker').pickadate({
       today: "",

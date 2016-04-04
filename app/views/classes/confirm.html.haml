@@ -6,12 +6,12 @@
     = form_for @clazz, url: confirmed_class_path(@clazz), method: :patch do |f|
       %li.list-group-item
         .row
-          .col-xs-3.class-info-key< Class
-          .col-xs-8= @clazz.name
-      %li.list-group-item
-        .row
           .col-xs-3.class-info-key< Studio
           .col-xs-8= @clazz.studio_full_name
+      %li.list-group-item
+        .row
+          .col-xs-3.class-info-key< Class
+          .col-xs-8= @clazz.name
       %li.list-group-item
         .row
           .col-xs-3.class-info-key< Date
