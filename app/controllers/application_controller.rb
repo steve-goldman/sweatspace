@@ -64,5 +64,6 @@ class ApplicationController < ActionController::Base
   def navbar
     @navbar = NavbarConfig.instance.clear
     @navbar.user = current_user
+    @navbar.needs_menu_dropdown = true
   end
 end
