@@ -3,6 +3,10 @@ class RecurringClassDecorator < Draper::Decorator
   decorates_association :class_template
   delegate :name, to: :class_template
 
+  def display_duration
+    "#{object.duration} minutes"
+  end
+
   def studio_site
     studio.site
   end

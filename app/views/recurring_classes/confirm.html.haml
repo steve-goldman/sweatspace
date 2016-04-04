@@ -14,6 +14,10 @@
           .col-xs-8= @recurring_class.name
       %li.list-group-item
         .row
+          .col-xs-3.class-info-key< Length
+          .col-xs-8= @recurring_class.display_duration
+      %li.list-group-item
+        .row
           .col-xs-3.class-info-key< Day of Week
           .col-xs-8= @recurring_class.display_day_of_week
       %li.list-group-item

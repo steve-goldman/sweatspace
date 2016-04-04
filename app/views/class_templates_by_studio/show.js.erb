@@ -1,6 +1,6 @@
 var $class_templates = $("#class-template-select")
 $class_templates.empty();
-$class_templates.append("<option>Select the class</option>");
+$class_templates.append("<option value>Select the class</option>");
 <% @class_templates.each do |class_template| %>
   $class_templates.append('<option value="<%= class_template.id %>"><%= class_template.name %></option>');
 <% end %>

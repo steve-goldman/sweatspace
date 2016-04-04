@@ -14,6 +14,10 @@
           .col-xs-8= @clazz.name
       %li.list-group-item
         .row
+          .col-xs-3.class-info-key< Length
+          .col-xs-8= @clazz.display_duration
+      %li.list-group-item
+        .row
           .col-xs-3.class-info-key< Date
           .col-xs-8= "#{@clazz.display_day_of_week} #{@clazz.display_date}"
       %li.list-group-item
