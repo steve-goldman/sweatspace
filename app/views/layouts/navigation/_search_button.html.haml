@@ -1,11 +1,5 @@
-%form{ class: @navbar.wide_search? ? "wide-search" : "narrow-search pull-right" }
-  .form-group
+%form.narrow-search
+  .form-group#narrow-search-text
     %span
       %i.glyphicon.glyphicon-search
-    = text_field_tag :text, "", class: "form-control", placeholder: "Search", id: "search-text", autofocus: @navbar.wide_search?, readonly: !@navbar.wide_search?
-
-- unless @navbar.wide_search?
-  :javascript
-    $("#search-text").click(function() {
-      window.location.href = "/search"
-    });
+    = text_field_tag :text, "", class: "form-control", placeholder: "Search", readonly: true

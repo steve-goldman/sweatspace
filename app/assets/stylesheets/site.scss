@@ -164,6 +164,7 @@ body {
 
 .wide-search {
   display: inline-block;
+  position: relative;
 
   @media (max-width: 374px) {
     width: 255px;
@@ -179,6 +180,8 @@ body {
 }
 
 .narrow-search {
+  float: right;
+
   @media (max-width: 374px) {
     max-width: 91px;
   }
@@ -192,6 +195,7 @@ body {
   }
 
   @media (min-width: 768px) {
+    float: right;
     width: 320px;
   }
 
@@ -233,4 +237,18 @@ body {
     -moz-box-shadow: none;
     border-bottom: 1px solid grey;
   }
+}
+
+#search-back-link {
+  cursor: pointer;
+}
+
+#search-popout {
+  z-index: 1;
+  position: absolute;
+  width: 90%;
+  margin-top: -5px;
+  margin-left: 5%;
+  min-height: 250px;
+  max-width: 691px;
 }

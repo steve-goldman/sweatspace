@@ -1,0 +1,14 @@
+%nav.navbar.navbar-default#primary-nav
+  .container-fluid
+    = render partial: "layouts/navigation/back_link"
+    = render partial: "layouts/navigation/menu_dropdown"
+    = render partial: "layouts/navigation/search_button"
+    = render partial: "layouts/navigation/menu_data"
+
+:javascript
+  $(function() {
+    $("#my-menu").mmenu();
+  });
+  $("#menu-hamburger").click(function() {
+    $("#my-menu").data("mmenu").open();
+  });
