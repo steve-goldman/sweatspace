@@ -1,3 +1,5 @@
 = link_to profile_path(instructor_profile.profile_path), class: "list-group-item" do
-  = sweatspace_image instructor_profile.profile_photo.scaled_thumb, class: "search-list-image"
+  .search-list-image
+    - if instructor_profile.profile_photo?
+      = sweatspace_image instructor_profile.profile_photo.scaled_thumb, class: "search-list-image"
   .search-list-name= instructor_profile.user.name

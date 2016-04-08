@@ -1,5 +1,12 @@
 .panel {
-  border-radius: 0px;
+  @media (max-width: 767px) {
+    border-radius: 0px;
+  }
+
+  @media (min-width: 768px) {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
 }
 
 .panel-title {
