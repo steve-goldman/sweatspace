@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   resources :newsletter_signups, only: [:new, :create]
   resources :got_its, only: :create
 
+  resource :search, only: :show, controller: :search
+
   get :faq, to: "home#faq", as: :faq
 
   get "robots.txt", to: "robots#show", controller: :robots

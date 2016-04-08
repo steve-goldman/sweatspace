@@ -1,0 +1,11 @@
+%nav.navbar.navbar-default#search-nav
+  .container-fluid
+    %span.navbar-brand#search-back-link
+      %i.glyphicon.glyphicon-chevron-left
+    %form.wide-search
+      .form-group
+        %span
+          %i.glyphicon.glyphicon-search
+        = text_field_tag :text, "", class: "form-control", placeholder: "Search", id: "search-text", autocomplete: "off"
+  .panel#search-popout
+    %ul.list-group#search-list

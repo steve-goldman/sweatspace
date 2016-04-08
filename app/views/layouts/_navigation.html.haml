@@ -2,19 +2,5 @@
   %nav.navbar.navbar-ghosting
     .container-fluid
       = render "layouts/navigation/ghosting"
-%nav.navbar.navbar-default
-  .container-fluid
-    = render "layouts/navigation/back_link"
-    = render "layouts/navigation/menu_dropdown"
-    = render "layouts/navigation/create_profile_button"
-    = render "layouts/navigation/new_class_button"
-    = render "layouts/navigation/random_profile_button"
-    = render "layouts/navigation/menu_data"
-
-:javascript
-  $(function() {
-    $("#my-menu").mmenu();
-  });
-  $("#menu-hamburger").click(function() {
-    $("#my-menu").data("mmenu").open();
-  });
+= render partial: "layouts/navigation/primary_nav"
+= render partial: "layouts/navigation/search_nav"

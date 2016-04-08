@@ -1,7 +1,16 @@
 class NavbarConfig
   include Singleton
 
-  PROPERTIES = [:user, :new_class_button, :back_link, :needs_landing_info, :needs_new_profile_info, :profile_page]
+  PROPERTIES = [
+    :user,
+    :new_class_button,
+    :back_link,
+    :needs_menu_dropdown,
+    :wide_search,
+    :needs_landing_info,
+    :needs_new_profile_info,
+    :profile_page
+  ]
 
   PROPERTIES.each do |property|
     attr_accessor property
@@ -20,6 +29,14 @@ class NavbarConfig
 
   def new_class_button?
     new_class_button
+  end
+
+  def needs_menu_dropdown?
+    needs_menu_dropdown
+  end
+
+  def wide_search?
+    wide_search
   end
 
   def needs_landing_info?

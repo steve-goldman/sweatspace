@@ -8,12 +8,22 @@ body {
   background-color: lightgrey;
 }
 
-.section, .panel, .info-box {
+.section, .panel, .info-box, {
   background-color: white;
   margin-bottom: 12px;
-  -moz-box-shadow: 5px 5px 5px #555;
-  -webkit-box-shadow: 5px 5px 5px #555;
-  box-shadow: 5px 5px 5px #555;
+  -moz-box-shadow: 0px 0px 4px #555;
+  -webkit-box-shadow: 0px 0px 4px #555;
+  box-shadow: 0px 0px 4px #555;
+}
+
+.section, .info-box {
+  @media (max-width: 767px) {
+    border-radius: 0px;
+  }
+
+  @media (min-width: 768px) {
+    border-radius: 2px;
+  }
 }
 
 .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11 {
@@ -160,4 +170,95 @@ body {
   img {
     max-width: 100%;
   }
+}
+
+.wide-search {
+  display: inline-block;
+  position: relative;
+
+  @media (max-width: 374px) {
+    width: 255px;
+  }
+
+  @media (min-width: 375px) and (max-width: 413px) {
+    width: 310px;
+  }
+
+  @media (min-width: 414px) {
+    width: 349px;
+  }
+}
+
+.narrow-search {
+  float: right;
+
+  @media (max-width: 374px) {
+    max-width: 91px;
+  }
+
+  @media (min-width: 375px) and (max-width: 413px) {
+    max-width: 146px;
+  }
+
+  @media (min-width: 414px) and (max-width: 767px) {
+    max-width: 185px;
+  }
+
+  @media (min-width: 768px) {
+    float: right;
+    width: 320px;
+  }
+
+  input[readonly] {
+    background-color: inherit;
+  }
+}
+
+.wide-search, .narrow-search {
+  position: relative;
+  padding-left: 0px;
+
+  .form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .glyphicon {
+    position: absolute;
+    font-size: 18px;
+    top: 15px;
+    left: 4px;
+  }
+
+  input {
+    color: white;
+    background-color: $sweatspace-blue;
+    height: 28px;
+    margin-top: 4px;
+    padding-left: 28px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid grey;
+  }
+
+  input:focus {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border-bottom: 1px solid grey;
+  }
+}
+
+#search-back-link {
+  cursor: pointer;
+}
+
+#search-popout {
+  z-index: 1;
+  position: absolute;
+  width: 90%;
+  margin-top: -5px;
+  margin-left: 5%;
+  max-width: 406px;
+  border-radius: 2px;
 }

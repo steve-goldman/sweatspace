@@ -61,6 +61,8 @@ gem 'font_assets'
 gem 'font-awesome-rails'
 gem 'bootstrap-social-rails'
 gem 'google-analytics-rails', '1.1.0'
+gem 'elasticsearch-model', '~> 0.1.8'
+gem 'elasticsearch-rails', '~> 0.1.8'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
