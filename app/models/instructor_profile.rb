@@ -1,4 +1,6 @@
 class InstructorProfile < ActiveRecord::Base
+  include Elasticsearch::Model
+
   PERMITTED_PARAMS = [
     "profile_path",
     "user_id",
@@ -29,4 +31,29 @@ class InstructorProfile < ActiveRecord::Base
   validates :profile_photo,
             file_size: { less_than: 10.megabytes }
   scope :searchable, -> { where "non_searchable IS NULL OR non_searchable != 't'" }
+
+  def as_indexed_json options = {}
+    self.as_json(only: [:id, :profile_path, :facebook, :instagram, :youtube, :twitter, :spotify])
+      .merge(name: user.name)
+  end
+
+  after_commit on: [:create] do
+    __elasticsearch__.index_document unless non_searchable?
+  end
+
+  after_commit on: [:update] do
+    if previous_changes[:non_searchable]
+      if non_searchable?
+        __elasticsearch__.delete_document
+      else
+        __elasticsearch__.index_document
+      end
+    else
+      __elasticsearch__.update_document unless :non_searchable?
+    end
+  end
+
+  after_commit on: [:destroy] do
+    __elasticsearch__.delete_document unless non_searchable?
+  end
 end

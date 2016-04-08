@@ -95,6 +95,19 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0)
+    elasticsearch (1.0.15)
+      elasticsearch-api (= 1.0.15)
+      elasticsearch-transport (= 1.0.15)
+    elasticsearch-api (1.0.15)
+      multi_json
+    elasticsearch-model (0.1.8)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.8)
+    elasticsearch-transport (1.0.15)
+      faraday
+      multi_json
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
@@ -311,6 +324,8 @@ DEPENDENCIES
   date_validator (~> 0.9.0)
   devise (~> 3.5, >= 3.5.3)
   draper (~> 2.1)
+  elasticsearch-model (~> 0.1.8)
+  elasticsearch-rails (~> 0.1.8)
   email_validator (~> 1.6)
   factory_girl_rails (~> 4.4)
   faker (~> 1.6, >= 1.6.1)

@@ -1,7 +1,13 @@
 class SearchController < ApplicationController
+  before_action :find_query
+
   def show
-    @navbar.needs_menu_dropdown = false
-    @navbar.wide_search = true
-    @navbar.back_link = request.referer || root_path
+    @instructor_profiles = Elasticsearch::Model.search("*#{@query}*").records
+  end
+
+  private
+
+  def find_query
+    @query = params[:query]
   end
 end

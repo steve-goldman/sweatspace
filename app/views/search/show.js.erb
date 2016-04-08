@@ -1,0 +1,5 @@
+var $searchList = $("#search-list")
+$searchList.empty();
+<% @instructor_profiles.each do |instructor_profile| %>
+  $searchList.append("<%= escape_javascript(render('result_row', instructor_profile: instructor_profile)) %>");
+<% end %>

@@ -24,6 +24,19 @@ $(document).ready(function() {
     $searchText.focus();
   };
 
+  $searchText.keyup(function() {
+    if ($searchText.val().trim() === "") {
+      $searchList.empty();
+    } else {
+      return $.ajax({
+        url: "/search",
+        type: "GET",
+        dataType: "script",
+        data: { query: $searchText.val() }
+      });
+    }
+  });
+
   $narrowSearchText.click(showSearch);
 
   $searchBackLink.click(dismissSearch);
