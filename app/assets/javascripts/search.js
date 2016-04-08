@@ -4,6 +4,7 @@ $(document).ready(function() {
   var $searchNav = $("#search-nav");
   var $searchText = $("#search-text");
   var $searchBackLink = $("#search-back-link");
+  var $searchPopout = $("#search-popout");
   var $body = $("#body");
 
   var dismissSearch = function() {
@@ -21,13 +22,17 @@ $(document).ready(function() {
     $body.fadeTo(500, 0.5);
     $primaryNav.hide();
     $searchNav.show();
+    if ($searchText.val().trim() === "") {
+      $searchPopout.hide();
+    }
     $searchText.focus();
   };
 
   $searchText.keyup(function() {
     if ($searchText.val().trim() === "") {
-      $searchList.empty();
+      $searchPopout.hide();
     } else {
+      $searchPopout.show();
       return $.ajax({
         url: "/search",
         type: "GET",
