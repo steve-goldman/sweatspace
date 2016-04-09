@@ -7,7 +7,7 @@
     text-align: center;
     font-size: 24px;
     letter-spacing: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
   }
 
   position: relative;
@@ -22,11 +22,11 @@
   margin-top: -8px;
 
   @media (max-width: 767px) {
-    min-height: 60px;
+    min-height: 100px;
   }
 
   @media (min-width: 768px) {
-    min-height: 100px;
+    min-height: 173px;
   }
 
   .edit-icon {
@@ -38,14 +38,16 @@
 
 .profile-photo {
   @media (max-width: 767px) {
-    margin-top: -50px;
+    margin-left: 8px;
+    margin-top: -92px;
   }
 
   @media (min-width: 768px) {
-    margin-top: -86px;
+    margin-left: 14px;
+    margin-top: -160px;
   }
 
-  margin-bottom: 2px;
+  margin-bottom: -8px;
   position: relative;
 
   img {
@@ -57,22 +59,19 @@
     border: 2px solid grey;
     border-radius: 84px;
     display: block;
-    margin: 0 auto;
   }
 
   .edit-icon {
     position: absolute;
-    left: 50%;
-    top: 50%;
 
     @media (max-width: 767px) {
-      margin-left: 30px;
-      margin-top: -64px;
+      margin-left: 67px;
+      margin-top: -101px;
     }
 
     @media (min-width: 768px) {
-      margin-left: 47px;
-      margin-top: -81px;
+      margin-left: 130px;
+      margin-top: -168px;
     }
   }
 }
