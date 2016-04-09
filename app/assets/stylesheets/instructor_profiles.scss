@@ -20,7 +20,14 @@
 
 .cover-photo {
   margin-top: -8px;
-  min-height: 130px;
+
+  @media (max-width: 767px) {
+    min-height: 60px;
+  }
+
+  @media (min-width: 768px) {
+    min-height: 100px;
+  }
 
   .edit-icon {
     position: absolute;
@@ -30,15 +37,22 @@
 }
 
 .profile-photo {
-  margin-top: -86px;
+  @media (max-width: 767px) {
+    margin-top: -50px;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: -86px;
+  }
+
   margin-bottom: 2px;
   position: relative;
 
   img {
-    /* TODO
-    width: 140px;
-    height: 140px;
-    */
+    @media (max-width: 767px) {
+      width: 100px;
+      height: 100px;
+    }
 
     border: 2px solid grey;
     border-radius: 84px;
@@ -48,10 +62,18 @@
 
   .edit-icon {
     position: absolute;
-    margin-left: 47px;
-    margin-top: -81px;
     left: 50%;
     top: 50%;
+
+    @media (max-width: 767px) {
+      margin-left: 30px;
+      margin-top: -64px;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 47px;
+      margin-top: -81px;
+    }
   }
 }
 
