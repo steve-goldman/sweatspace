@@ -1,0 +1,9 @@
+.cover-photo
+  - if instructor_profile.cover_photo?
+    .cover-photo-img= sweatspace_image instructor_profile.cover_photo.scaled_full
+  - if @navbar.new_class_button?
+    = link_to edit_instructor_profile_cover_photo_path, class: "btn btn-edit edit-icon" do
+      - unless instructor_profile.cover_photo?
+        Cover Photo
+      %span
+        %i.glyphicon.glyphicon-edit

@@ -19,11 +19,11 @@ class CoverPhotoUploader < CarrierWave::Uploader::Base
   # end
 
   version :scaled_full do
-    process resize_to_fill: [600, 375, "South"]
+    process resize_to_fill: [640, 360, "Center"]
   end
 
   version :scaled_thumb, from_version: :scaled_full do
-    process resize_to_fit: [160, 100]
+    process resize_to_fit: [80, 45]
   end
 
   # Process files as they are uploaded:
