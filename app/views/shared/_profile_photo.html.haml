@@ -1,5 +1,5 @@
 - if instructor_profile.profile_photo?
-  .profile-photo
+  .profile-photo{ class: centered ? "profile-photo-center" : "profile-photo-left" }
     = link_to instructor_profile_profile_photo_path(instructor_profile.profile_path), remote: true do
       = sweatspace_image instructor_profile.profile_photo.scaled_full
     - if @navbar.new_class_button?

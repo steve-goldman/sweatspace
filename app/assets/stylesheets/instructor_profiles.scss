@@ -7,41 +7,120 @@
     text-align: center;
     font-size: 24px;
     letter-spacing: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
   }
 
   position: relative;
-}
 
-.profile-photo {
-  position: relative;
-  margin-bottom: 2px;
-
-  img {
-    border-radius: 2px;
-    -moz-box-shadow: 0px 0px 4px #555;
-    -webkit-box-shadow: 0px 0px 4px #555;
-    box-shadow: 0px 0px 4px #555;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .edit-icon {
-    position: absolute;
-    margin-left: 47px;
-    margin-top: -81px;
-    left: 50%;
-    top: 50%;
-    .glyphicon {
-      margin-left: -2px;
-      margin-right: -5px;
-    }
+  .btn-edit {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    opacity: 0.75;
   }
 }
 
 .cover-photo {
+  margin-top: -8px;
+
+  @media (max-width: 767px) {
+    min-height: 100px;
+  }
+
+  @media (min-width: 768px) {
+    min-height: 173px;
+  }
+
+  .edit-icon {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+  }
+}
+
+.profile-photo {
+  @media (max-width: 767px) {
+    margin-top: -92px;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: -160px;
+  }
+
+  position: relative;
+
   img {
-    max-width: 100%;
+    @media (max-width: 767px) {
+      width: 100px;
+      height: 100px;
+    }
+
+    border: 2px solid grey;
+    border-radius: 84px;
+    display: block;
+  }
+
+  .edit-icon {
+    position: absolute;
+
+    @media (max-width: 767px) {
+      margin-top: -101px;
+    }
+
+    @media (min-width: 768px) {
+      margin-top: -168px;
+    }
+  }
+}
+
+.profile-photo-left {
+  margin-bottom: -8px;
+
+  @media (max-width: 767px) {
+    margin-left: 8px;
+  }
+
+  @media (min-width: 768px) {
+    margin-left: 14px;
+  }
+
+  .edit-icon {
+    @media (max-width: 767px) {
+      margin-left: 67px;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 130px;
+    }
+  }
+}
+
+.profile-photo-center {
+  margin-bottom: -2px;
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .edit-icon {
+    left: 50%;
+
+    @media (max-width: 767px) {
+      margin-left: -46px;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 36px;
+    }
+  }
+}
+
+.cover-photo-img {
+  img {
+    width: 100%;
+    -moz-box-shadow: 0px 0px 4px #555;
+    -webkit-box-shadow: 0px 0px 4px #555;
+    box-shadow: 0px 0px 4px #555;
   }
 }
 
@@ -53,11 +132,13 @@
     margin-right: 2px;
   }
 
-  .edit-icon {
-    .glyphicon {
-      margin-left: -2px;
-      margin-right: -5px;
-    }
+}
+
+.edit-icon {
+  z-index: 100;
+  .glyphicon {
+    margin-left: -2px;
+    margin-right: -5px;
   }
 }
 

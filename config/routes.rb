@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 
   namespace :instructor_profile do
     resource :profile_photo, only: :edit
+    resource :cover_photo, only: :edit
     resource :social_ids, only: :edit
   end
 

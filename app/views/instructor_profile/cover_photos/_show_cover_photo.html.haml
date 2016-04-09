@@ -1,0 +1,7 @@
+- if @instructor_profile.cover_photo?
+  .panel.panel-default
+    .panel-heading
+      .panel-title< Your Cover Photo
+    %ul.list-group
+      %li.list-group-item.center
+        .cover-photo-img= sweatspace_image @instructor_profile.cover_photo.scaled_full

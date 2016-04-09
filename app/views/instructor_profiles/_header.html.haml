@@ -1,4 +1,5 @@
 .section.profile-header
-  = render partial: "shared/profile_photo", locals: { instructor_profile: @instructor_profile }
+  = render partial: "shared/cover_photo", locals: { instructor_profile: @instructor_profile }
+  = render partial: "shared/profile_photo", locals: { instructor_profile: @instructor_profile, centered: !@instructor_profile.cover_photo? }
   .name= @instructor_profile.full_name
   = render partial: "social_links"
