@@ -79,12 +79,14 @@
   font-size: 10px;
 }
 
-.new-class-buttons {
-  border-radius: 2px;
-
+.new-class-buttons, .create-profile-button {
   .glyphicon {
     font-size: 12px;
   }
+}
+
+.new-class-buttons {
+  border-radius: 2px;
 
   .col-xs-6 {
     margin: 0;
