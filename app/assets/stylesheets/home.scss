@@ -1,0 +1,24 @@
+#home-body {
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  margin-top: -58px;
+  text-align: center;
+  color: white;
+
+  .welcome {
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    margin-top: 33vh;
+    font-size: 44px;
+  }
+
+  .login {
+    margin-top: 30vh;
+  }
+
+  .text {
+    margin-top: 2vh;
+    font-size: 16px;
+  }
+}

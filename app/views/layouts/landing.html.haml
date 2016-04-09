@@ -1,0 +1,14 @@
+!!!
+%html{ lang: "en" }
+  %head= render partial: "layouts/head"
+  %body{ data: { controller: controller.controller_path, action: controller.action_name } }
+    %div
+      = render partial: "layouts/navigation"
+      .container#home-body{ style: "background-image: url(mike);" }
+        .col-xs-12.col-md-6
+          = render partial: "layouts/flash_messages"
+          = yield
+      .container#footer
+        .col-xs-12.col-md-6
+          = render partial: "layouts/footer"
+    = yield :javascripts

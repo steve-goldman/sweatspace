@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
+  layout "landing", only: :home
+
   def home
     if user_signed_in? && current_user.instructor_profile
       redirect_to profile_path(current_user.instructor_profile.profile_path)
-    else
-      redirect_to_random
     end
   end
 
