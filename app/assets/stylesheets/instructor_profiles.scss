@@ -39,16 +39,13 @@
 
 .profile-photo {
   @media (max-width: 767px) {
-    margin-left: 8px;
     margin-top: -92px;
   }
 
   @media (min-width: 768px) {
-    margin-left: 14px;
     margin-top: -160px;
   }
 
-  margin-bottom: -8px;
   position: relative;
 
   img {
@@ -66,13 +63,54 @@
     position: absolute;
 
     @media (max-width: 767px) {
-      margin-left: 67px;
       margin-top: -101px;
     }
 
     @media (min-width: 768px) {
-      margin-left: 130px;
       margin-top: -168px;
+    }
+  }
+}
+
+.profile-photo-left {
+  margin-bottom: -8px;
+
+  @media (max-width: 767px) {
+    margin-left: 8px;
+  }
+
+  @media (min-width: 768px) {
+    margin-left: 14px;
+  }
+
+  .edit-icon {
+    @media (max-width: 767px) {
+      margin-left: 67px;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 130px;
+    }
+  }
+}
+
+.profile-photo-center {
+  margin-bottom: -2px;
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .edit-icon {
+    left: 50%;
+
+    @media (max-width: 767px) {
+      margin-left: -46px;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 36px;
     }
   }
 }
