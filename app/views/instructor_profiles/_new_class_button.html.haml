@@ -1,15 +1,15 @@
 - if @navbar.new_class_button?
-  .panel.panel-default
-    .panel-heading
-      .panel-title< Add Classes to Your Schedule
+  .panel.panel-default.new-class-buttons
     %ul.list-group
-      %li.list-group-item.center
-        = link_to new_class_path, class: "btn btn-new" do
-          One-time Class
-          %span
-            %i.glyphicon.glyphicon-plus
-      %li.list-group-item.center
-        = link_to new_recurring_class_path, class: "btn btn-new" do
-          Recurring Class
-          %span
-            %i.glyphicon.glyphicon-plus
+      %li.list-group-item
+        .row
+          .col-xs-6.center.btn-recurring
+            = link_to new_recurring_class_path, class: "btn btn-new" do
+              %span
+                %i.glyphicon.glyphicon-plus
+              Recurring
+          .col-xs-6.center
+            = link_to new_class_path, class: "btn btn-new" do
+              %span
+                %i.glyphicon.glyphicon-plus
+              One-time
