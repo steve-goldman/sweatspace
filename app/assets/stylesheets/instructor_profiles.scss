@@ -47,7 +47,6 @@
   }
 
   position: relative;
-  display: inline-block;
 
   img {
     @media (max-width: 767px) {
@@ -74,6 +73,7 @@
 }
 
 .profile-photo-left {
+  display: inline-block;
   margin-bottom: -8px;
 
   @media (max-width: 767px) {
