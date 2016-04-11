@@ -1,0 +1,5 @@
+= form_for @site_config, url: admin_landing_page_path, method: :patch do |f|
+  %li.list-group-item
+    = f.file_field :landing_page_cover_photo, id: "file-input"
+  %li.list-group-item
+    = f.submit "Update", class: "btn btn-primary", data: { disable_with: "Please wait..." }

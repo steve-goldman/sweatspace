@@ -1,0 +1,4 @@
+= form_for @site_config, url: admin_landing_page_path, method: :patch do |f|
+  = f.hidden_field :remove_landing_page_cover_photo, value: true
+  %li.list-group-item.center
+    = f.submit "Remove", class: "btn btn-primary", data: { disable_with: "Please wait..." }

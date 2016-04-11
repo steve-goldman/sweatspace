@@ -1,0 +1,7 @@
+- if @has_cover_photo
+  .panel.panel-default
+    .panel-heading
+      .panel-title< Cover Photo
+    %ul.list-group
+      %li.list-group-item.center
+        .landing-page-cover-photo-img= sweatspace_image @cover_photo.scaled_edit

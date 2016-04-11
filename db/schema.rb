@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404161519) do
+ActiveRecord::Schema.define(version: 20160411193207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,12 @@ ActiveRecord::Schema.define(version: 20160404161519) do
   add_index "recurring_classes", ["deleted_at"], name: "index_recurring_classes_on_deleted_at", using: :btree
   add_index "recurring_classes", ["instructor_profile_id"], name: "index_recurring_classes_on_instructor_profile_id", using: :btree
   add_index "recurring_classes", ["studio_id"], name: "index_recurring_classes_on_studio_id", using: :btree
+
+  create_table "site_configs", force: :cascade do |t|
+    t.string   "landing_page_cover_photo"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "studio_brand_studios", force: :cascade do |t|
     t.integer  "studio_brand_id"
