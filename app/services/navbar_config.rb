@@ -7,8 +7,6 @@ class NavbarConfig
     :back_link,
     :needs_menu_dropdown,
     :wide_search,
-    :needs_landing_info,
-    :needs_new_profile_info,
     :profile_page
   ]
 
@@ -37,14 +35,6 @@ class NavbarConfig
 
   def wide_search?
     wide_search
-  end
-
-  def needs_landing_info?
-    needs_landing_info
-  end
-
-  def needs_new_profile_info?
-    needs_new_profile_info
   end
 
   def profile_page?
