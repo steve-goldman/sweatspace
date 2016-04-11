@@ -18,6 +18,14 @@ class LandingPageCoverPhotoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+  version :large do
+    process resize_to_fill: [1200, 1200, "Center"]
+  end
+
+  version :small do
+    process resize_to_fill: [768, 768, "Center"]
+  end
+
   version :scaled_edit do
     process resize_to_fill: [200, 200, "Center"]
   end
