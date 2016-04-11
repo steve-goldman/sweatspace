@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   before_action :find_query
 
   def show
-    @instructor_profiles = Elasticsearch::Model.search("*#{@query}*").records
+    @instructor_profiles = Elasticsearch::Model.search("#{@query}*").records
   end
 
   private
