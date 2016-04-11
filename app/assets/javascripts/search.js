@@ -18,6 +18,7 @@ $(document).ready(function() {
       e.preventDefault();
       $body.off("click");
       dismissSearch();
+      return false;
     });
     $body.fadeTo(500, 0.5);
     $primaryNav.hide();
